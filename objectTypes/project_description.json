@@ -1,0 +1,15 @@
+{
+	"name": "project_description",
+	"plugin-id": "Text",
+	"sid": 218953273979511,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 585272688247350
+		}
+	],
+	"effectTypes": []
+}

@@ -1,0 +1,144 @@
+{
+	"name": "esFunctions",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Log",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "CallLog",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "logType",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 556089398394709
+						},
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 605327995356118
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "call-mapped-function",
+							"objectClass": "Functions",
+							"sid": 785326962092481,
+							"parameters": {
+								"name": "\"logMap\"",
+								"string": "logType",
+								"forward-params": "1"
+							}
+						}
+					],
+					"sid": 630827939543588
+				},
+				{
+					"functionName": "ErrorLogFeedback",
+					"functionDescription": "Passar o log para o usuário",
+					"functionCategory": "Log",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 992722131485507
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-font-color",
+							"objectClass": "project_description",
+							"sid": 219963545571534,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "project_description",
+							"sid": 953408498328975,
+							"parameters": {
+								"text": "message"
+							}
+						}
+					],
+					"sid": 776908091298175
+				},
+				{
+					"functionName": "SuccessLogFeedback",
+					"functionDescription": "Passar o log para o usuário",
+					"functionCategory": "Log",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 643672592521910
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-font-color",
+							"objectClass": "project_description",
+							"sid": 948430428036723,
+							"parameters": {
+								"color": "rgbEx(255, 255, 255)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "project_description",
+							"sid": 114232784661645,
+							"parameters": {
+								"text": "message"
+							}
+						}
+					],
+					"sid": 508653242568717
+				}
+			],
+			"sid": 271150093540162
+		},
+		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"functionName": "layoutPosition",
+			"functionDescription": "Ajusta o layout de acordo com a posição do jogador",
+			"functionCategory": "MECÂNICA",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 425597704155008
+		}
+	],
+	"sid": 821359700094348
+}

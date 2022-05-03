@@ -1,0 +1,307 @@
+{
+	"name": "esGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "gameSTATE",
+			"type": "string",
+			"initialValue": "\"waiting\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 364612918488566
+		},
+		{
+			"eventType": "variable",
+			"name": "playerPosition",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Posição de player de acordo com a ordem de chegada na sala",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 423694782249212
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "esFunctions"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SIGNALLING",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 710372152494421
+						}
+					],
+					"actions": [
+						{
+							"id": "connect",
+							"objectClass": "Multiplayer",
+							"sid": 572526911390403,
+							"parameters": {
+								"server": "\"wss://multiplayer.scirra.com\""
+							}
+						}
+					],
+					"sid": 304672748930915
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-connected",
+							"objectClass": "Multiplayer",
+							"sid": 115367796650639
+						}
+					],
+					"actions": [
+						{
+							"id": "log-in",
+							"objectClass": "Multiplayer",
+							"sid": 970300480285904,
+							"parameters": {
+								"alias": "ALIAS"
+							}
+						}
+					],
+					"sid": 189992680996563
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-logged-in",
+							"objectClass": "Multiplayer",
+							"sid": 324689558803383
+						}
+					],
+					"actions": [
+						{
+							"id": "auto-join-room",
+							"objectClass": "Multiplayer",
+							"sid": 944104059167616,
+							"parameters": {
+								"game": "GAME_INSTANCE",
+								"instance": "NAME_INSTANCE",
+								"first-room": "ROOM_NAME",
+								"max-peers": "4",
+								"locking": "lock-when-full"
+							}
+						}
+					],
+					"sid": 737787568321539
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-joined-room",
+							"objectClass": "Multiplayer",
+							"sid": 625785078588996
+						}
+					],
+					"actions": [],
+					"sid": 151028646529962,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-host",
+									"objectClass": "Multiplayer",
+									"sid": 856928222696143
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 306188866038752,
+									"parameters": {
+										"group-name": "\"HOST\"",
+										"state": "activated"
+									}
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 529636763541970,
+									"parameters": [
+										"\"success\"",
+										"\"HOST\" & newline & \"Número de jogadores na sala: 1\""
+									]
+								}
+							],
+							"sid": 485733222983461
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 617715325985704
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 494796062275140,
+									"parameters": {
+										"group-name": "\"PEER\"",
+										"state": "activated"
+									}
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 914629166880500,
+									"parameters": [
+										"\"success\"",
+										"\"PEER\" & newline & \"Esperando pelo início da partida\""
+									]
+								}
+							],
+							"sid": 394234097735773
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "Multiplayer",
+							"sid": 759755412379476
+						}
+					],
+					"actions": [
+						{
+							"id": "disconnect-signalling",
+							"objectClass": "Multiplayer",
+							"sid": 635737905323206
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 150608871356931,
+							"parameters": [
+								"\"error\"",
+								"\"Houve um erro, você foi desconectado\""
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 696007837310871,
+							"parameters": {
+								"seconds": "1.5"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 448576515063928,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 413776618437760
+				}
+			],
+			"sid": 260201199567679
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PEER",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 256980810729062,
+							"parameters": {
+								"tag": "\"position\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 168769074701119,
+							"parameters": [
+								"\"success\"",
+								"project_description.Text & newline &\"Posição recebida: \" & Multiplayer.Message"
+							]
+						}
+					],
+					"sid": 714430947320853
+				}
+			],
+			"sid": 566656446511828
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HOST",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-connected",
+							"objectClass": "Multiplayer",
+							"sid": 713203237930150
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 253996432848181,
+							"parameters": [
+								"\"success\"",
+								"\"HOST\" & newline & \"Número de jogadores na sala: \" & Multiplayer.PeerCount"
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 775169501281488,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "send-message",
+							"objectClass": "Multiplayer",
+							"sid": 593709251838115,
+							"parameters": {
+								"peer-id": "Multiplayer.PeerID",
+								"tag": "\"position\"",
+								"message": "\"1\"",
+								"mode": "reliable-ordered"
+							}
+						}
+					],
+					"sid": 529805456208545
+				}
+			],
+			"sid": 796491352801665
+		}
+	],
+	"sid": 979608044117383
+}

@@ -1,0 +1,209 @@
+{
+	"name": "esMenu",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "GAME_INSTANCE",
+			"type": "string",
+			"initialValue": "dominogame-guicorp",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 653977039724020
+		},
+		{
+			"eventType": "variable",
+			"name": "NAME_INSTANCE",
+			"type": "string",
+			"initialValue": "alpha1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 530005494794379
+		},
+		{
+			"eventType": "variable",
+			"name": "ALIAS",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 362333093565225
+		},
+		{
+			"eventType": "variable",
+			"name": "ROOM_NAME",
+			"type": "string",
+			"initialValue": "maingame",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 617013611077985
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "esFunctions"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 299168102205672
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Mapeamento de funções, me permite chamar as funções de acordo com o valor de alguma String"
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 635742379999668,
+					"parameters": {
+						"name": "\"logMap\"",
+						"string": "\"error\"",
+						"function": "ErrorLogFeedback"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 394593769981381,
+					"parameters": {
+						"name": "\"logMap\"",
+						"string": "\"success\"",
+						"function": "SuccessLogFeedback"
+					}
+				}
+			],
+			"sid": 792178635590586
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "btn_login",
+					"sid": 299942117293898
+				}
+			],
+			"actions": [],
+			"sid": 897757241762126,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "TextInput",
+							"sid": 890484902616074,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 813767244488242,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "supports-multiplayer",
+									"objectClass": "Multiplayer",
+									"sid": 941890330181183,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 844254016057614,
+									"parameters": [
+										"\"error\"",
+										"\"Este dispositivo ou navegador não suporta multiplayer\""
+									]
+								}
+							],
+							"sid": 259419633810098
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 948648191478054
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 233171468899398,
+									"parameters": [
+										"\"success\"",
+										"\"Aguarde...\""
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 577299649058061,
+									"parameters": {
+										"variable": "ALIAS",
+										"value": "TextInput.Text"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 585887831754840,
+									"parameters": {
+										"seconds": "1.5"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 889644907430647,
+									"parameters": {
+										"layout": "Game"
+									}
+								}
+							],
+							"sid": 484805696510132
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 799491551231389
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 326497927839766,
+							"parameters": [
+								"\"error\"",
+								"\"Por favor, digite seu apelido\""
+							]
+						}
+					],
+					"sid": 949183700208408
+				}
+			]
+		}
+	],
+	"sid": 983648906876482
+}
