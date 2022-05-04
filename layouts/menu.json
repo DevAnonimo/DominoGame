@@ -172,15 +172,15 @@
 					"properties": {
 						"text": "MENU",
 						"enable-bbcode": true,
-						"font": "Avant Garde",
+						"font": "cursive",
 						"size": 100,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
 						"color": [
-							0.8705882352941177,
-							0.10588235294117647,
-							0.10588235294117647,
+							0.043137254901960784,
+							0.0784313725490196,
+							0.14901960784313725,
 							1
 						],
 						"horizontal-alignment": "center",

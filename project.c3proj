@@ -47,6 +47,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r293.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "bound",
 			"name": "Bound to layout",
@@ -58,7 +66,9 @@
 	"uniqueId": "afvzii85ib7",
 	"objectTypes": {
 		"items": [
-			"Multiplayer"
+			"Multiplayer",
+			"project_description",
+			"Browser"
 		],
 		"subfolders": [
 			{
@@ -66,7 +76,6 @@
 					"menu_txt",
 					"TextInput",
 					"Background",
-					"project_description",
 					"btn_login"
 				],
 				"subfolders": [],
@@ -75,7 +84,9 @@
 			{
 				"items": [
 					"Background2",
-					"myPieces"
+					"myPieces",
+					"Pieces",
+					"playerNick"
 				],
 				"subfolders": [],
 				"name": "Game"

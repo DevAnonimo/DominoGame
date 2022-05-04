@@ -78,6 +78,45 @@
 						"string": "\"success\"",
 						"function": "SuccessLogFeedback"
 					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 200135162564001,
+					"parameters": {
+						"name": "\"layoutMap\"",
+						"string": "\"2\"",
+						"function": "2"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 649024035829323,
+					"parameters": {
+						"name": "\"layoutMap\"",
+						"string": "\"3\"",
+						"function": "3"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 173974922307354,
+					"parameters": {
+						"name": "\"layoutMap\"",
+						"string": "\"4\"",
+						"function": "4"
+					}
+				},
+				{
+					"id": "map-function-default",
+					"objectClass": "Functions",
+					"sid": 561901080251981,
+					"parameters": {
+						"name": "\"layoutMap\"",
+						"function": "hostLayout"
+					}
 				}
 			],
 			"sid": 792178635590586

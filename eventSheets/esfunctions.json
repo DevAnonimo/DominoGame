@@ -11,7 +11,7 @@
 				{
 					"functionName": "CallLog",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Log",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -128,16 +128,253 @@
 			"text": ""
 		},
 		{
-			"functionName": "layoutPosition",
-			"functionDescription": "Ajusta o layout de acordo com a posição do jogador",
-			"functionCategory": "MECÂNICA",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 425597704155008
+			"eventType": "group",
+			"disabled": false,
+			"title": "Layout Positioning",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "callLayout",
+					"functionDescription": "Ajusta o layout de acordo com a posição do jogador",
+					"functionCategory": "LAYOUT POSITION",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "position",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 612403111781977
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "call-mapped-function",
+							"objectClass": "Functions",
+							"sid": 412808654086355,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"string": "position",
+								"forward-params": "0"
+							}
+						}
+					],
+					"sid": 716070836053620
+				},
+				{
+					"functionName": "2",
+					"functionDescription": "",
+					"functionCategory": "LAYOUT POSITION",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "nick",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 535702480263110
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 165552050773417
+				},
+				{
+					"functionName": "3",
+					"functionDescription": "",
+					"functionCategory": "LAYOUT POSITION",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "nick",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 302431427156012
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 650949083961393
+				},
+				{
+					"functionName": "4",
+					"functionDescription": "",
+					"functionCategory": "LAYOUT POSITION",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "nick",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 294050112702475
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 554544075225571
+				},
+				{
+					"functionName": "hostLayout",
+					"functionDescription": "",
+					"functionCategory": "LAYOUT POSITION",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "nick",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 643455921147946
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 308519895257465,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-peer-count",
+									"objectClass": "Multiplayer",
+									"sid": 224914890903207,
+									"parameters": {
+										"comparison": 0,
+										"count": "2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 463483084580850,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "playerNick",
+											"sid": 322794529886704,
+											"parameters": {
+												"unique-id": "40"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "playerNick",
+											"sid": 852568537608617,
+											"parameters": {
+												"text": "nick"
+											}
+										}
+									],
+									"sid": 297419718690828
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-peer-count",
+									"objectClass": "Multiplayer",
+									"sid": 735009028110397,
+									"parameters": {
+										"comparison": 0,
+										"count": "3"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 185310367141792,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "playerNick",
+											"sid": 562426183415092,
+											"parameters": {
+												"unique-id": "39"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "playerNick",
+											"sid": 276777936388829,
+											"parameters": {
+												"text": "nick"
+											}
+										}
+									],
+									"sid": 752556812591396
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-peer-count",
+									"objectClass": "Multiplayer",
+									"sid": 599339905832575,
+									"parameters": {
+										"comparison": 0,
+										"count": "4"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 256142939419451,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "playerNick",
+											"sid": 748720118801016,
+											"parameters": {
+												"unique-id": "38"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "playerNick",
+											"sid": 910117697021369,
+											"parameters": {
+												"text": "nick"
+											}
+										}
+									],
+									"sid": 695206239600115
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 462843760712376
 		}
 	],
 	"sid": 821359700094348

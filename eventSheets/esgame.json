@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "gameSTATE",
 			"type": "string",
-			"initialValue": "\"waiting\"",
+			"initialValue": "\"Em espera\"",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -227,26 +227,8 @@
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-peer-message",
-							"objectClass": "Multiplayer",
-							"sid": 256980810729062,
-							"parameters": {
-								"tag": "\"position\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "CallLog",
-							"sid": 168769074701119,
-							"parameters": [
-								"\"success\"",
-								"project_description.Text & newline &\"Posição recebida: \" & Multiplayer.Message"
-							]
-						}
-					],
+					"conditions": [],
+					"actions": [],
 					"sid": 714430947320853
 				}
 			],
@@ -278,23 +260,11 @@
 							]
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 775169501281488,
-							"parameters": {
-								"seconds": "1.0"
-							}
-						},
-						{
-							"id": "send-message",
-							"objectClass": "Multiplayer",
-							"sid": 593709251838115,
-							"parameters": {
-								"peer-id": "Multiplayer.PeerID",
-								"tag": "\"position\"",
-								"message": "\"1\"",
-								"mode": "reliable-ordered"
-							}
+							"callFunction": "callLayout",
+							"sid": 208269166546448,
+							"parameters": [
+								"Multiplayer.PeerAlias"
+							]
 						}
 					],
 					"sid": 529805456208545

@@ -1,0 +1,16 @@
+{
+	"name": "playerNick",
+	"plugin-id": "Text",
+	"sid": 935741636656028,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "belongToPlayer",
+			"type": "string",
+			"desc": "",
+			"sid": 259913762530674
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}
