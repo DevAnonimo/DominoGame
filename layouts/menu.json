@@ -38,7 +38,7 @@
 			],
 			"sid": 969810254350288,
 			"effectTypes": [],
-			"isInitiallyVisible": false,
+			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
 			"color": [
 				1,
@@ -288,7 +288,18 @@
 		}
 	],
 	"sid": 901800805810850,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "piecesArray",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 42,
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 1920,
 	"height": 1080,

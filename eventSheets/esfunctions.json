@@ -377,7 +377,17 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 676728165837190,
+							"parameters": {
+								"type": "log",
+								"message": "\"Nicks: \" & nick"
+							}
+						}
+					],
 					"sid": 554544075225571,
 					"children": [
 						{
@@ -665,6 +675,15 @@
 				}
 			],
 			"sid": 462843760712376
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pieces distribution",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 780755616163252
 		}
 	],
 	"sid": 821359700094348

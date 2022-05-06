@@ -303,27 +303,31 @@
 							]
 						},
 						{
-							"callFunction": "callLayout",
-							"sid": 208269166546448,
-							"parameters": [
-								"\"\"",
-								"Multiplayer.PeerAlias"
-							]
-						},
-						{
 							"type": "comment",
 							"text": "Passando posição para jogador que entrou"
 						},
 						{
 							"id": "send-message",
 							"objectClass": "Multiplayer",
-							"sid": 117829159070427,
+							"sid": 152294811993057,
 							"parameters": {
 								"peer-id": "Multiplayer.PeerID",
 								"tag": "\"position\"",
 								"message": "str(Multiplayer.PeerCount)",
 								"mode": "reliable-ordered"
 							}
+						},
+						{
+							"type": "comment",
+							"text": "Adicionando nick do jogador ao jogo local do host"
+						},
+						{
+							"callFunction": "callLayout",
+							"sid": 208269166546448,
+							"parameters": [
+								"\"\"",
+								"Multiplayer.PeerAlias"
+							]
 						}
 					],
 					"sid": 529805456208545
