@@ -227,9 +227,52 @@
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [],
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 864439985878875,
+							"parameters": {
+								"tag": "\"position\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 206117194846860,
+							"parameters": {
+								"variable": "playerPosition",
+								"value": "int(Multiplayer.Message)"
+							}
+						}
+					],
 					"sid": 714430947320853
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 339605981080145,
+							"parameters": {
+								"tag": "\"startGame\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "callLayout",
+							"sid": 438463165374280,
+							"parameters": [
+								"Multiplayer.Message",
+								"str(playerPosition)"
+							]
+						}
+					],
+					"sid": 239649513223726
 				}
 			],
 			"sid": 566656446511828
@@ -263,8 +306,24 @@
 							"callFunction": "callLayout",
 							"sid": 208269166546448,
 							"parameters": [
+								"\"\"",
 								"Multiplayer.PeerAlias"
 							]
+						},
+						{
+							"type": "comment",
+							"text": "Passando posição para jogador que entrou"
+						},
+						{
+							"id": "send-message",
+							"objectClass": "Multiplayer",
+							"sid": 117829159070427,
+							"parameters": {
+								"peer-id": "Multiplayer.PeerID",
+								"tag": "\"position\"",
+								"message": "str(Multiplayer.PeerCount)",
+								"mode": "reliable-ordered"
+							}
 						}
 					],
 					"sid": 529805456208545

@@ -142,7 +142,14 @@
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "position",
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 311745345919024
+						},
+						{
+							"name": "player",
 							"type": "string",
 							"initialValue": "",
 							"comment": "",
@@ -155,10 +162,10 @@
 						{
 							"id": "call-mapped-function",
 							"objectClass": "Functions",
-							"sid": 412808654086355,
+							"sid": 260266518883905,
 							"parameters": {
 								"name": "\"layoutMap\"",
-								"string": "position",
+								"string": "player",
 								"forward-params": "0"
 							}
 						}
@@ -183,7 +190,81 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 165552050773417
+					"sid": 165552050773417,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 353449156741137,
+									"parameters": {
+										"unique-id": "40"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 547180151349418,
+									"parameters": {
+										"text": "tokenat(nick, 2, \";\")"
+									}
+								}
+							],
+							"sid": 400193479987551
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 370969208717208,
+									"parameters": {
+										"unique-id": "39"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 353333671622972,
+									"parameters": {
+										"text": "tokenat(nick, 3, \";\")"
+									}
+								}
+							],
+							"sid": 651271108530549
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 560629674598161,
+									"parameters": {
+										"unique-id": "38"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 364036097631948,
+									"parameters": {
+										"text": "tokenat(nick, 0, \";\")"
+									}
+								}
+							],
+							"sid": 805172041441889
+						}
+					]
 				},
 				{
 					"functionName": "3",
@@ -203,7 +284,81 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 650949083961393
+					"sid": 650949083961393,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 871251711648241,
+									"parameters": {
+										"unique-id": "40"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 274950735354931,
+									"parameters": {
+										"text": "tokenat(nick, 3, \";\")"
+									}
+								}
+							],
+							"sid": 942337709818703
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 469900850974404,
+									"parameters": {
+										"unique-id": "39"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 467597941172096,
+									"parameters": {
+										"text": "tokenat(nick, 0, \";\")"
+									}
+								}
+							],
+							"sid": 314383386315973
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 216391078634435,
+									"parameters": {
+										"unique-id": "38"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 876532262942602,
+									"parameters": {
+										"text": "tokenat(nick, 1, \";\")"
+									}
+								}
+							],
+							"sid": 805683757595558
+						}
+					]
 				},
 				{
 					"functionName": "4",
@@ -223,7 +378,81 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 554544075225571
+					"sid": 554544075225571,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 910046642098176,
+									"parameters": {
+										"unique-id": "40"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 480369591323282,
+									"parameters": {
+										"text": "tokenat(nick, 0, \";\")"
+									}
+								}
+							],
+							"sid": 170853841625652
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 191435748244977,
+									"parameters": {
+										"unique-id": "39"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 855551054426000,
+									"parameters": {
+										"text": "tokenat(nick, 1, \";\")"
+									}
+								}
+							],
+							"sid": 478196221402898
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "playerNick",
+									"sid": 751235064248657,
+									"parameters": {
+										"unique-id": "38"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 678630933640702,
+									"parameters": {
+										"text": "tokenat(nick, 2, \";\")"
+									}
+								}
+							],
+							"sid": 977778083570927
+						}
+					]
 				},
 				{
 					"functionName": "hostLayout",
@@ -232,6 +461,13 @@
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
+						{
+							"name": "players",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 197708437949605
+						},
 						{
 							"name": "nick",
 							"type": "string",
@@ -351,7 +587,7 @@
 										{
 											"id": "pick-by-unique-id",
 											"objectClass": "playerNick",
-											"sid": 748720118801016,
+											"sid": 376262176721016,
 											"parameters": {
 												"unique-id": "38"
 											}
@@ -361,13 +597,67 @@
 										{
 											"id": "set-text",
 											"objectClass": "playerNick",
-											"sid": 910117697021369,
+											"sid": 682425469210144,
 											"parameters": {
 												"text": "nick"
 											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 983984889347911,
+											"parameters": {
+												"variable": "players",
+												"value": "Multiplayer.MyAlias & \";\""
+											}
 										}
 									],
-									"sid": 695206239600115
+									"sid": 269702208462928
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 470362496343887,
+											"parameters": {
+												"object": "playerNick",
+												"expression": "playerNick.UID",
+												"order": "descending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 828938443314835,
+											"parameters": {
+												"variable": "players",
+												"value": "playerNick.Text & \";\""
+											}
+										}
+									],
+									"sid": 799008066749591
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "broadcast-message",
+											"objectClass": "Multiplayer",
+											"sid": 303678344698099,
+											"parameters": {
+												"from-id": "\"\"",
+												"tag": "\"startGame\"",
+												"message": "players",
+												"mode": "reliable-ordered"
+											}
+										}
+									],
+									"sid": 653806905703395
 								}
 							]
 						}

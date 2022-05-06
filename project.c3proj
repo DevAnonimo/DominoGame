@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 29302,
+	"savedWithRelease": 29303,
 	"name": "DominoGame",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -11,7 +11,7 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r293.2",
+			"version": "r293.3",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "TextBox",
 			"name": "Text input",
 			"author": "Scirra",
-			"version": "r293.2",
+			"version": "r293.3",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r293.2",
+			"version": "r293.3",
 			"bundled": false
 		},
 		{
@@ -35,7 +35,7 @@
 			"id": "Button",
 			"name": "Button",
 			"author": "Scirra",
-			"version": "r293.2",
+			"version": "r293.3",
 			"bundled": false
 		},
 		{
@@ -43,7 +43,7 @@
 			"id": "Multiplayer",
 			"name": "Multiplayer",
 			"author": "Scirra",
-			"version": "r293.2",
+			"version": "r293.3",
 			"bundled": false
 		},
 		{
@@ -51,7 +51,7 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r293.2",
+			"version": "r293.3",
 			"bundled": false
 		},
 		{
@@ -59,7 +59,7 @@
 			"id": "bound",
 			"name": "Bound to layout",
 			"author": "Scirra",
-			"version": "r293.2",
+			"version": "r293.3",
 			"bundled": false
 		}
 	],
@@ -256,7 +256,7 @@
 		"renderingMode": "auto",
 		"anisotropicFiltering": "auto",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "percent",
+		"loaderStyle": "splash",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https"
