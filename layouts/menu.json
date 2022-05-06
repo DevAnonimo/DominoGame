@@ -292,7 +292,7 @@
 		{
 			"type": "piecesArray",
 			"properties": {
-				"width": 10,
+				"width": 27,
 				"height": 1,
 				"depth": 1
 			},

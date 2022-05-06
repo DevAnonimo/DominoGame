@@ -656,6 +656,10 @@
 									"conditions": [],
 									"actions": [
 										{
+											"type": "comment",
+											"text": "Fazer players começarem a colocar os niks na sala"
+										},
+										{
 											"id": "broadcast-message",
 											"objectClass": "Multiplayer",
 											"sid": 303678344698099,
@@ -665,6 +669,33 @@
 												"message": "players",
 												"mode": "reliable-ordered"
 											}
+										},
+										{
+											"type": "comment",
+											"text": "Avisar sobre a distribuição de peças"
+										},
+										{
+											"id": "broadcast-message",
+											"objectClass": "Multiplayer",
+											"sid": 510742800293895,
+											"parameters": {
+												"from-id": "\"\"",
+												"tag": "\"log\"",
+												"message": "\"Distribuindo peças....Boa sorte!\"",
+												"mode": "reliable-ordered"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 623829738063687,
+											"parameters": {
+												"seconds": "2"
+											}
+										},
+										{
+											"callFunction": "deliverPieces",
+											"sid": 289874173013097
 										}
 									],
 									"sid": 653806905703395
@@ -682,7 +713,106 @@
 			"title": "Pieces distribution",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"functionName": "recievePieces",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 371136928231609
+				},
+				{
+					"functionName": "deliverPieces",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 448826648238608,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 512585293761635,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "0",
+										"end-index": "27"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-x",
+									"objectClass": "piecesArray",
+									"sid": 815131881904366,
+									"parameters": {
+										"x": "loopindex",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "sort",
+									"objectClass": "piecesArray",
+									"sid": 667616296400200,
+									"parameters": {
+										"axis": "x"
+									}
+								}
+							],
+							"sid": 997639360536408
+						},
+						{
+							"eventType": "comment",
+							"text": "Definir peças do HOST"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 972007980899405,
+									"parameters": {
+										"object": "myPieces"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "myPieces",
+									"sid": 183300318669387,
+									"parameters": {
+										"frame-number": "piecesArray.Front"
+									}
+								},
+								{
+									"id": "pop",
+									"objectClass": "piecesArray",
+									"sid": 551439977430605,
+									"parameters": {
+										"where": "front",
+										"axis": "x"
+									}
+								}
+							],
+							"sid": 992892084794166
+						}
+					]
+				}
+			],
 			"sid": 780755616163252
 		}
 	],

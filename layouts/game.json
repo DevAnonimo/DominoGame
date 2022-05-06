@@ -76,7 +76,7 @@
 						{
 							"type": "myPieces",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -87,7 +87,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 378,
-								"y": 1080,
+								"y": 900,
 								"width": 178,
 								"height": 312,
 								"originX": 0.5,
@@ -105,7 +105,7 @@
 						{
 							"type": "myPieces",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -116,7 +116,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 576,
-								"y": 1080,
+								"y": 900,
 								"width": 178,
 								"height": 312,
 								"originX": 0.5,
@@ -134,7 +134,7 @@
 						{
 							"type": "myPieces",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -145,7 +145,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 774,
-								"y": 1080,
+								"y": 900,
 								"width": 178,
 								"height": 312,
 								"originX": 0.5,
@@ -163,7 +163,7 @@
 						{
 							"type": "myPieces",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -174,7 +174,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 972,
-								"y": 1080,
+								"y": 900,
 								"width": 178,
 								"height": 312,
 								"originX": 0.5,
@@ -192,7 +192,7 @@
 						{
 							"type": "myPieces",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -203,7 +203,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 1170,
-								"y": 1080,
+								"y": 900,
 								"width": 178,
 								"height": 312,
 								"originX": 0.5,
@@ -221,7 +221,7 @@
 						{
 							"type": "myPieces",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -232,7 +232,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 1368,
-								"y": 1080,
+								"y": 900,
 								"width": 178,
 								"height": 312,
 								"originX": 0.5,
@@ -250,7 +250,7 @@
 						{
 							"type": "myPieces",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -261,7 +261,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 1566,
-								"y": 1080,
+								"y": 900,
 								"width": 178,
 								"height": 312,
 								"originX": 0.5,
@@ -1045,7 +1045,7 @@
 									1,
 									1
 								],
-								"angle": 3.141592653589793,
+								"angle": 0,
 								"zElevation": 0
 							}
 						},
@@ -1157,7 +1157,7 @@
 					},
 					"world": {
 						"x": 0,
-						"y": 0,
+						"y": -36,
 						"width": 1920,
 						"height": 1080,
 						"originX": 0,

@@ -273,6 +273,30 @@
 						}
 					],
 					"sid": 239649513223726
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 151914614176746,
+							"parameters": {
+								"tag": "\"log\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 228791946228731,
+							"parameters": [
+								"\"success\"",
+								"Multiplayer.Message"
+							]
+						}
+					],
+					"sid": 118656995676719
 				}
 			],
 			"sid": 566656446511828
