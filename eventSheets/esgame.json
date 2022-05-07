@@ -13,6 +13,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "lastConnectedPeerID",
+			"type": "string",
+			"initialValue": "\"\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 956534933244448
+		},
+		{
+			"eventType": "variable",
 			"name": "playerPosition",
 			"type": "number",
 			"initialValue": "0",
@@ -49,6 +59,11 @@
 							"parameters": {
 								"server": "\"wss://multiplayer.scirra.com\""
 							}
+						},
+						{
+							"callFunction": "deliverPieces",
+							"sid": 616359635118083,
+							"disabled": true
 						}
 					],
 					"sid": 304672748930915
@@ -347,9 +362,9 @@
 						},
 						{
 							"callFunction": "callLayout",
-							"sid": 208269166546448,
+							"sid": 743408232445651,
 							"parameters": [
-								"\"\"",
+								"Multiplayer.PeerID",
 								"Multiplayer.PeerAlias"
 							]
 						}
