@@ -985,7 +985,7 @@
 							},
 							"uid": 38,
 							"instanceVariables": {
-								"belongToPlayer": "4"
+								"belongToPlayer": ""
 							},
 							"behaviors": {},
 							"world": {
@@ -1029,7 +1029,7 @@
 							},
 							"uid": 39,
 							"instanceVariables": {
-								"belongToPlayer": "3"
+								"belongToPlayer": ""
 							},
 							"behaviors": {},
 							"world": {
@@ -1073,7 +1073,7 @@
 							},
 							"uid": 40,
 							"instanceVariables": {
-								"belongToPlayer": "2"
+								"belongToPlayer": ""
 							},
 							"behaviors": {},
 							"world": {

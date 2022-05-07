@@ -695,7 +695,8 @@
 										},
 										{
 											"callFunction": "deliverPieces",
-											"sid": 289874173013097
+											"sid": 289874173013097,
+											"disabled": true
 										}
 									],
 									"sid": 653806905703395
@@ -735,20 +736,47 @@
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "myPieces",
+							"sid": 172181422644373,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
 					"sid": 448826648238608,
 					"children": [
+						{
+							"eventType": "variable",
+							"name": "loop",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 630330375570681
+						},
+						{
+							"eventType": "variable",
+							"name": "pieces",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 936358700702721
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for",
-									"objectClass": "System",
-									"sid": 512585293761635,
+									"id": "for-each-element",
+									"objectClass": "piecesArray",
+									"sid": 734239822855341,
 									"parameters": {
-										"name": "\"\"",
-										"start-index": "0",
-										"end-index": "27"
+										"axes": "x"
 									}
 								}
 							],
@@ -756,18 +784,19 @@
 								{
 									"id": "set-at-x",
 									"objectClass": "piecesArray",
-									"sid": 815131881904366,
+									"sid": 938975008064064,
 									"parameters": {
-										"x": "loopindex",
-										"value": "loopindex"
+										"x": "piecesArray.CurX",
+										"value": "loop"
 									}
 								},
 								{
-									"id": "sort",
-									"objectClass": "piecesArray",
-									"sid": 667616296400200,
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 746326894986076,
 									"parameters": {
-										"axis": "x"
+										"variable": "loop",
+										"value": "1"
 									}
 								}
 							],
@@ -793,22 +822,98 @@
 								{
 									"id": "set-animation-frame",
 									"objectClass": "myPieces",
-									"sid": 183300318669387,
+									"sid": 115134396354025,
 									"parameters": {
-										"frame-number": "piecesArray.Front"
+										"frame-number": "int(random(0,piecesArray.Width))"
 									}
 								},
 								{
-									"id": "pop",
+									"id": "delete",
 									"objectClass": "piecesArray",
-									"sid": 551439977430605,
+									"sid": 171818543533089,
 									"parameters": {
-										"where": "front",
+										"index": "myPieces.AnimationFrame",
 										"axis": "x"
 									}
 								}
 							],
 							"sid": 992892084794166
+						},
+						{
+							"eventType": "comment",
+							"text": "Definir peças dos peers"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 439605878873492,
+									"parameters": {
+										"count": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 467014283485052,
+									"parameters": {
+										"variable": "pieces",
+										"value": "\"\""
+									}
+								}
+							],
+							"sid": 302623059176222,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 355987444141954,
+											"parameters": {
+												"name": "\"creating\"",
+												"start-index": "1",
+												"end-index": "7"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 364520611082373,
+											"parameters": {
+												"variable": "pieces",
+												"value": "int(random(0,piecesArray.Width)) & \";\""
+											}
+										}
+									],
+									"sid": 125486463314854
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "send-message",
+											"objectClass": "Multiplayer",
+											"sid": 781516649965236,
+											"parameters": {
+												"peer-id": "\"JJ\"",
+												"tag": "\"newPieces\"",
+												"message": "pieces",
+												"mode": "reliable-ordered"
+											}
+										}
+									],
+									"sid": 574753539799220
+								}
+							]
 						}
 					]
 				}
