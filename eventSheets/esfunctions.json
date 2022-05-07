@@ -119,6 +119,18 @@
 						}
 					],
 					"sid": 508653242568717
+				},
+				{
+					"functionName": "Debug",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 439745894632705
 				}
 			],
 			"sid": 271150093540162
@@ -691,17 +703,6 @@
 									"sid": 653806905703395
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"callFunction": "deliverPieces",
-									"sid": 334932482064941
-								}
-							],
-							"sid": 178330987253136
 						}
 					]
 				}
@@ -733,111 +734,119 @@
 					"functionCategory": "",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "peerID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 407162971010929
+						}
+					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
 					"sid": 448826648238608,
 					"children": [
 						{
-							"eventType": "variable",
-							"name": "loop",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 630330375570681
-						},
-						{
-							"eventType": "variable",
-							"name": "pieces",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 936358700702721
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each-element",
-									"objectClass": "piecesArray",
-									"sid": 734239822855341,
-									"parameters": {
-										"axes": "x"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-at-x",
-									"objectClass": "piecesArray",
-									"sid": 938975008064064,
-									"parameters": {
-										"x": "piecesArray.CurX",
-										"value": "loop"
-									}
-								},
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 746326894986076,
-									"parameters": {
-										"variable": "loop",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 997639360536408
-						},
-						{
 							"eventType": "comment",
-							"text": "Definir peças do HOST"
+							"text": "Definir peças do HOST e array de peças"
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-peer-count",
-									"objectClass": "Multiplayer",
-									"sid": 828707809923441,
-									"parameters": {
-										"comparison": 0,
-										"count": "4"
-									}
-								},
-								{
-									"id": "for-each",
+									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 972007980899405,
+									"sid": 195203675810769,
 									"parameters": {
-										"object": "myPieces"
+										"variable": "peerID",
+										"comparison": 0,
+										"value": "\"\""
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 992892084794166,
+							"children": [
 								{
-									"id": "set-animation-frame",
-									"objectClass": "myPieces",
-									"sid": 115134396354025,
-									"parameters": {
-										"frame-number": "int(random(0,piecesArray.Width))"
-									}
+									"eventType": "variable",
+									"name": "loop",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 139508177387879
 								},
 								{
-									"id": "delete",
-									"objectClass": "piecesArray",
-									"sid": 171818543533089,
-									"parameters": {
-										"index": "myPieces.AnimationFrame",
-										"axis": "x"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "piecesArray",
+											"sid": 926364801472536,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-x",
+											"objectClass": "piecesArray",
+											"sid": 900015506162155,
+											"parameters": {
+												"x": "piecesArray.CurX",
+												"value": "loop"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 447544319899414,
+											"parameters": {
+												"variable": "loop",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 323124123356156
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 487078427420717,
+											"parameters": {
+												"object": "myPieces"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "myPieces",
+											"sid": 407545385220306,
+											"parameters": {
+												"frame-number": "int(random(0,piecesArray.Width))"
+											}
+										},
+										{
+											"id": "delete",
+											"objectClass": "piecesArray",
+											"sid": 190676136884707,
+											"parameters": {
+												"index": "myPieces.AnimationFrame",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 868562649696589
 								}
-							],
-							"sid": 992892084794166
+							]
 						},
 						{
 							"eventType": "comment",
@@ -847,83 +856,120 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for",
+									"id": "else",
 									"objectClass": "System",
-									"sid": 585101725381608,
-									"parameters": {
-										"name": "\"creating\"",
-										"start-index": "1",
-										"end-index": "7"
-									}
+									"sid": 699924852492013
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 791539920233205,
+							"children": [
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 933122824168995,
-									"parameters": {
-										"variable": "pieces",
-										"value": "int(random(0,piecesArray.Width)) & \";\""
-									}
+									"eventType": "variable",
+									"name": "pieces",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 398266187049923
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 204547126654446,
+											"parameters": {
+												"name": "\"creating\"",
+												"start-index": "1",
+												"end-index": "7"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 682555640416162,
+											"parameters": {
+												"variable": "pieces",
+												"value": "int(random(0,piecesArray.Width)) & \";\""
+											}
+										},
+										{
+											"id": "delete",
+											"objectClass": "piecesArray",
+											"sid": 160996283375185,
+											"parameters": {
+												"index": "int(tokenat(pieces, loopindex, \";\"))",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 257660754782047
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 184906135572025,
+											"parameters": {
+												"object": "playerNick",
+												"expression": "playerNick.belongToPlayer",
+												"comparison": 0,
+												"value": "peerID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 939704683120459,
+											"parameters": {
+												"type": "log",
+												"message": "\"Nome do player que será entregue: \" & playerNick.Text"
+											}
+										},
+										{
+											"id": "send-message",
+											"objectClass": "Multiplayer",
+											"sid": 133225034000096,
+											"parameters": {
+												"peer-id": "peerID",
+												"tag": "\"newPieces\"",
+												"message": "pieces",
+												"mode": "reliable-ordered"
+											}
+										}
+									],
+									"sid": 801302946270499
 								}
-							],
-							"sid": 555508060432622
+							]
 						},
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-evaluate",
-									"objectClass": "System",
-									"sid": 271593612766052,
-									"parameters": {
-										"object": "playerNick",
-										"expression": "len(playerNick.belongToPlayer)=1"
-									}
-								}
-							],
+							"conditions": [],
 							"actions": [
 								{
-									"id": "send-message",
-									"objectClass": "Multiplayer",
-									"sid": 230723708831361,
-									"disabled": true,
-									"parameters": {
-										"peer-id": "\"JJ\"",
-										"tag": "\"newPieces\"",
-										"message": "pieces",
-										"mode": "reliable-ordered"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 318638437224816,
-									"parameters": {
-										"type": "log",
-										"message": "playerNick.UID"
-									}
+									"callFunction": "CallLog",
+									"sid": 867389282043099,
+									"parameters": [
+										"\"success\"",
+										"piecesArray.AsJSON"
+									]
 								}
 							],
-							"sid": 811203782461043
+							"sid": 494697446730922
 						}
 					]
 				}
 			],
 			"sid": 780755616163252
-		},
-		{
-			"functionName": "changeGameState",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 975515000841378
 		}
 	],
 	"sid": 821359700094348

@@ -63,7 +63,10 @@
 						{
 							"callFunction": "deliverPieces",
 							"sid": 616359635118083,
-							"disabled": true
+							"disabled": true,
+							"parameters": [
+								"\"\""
+							]
 						}
 					],
 					"sid": 304672748930915
@@ -151,6 +154,13 @@
 									"parameters": [
 										"\"success\"",
 										"\"HOST\" & newline & \"Número de jogadores na sala: 1\""
+									]
+								},
+								{
+									"callFunction": "deliverPieces",
+									"sid": 782755569487230,
+									"parameters": [
+										"\"\""
 									]
 								}
 							],
@@ -366,6 +376,17 @@
 							"parameters": [
 								"Multiplayer.PeerID",
 								"Multiplayer.PeerAlias"
+							]
+						},
+						{
+							"type": "comment",
+							"text": "Entregar peça para peer"
+						},
+						{
+							"callFunction": "deliverPieces",
+							"sid": 973790530929854,
+							"parameters": [
+								"Multiplayer.PeerID"
 							]
 						}
 					],
