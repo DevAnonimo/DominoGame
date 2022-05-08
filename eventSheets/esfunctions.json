@@ -123,14 +123,120 @@
 				{
 					"functionName": "Debug",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Log",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "logType",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 585350167465443
+						},
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 767919272624749
+						}
+					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 439745894632705
+					"sid": 439745894632705,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 324623974605079,
+									"parameters": {
+										"first-value": "logType",
+										"comparison": 0,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 311838497708043,
+									"parameters": {
+										"type": "log",
+										"message": "message"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "myPieces",
+									"sid": 360357429558419,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 236245222972696
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 200793986659335,
+									"parameters": {
+										"first-value": "logType",
+										"comparison": 0,
+										"second-value": "\"warn\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 929487712139204,
+									"parameters": {
+										"type": "warn",
+										"message": "message"
+									}
+								}
+							],
+							"sid": 685272171221557
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 352969469541133,
+									"parameters": {
+										"first-value": "logType",
+										"comparison": 0,
+										"second-value": "\"error\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 366826971293268,
+									"parameters": {
+										"type": "error",
+										"message": "message"
+									}
+								}
+							],
+							"sid": 205900947515794
+						}
+					]
 				}
 			],
 			"sid": 271150093540162
@@ -722,11 +828,45 @@
 					"functionCategory": "",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "piecesMessage",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 376731604519226
+						}
+					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 371136928231609
+					"sid": 371136928231609,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 256402978033461,
+									"parameters": {
+										"object": "myPieces"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "myPieces",
+									"sid": 513296121123218,
+									"parameters": {
+										"frame-number": "int(tokenat(piecesMessage, loopindex, \";\"))"
+									}
+								}
+							],
+							"sid": 698774088185318
+						}
+					]
 				},
 				{
 					"functionName": "deliverPieces",
@@ -749,6 +889,16 @@
 					"sid": 448826648238608,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "choosenIndex",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 260929435173851
+						},
+						{
 							"eventType": "comment",
 							"text": "Definir peças do HOST e array de peças"
 						},
@@ -758,11 +908,11 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 195203675810769,
+									"sid": 398493888576318,
 									"parameters": {
 										"variable": "peerID",
 										"comparison": 0,
-										"value": "\"\""
+										"value": "\"HOST\""
 									}
 								}
 							],
@@ -827,21 +977,38 @@
 									],
 									"actions": [
 										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 465623712159122,
+											"parameters": {
+												"variable": "choosenIndex",
+												"value": "int(random(0,piecesArray.Width))"
+											}
+										},
+										{
 											"id": "set-animation-frame",
 											"objectClass": "myPieces",
-											"sid": 407545385220306,
+											"sid": 336996570722395,
 											"parameters": {
-												"frame-number": "int(random(0,piecesArray.Width))"
+												"frame-number": "piecesArray.At(choosenIndex)"
 											}
 										},
 										{
 											"id": "delete",
 											"objectClass": "piecesArray",
-											"sid": 190676136884707,
+											"sid": 841373059229818,
 											"parameters": {
-												"index": "myPieces.AnimationFrame",
+												"index": "choosenIndex",
 												"axis": "x"
 											}
+										},
+										{
+											"callFunction": "Debug",
+											"sid": 512925145457003,
+											"parameters": [
+												"\"\"",
+												"str(myPieces.AnimationFrame)"
+											]
 										}
 									],
 									"sid": 868562649696589
@@ -890,20 +1057,29 @@
 									],
 									"actions": [
 										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 738832871435305,
+											"parameters": {
+												"variable": "choosenIndex",
+												"value": "int(random(0,piecesArray.Width))"
+											}
+										},
+										{
 											"id": "add-to-eventvar",
 											"objectClass": "System",
-											"sid": 682555640416162,
+											"sid": 821792424842273,
 											"parameters": {
 												"variable": "pieces",
-												"value": "int(random(0,piecesArray.Width)) & \";\""
+												"value": "piecesArray.At(choosenIndex) & \";\""
 											}
 										},
 										{
 											"id": "delete",
 											"objectClass": "piecesArray",
-											"sid": 160996283375185,
+											"sid": 900647173278515,
 											"parameters": {
-												"index": "int(tokenat(pieces, loopindex, \";\"))",
+												"index": "choosenIndex",
 												"axis": "x"
 											}
 										}
@@ -927,15 +1103,6 @@
 									],
 									"actions": [
 										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 939704683120459,
-											"parameters": {
-												"type": "log",
-												"message": "\"Nome do player que será entregue: \" & playerNick.Text"
-											}
-										},
-										{
 											"id": "send-message",
 											"objectClass": "Multiplayer",
 											"sid": 133225034000096,
@@ -945,6 +1112,14 @@
 												"message": "pieces",
 												"mode": "reliable-ordered"
 											}
+										},
+										{
+											"callFunction": "CallLog",
+											"sid": 507603243384070,
+											"parameters": [
+												"\"\"",
+												"\"Peças enviadas: \" & pieces"
+											]
 										}
 									],
 									"sid": 801302946270499
@@ -957,9 +1132,9 @@
 							"actions": [
 								{
 									"callFunction": "CallLog",
-									"sid": 867389282043099,
+									"sid": 747418334623337,
 									"parameters": [
-										"\"success\"",
+										"\"\"",
 										"piecesArray.AsJSON"
 									]
 								}

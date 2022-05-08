@@ -140,6 +140,13 @@
 							],
 							"actions": [
 								{
+									"callFunction": "deliverPieces",
+									"sid": 166990258330274,
+									"parameters": [
+										"\"HOST\""
+									]
+								},
+								{
 									"id": "set-group-active",
 									"objectClass": "System",
 									"sid": 306188866038752,
@@ -154,13 +161,6 @@
 									"parameters": [
 										"\"success\"",
 										"\"HOST\" & newline & \"Número de jogadores na sala: 1\""
-									]
-								},
-								{
-									"callFunction": "deliverPieces",
-									"sid": 782755569487230,
-									"parameters": [
-										"\"\""
 									]
 								}
 							],
@@ -322,6 +322,37 @@
 						}
 					],
 					"sid": 118656995676719
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 751714577643414,
+							"parameters": {
+								"tag": "\"newPieces\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "recievePieces",
+							"sid": 408641164231939,
+							"parameters": [
+								"Multiplayer.Message"
+							]
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 968900760629328,
+							"parameters": [
+								"\"warn\"",
+								"Multiplayer.Message"
+							]
+						}
+					],
+					"sid": 273228090698129
 				}
 			],
 			"sid": 566656446511828

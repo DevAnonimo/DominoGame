@@ -80,6 +80,15 @@
 					}
 				},
 				{
+					"id": "map-function-default",
+					"objectClass": "Functions",
+					"sid": 167110473028296,
+					"parameters": {
+						"name": "\"logMap\"",
+						"function": "Debug"
+					}
+				},
+				{
 					"id": "map-function",
 					"objectClass": "Functions",
 					"sid": 200135162564001,
