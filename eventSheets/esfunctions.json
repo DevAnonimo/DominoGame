@@ -1007,7 +1007,7 @@
 									"children": [
 										{
 											"eventType": "comment",
-											"text": "Verificar a ordem de jogo"
+											"text": "Verificar primeiro player"
 										},
 										{
 											"eventType": "block",
@@ -1015,9 +1015,9 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 591609118886725,
+													"sid": 482186712047509,
 													"parameters": {
-														"first-value": "choosenIndex",
+														"first-value": "myPieces.AnimationFrame",
 														"comparison": 0,
 														"second-value": "27"
 													}
@@ -1032,6 +1032,14 @@
 														"variable": "listOrderPlayers",
 														"value": "peerID"
 													}
+												},
+												{
+													"callFunction": "CallLog",
+													"sid": 867320966531325,
+													"parameters": [
+														"\"warn\"",
+														"\"Primeiro jogador: \" & listOrderPlayers"
+													]
 												}
 											],
 											"sid": 246585074314531
@@ -1089,27 +1097,75 @@
 												"variable": "choosenIndex",
 												"value": "int(random(0,piecesArray.Width))"
 											}
-										},
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 821792424842273,
-											"parameters": {
-												"variable": "pieces",
-												"value": "piecesArray.At(choosenIndex) & \";\""
-											}
-										},
-										{
-											"id": "delete",
-											"objectClass": "piecesArray",
-											"sid": 900647173278515,
-											"parameters": {
-												"index": "choosenIndex",
-												"axis": "x"
-											}
 										}
 									],
-									"sid": 257660754782047
+									"sid": 257660754782047,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Verificar primeiro player"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 682137223472267,
+													"parameters": {
+														"first-value": "piecesArray.At(choosenIndex)",
+														"comparison": 0,
+														"second-value": "27"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 886093104881298,
+													"parameters": {
+														"variable": "listOrderPlayers",
+														"value": "peerID"
+													}
+												},
+												{
+													"callFunction": "CallLog",
+													"sid": 539039926417823,
+													"parameters": [
+														"\"warn\"",
+														"\"Primeiro jogador: \" & listOrderPlayers"
+													]
+												}
+											],
+											"sid": 712655308859539
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 336118484932018,
+													"parameters": {
+														"variable": "pieces",
+														"value": "piecesArray.At(choosenIndex) & \";\""
+													}
+												},
+												{
+													"id": "delete",
+													"objectClass": "piecesArray",
+													"sid": 755052558350704,
+													"parameters": {
+														"index": "choosenIndex",
+														"axis": "x"
+													}
+												}
+											],
+											"sid": 992926539358108
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -1141,6 +1197,7 @@
 										{
 											"callFunction": "CallLog",
 											"sid": 507603243384070,
+											"disabled": true,
 											"parameters": [
 												"\"\"",
 												"\"Peças enviadas: \" & pieces"
@@ -1150,26 +1207,21 @@
 									"sid": 801302946270499
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"callFunction": "CallLog",
-									"sid": 683953393498555,
-									"parameters": [
-										"\"warn\"",
-										"listOrderPlayers"
-									]
-								}
-							],
-							"sid": 494697446730922
 						}
 					]
 				}
 			],
 			"sid": 780755616163252
+		},
+		{
+			"eventType": "variable",
+			"name": "Index",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "Index de turnos",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 899160346650707
 		},
 		{
 			"eventType": "group",
@@ -1188,6 +1240,14 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "myPieces",
+							"sid": 815168878394356,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
 						{
 							"type": "comment",
 							"text": "Trocar o estado do jogo para iniciar"
@@ -1446,16 +1506,6 @@
 					]
 				},
 				{
-					"eventType": "variable",
-					"name": "Index",
-					"type": "number",
-					"initialValue": "-1",
-					"comment": "Index de turnos",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 760097623818274
-				},
-				{
 					"functionName": "playTurn",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -1510,81 +1560,62 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 289998756037733,
+									"sid": 437012343710927,
 									"parameters": {
-										"first-value": "listOrderPlayers",
-										"comparison": 1,
-										"second-value": "\"37;40;39;38\""
+										"first-value": "int(tokenat(listOrderPlayers, Index, \";\"))",
+										"comparison": 0,
+										"second-value": "\"37\""
 									}
 								}
 							],
 							"actions": [],
-							"sid": 195276026689756,
+							"sid": 218391777595944,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 378716243776765,
+											"id": "pick-by-unique-id",
+											"objectClass": "playerNick",
+											"sid": 700565484861069,
 											"parameters": {
-												"first-value": "int(tokenat(listOrderPlayers, Index, \";\"))",
-												"comparison": 0,
-												"second-value": "\"37\""
+												"unique-id": "int(tokenat(listOrderPlayers, Index, \";\"))"
 											}
-										}
-									],
-									"actions": [],
-									"sid": 604054365880374,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "playerNick",
-													"sid": 691369417942273,
-													"parameters": {
-														"unique-id": "int(tokenat(listOrderPlayers, Index, \";\"))"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "send-message",
-													"objectClass": "Multiplayer",
-													"sid": 529696406684619,
-													"parameters": {
-														"peer-id": "playerNick.belongToPlayer",
-														"tag": "\"Play\"",
-														"message": "\"sua vez\"",
-														"mode": "reliable-ordered"
-													}
-												}
-											],
-											"sid": 720031726560492
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 294236256751701
 										}
 									],
 									"actions": [
 										{
-											"callFunction": "Play",
-											"sid": 901749474673312
+											"id": "send-message",
+											"objectClass": "Multiplayer",
+											"sid": 307836602653494,
+											"parameters": {
+												"peer-id": "playerNick.belongToPlayer",
+												"tag": "\"Play\"",
+												"message": "\"sua vez\"",
+												"mode": "reliable-ordered"
+											}
 										}
 									],
-									"sid": 477180747916398
+									"sid": 412142855576971
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 898464145871629
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Play",
+									"sid": 405899598104473
+								}
+							],
+							"sid": 320323194038754
 						}
 					]
 				}
