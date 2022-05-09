@@ -248,7 +248,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Layout Positioning",
+			"title": "Layout & Positioning",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -818,14 +818,14 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Pieces distribution",
+			"title": "Pieces",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
 					"functionName": "recievePieces",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Pieces",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -871,7 +871,7 @@
 				{
 					"functionName": "deliverPieces",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Pieces",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -900,7 +900,7 @@
 						},
 						{
 							"eventType": "comment",
-							"text": "Definir peças do HOST e array de peças"
+							"text": "Definir peças do HOST, criar array de peças e verificar a ordem de jogo"
 						},
 						{
 							"eventType": "block",
@@ -1001,17 +1001,42 @@
 												"index": "choosenIndex",
 												"axis": "x"
 											}
-										},
-										{
-											"callFunction": "Debug",
-											"sid": 512925145457003,
-											"parameters": [
-												"\"\"",
-												"str(myPieces.AnimationFrame)"
-											]
 										}
 									],
-									"sid": 868562649696589
+									"sid": 868562649696589,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Verificar a ordem de jogo"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 591609118886725,
+													"parameters": {
+														"first-value": "choosenIndex",
+														"comparison": 0,
+														"second-value": "27"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 737310683381302,
+													"parameters": {
+														"variable": "listOrderPlayers",
+														"value": "peerID"
+													}
+												}
+											],
+											"sid": 246585074314531
+										}
+									]
 								}
 							]
 						},
@@ -1036,7 +1061,7 @@
 									"name": "pieces",
 									"type": "string",
 									"initialValue": "",
-									"comment": "",
+									"comment": "Peças a serem entregues",
 									"isStatic": false,
 									"isConstant": false,
 									"sid": 398266187049923
@@ -1132,10 +1157,10 @@
 							"actions": [
 								{
 									"callFunction": "CallLog",
-									"sid": 747418334623337,
+									"sid": 683953393498555,
 									"parameters": [
-										"\"\"",
-										"piecesArray.AsJSON"
+										"\"warn\"",
+										"listOrderPlayers"
 									]
 								}
 							],
@@ -1145,6 +1170,426 @@
 				}
 			],
 			"sid": 780755616163252
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Game Control",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "startGameHOST",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Trocar o estado do jogo para iniciar"
+						},
+						{
+							"callFunction": "changeGameState",
+							"sid": 837780265632985,
+							"parameters": [
+								"\"Ready\""
+							]
+						},
+						{
+							"type": "comment",
+							"text": "Avisar jogadores do início do jogo"
+						},
+						{
+							"id": "broadcast-message",
+							"objectClass": "Multiplayer",
+							"sid": 541139011223801,
+							"parameters": {
+								"from-id": "\"\"",
+								"tag": "\"log\"",
+								"message": "\"Esperando primeiro jogador\"",
+								"mode": "reliable-ordered"
+							}
+						}
+					],
+					"sid": 978603672876337,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 905979230965181,
+									"parameters": {
+										"object": "playerNick",
+										"expression": "playerNick.belongToPlayer",
+										"comparison": 0,
+										"value": "listOrderPlayers"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 233984799088974,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 704284234357556,
+											"parameters": {
+												"first-value": "playerNick.UID",
+												"comparison": 0,
+												"second-value": "38"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 285442294763015,
+											"parameters": {
+												"variable": "listOrderPlayers",
+												"value": "\"38;37;40;39\""
+											}
+										}
+									],
+									"sid": 568207608930942
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 524314859406580,
+											"parameters": {
+												"first-value": "playerNick.UID",
+												"comparison": 0,
+												"second-value": "39"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 544520149717063,
+											"parameters": {
+												"variable": "listOrderPlayers",
+												"value": "\"39;38;37;40\""
+											}
+										}
+									],
+									"sid": 614965337603646
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 818188554061854,
+											"parameters": {
+												"first-value": "playerNick.UID",
+												"comparison": 0,
+												"second-value": "40"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 712925783184052,
+											"parameters": {
+												"variable": "listOrderPlayers",
+												"value": "\"40;39;38;37\""
+											}
+										}
+									],
+									"sid": 765228771806156
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 774793674910456,
+											"parameters": {
+												"first-value": "playerNick.UID",
+												"comparison": 0,
+												"second-value": "40"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 873091984388537,
+											"parameters": {
+												"first-value": "playerNick.UID",
+												"comparison": 0,
+												"second-value": "39"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 924229629511300,
+											"parameters": {
+												"first-value": "playerNick.UID",
+												"comparison": 0,
+												"second-value": "38"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 240216152303294,
+											"parameters": {
+												"variable": "listOrderPlayers",
+												"value": "\"37;40;39;38\""
+											}
+										}
+									],
+									"sid": 379048507496191
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Chamar primeiro jogador"
+										},
+										{
+											"callFunction": "playTurn",
+											"sid": 988566912422789
+										}
+									],
+									"sid": 894365244626616
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Trocar estado do jogo"
+				},
+				{
+					"functionName": "changeGameState",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 234490082787551
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 276382751217688,
+							"parameters": {
+								"variable": "gameSTATE",
+								"value": "message"
+							}
+						}
+					],
+					"sid": 573947185932858,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-host",
+									"objectClass": "Multiplayer",
+									"sid": 997342383994369
+								}
+							],
+							"actions": [
+								{
+									"id": "broadcast-message",
+									"objectClass": "Multiplayer",
+									"sid": 334856331043632,
+									"parameters": {
+										"from-id": "\"\"",
+										"tag": "\"gameState\"",
+										"message": "message",
+										"mode": "reliable-ordered"
+									}
+								}
+							],
+							"sid": 949591366183708
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "Index",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "Index de turnos",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 760097623818274
+				},
+				{
+					"functionName": "playTurn",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 757432993820510,
+							"parameters": {
+								"variable": "Index",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 633091747741852,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 896135864926488,
+									"parameters": {
+										"variable": "Index",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 248013430534352,
+									"parameters": {
+										"variable": "Index",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 676088793910392
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 289998756037733,
+									"parameters": {
+										"first-value": "listOrderPlayers",
+										"comparison": 1,
+										"second-value": "\"37;40;39;38\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 195276026689756,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 378716243776765,
+											"parameters": {
+												"first-value": "int(tokenat(listOrderPlayers, Index, \";\"))",
+												"comparison": 0,
+												"second-value": "\"37\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 604054365880374,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "playerNick",
+													"sid": 691369417942273,
+													"parameters": {
+														"unique-id": "int(tokenat(listOrderPlayers, Index, \";\"))"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "send-message",
+													"objectClass": "Multiplayer",
+													"sid": 529696406684619,
+													"parameters": {
+														"peer-id": "playerNick.belongToPlayer",
+														"tag": "\"Play\"",
+														"message": "\"sua vez\"",
+														"mode": "reliable-ordered"
+													}
+												}
+											],
+											"sid": 720031726560492
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 294236256751701
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Play",
+											"sid": 901749474673312
+										}
+									],
+									"sid": 477180747916398
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 326468467786058
 		}
 	],
 	"sid": 821359700094348

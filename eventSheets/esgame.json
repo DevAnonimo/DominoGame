@@ -5,21 +5,11 @@
 			"eventType": "variable",
 			"name": "gameSTATE",
 			"type": "string",
-			"initialValue": "\"Em espera\"",
+			"initialValue": "\"Waiting\"",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 364612918488566
-		},
-		{
-			"eventType": "variable",
-			"name": "lastConnectedPeerID",
-			"type": "string",
-			"initialValue": "\"\"",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 956534933244448
 		},
 		{
 			"eventType": "variable",
@@ -30,6 +20,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 423694782249212
+		},
+		{
+			"eventType": "variable",
+			"name": "listOrderPlayers",
+			"type": "string",
+			"initialValue": "",
+			"comment": "Ordem de turno no jogo",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 515345974243659
 		},
 		{
 			"eventType": "include",
@@ -187,10 +187,10 @@
 								},
 								{
 									"callFunction": "CallLog",
-									"sid": 914629166880500,
+									"sid": 110955656809382,
 									"parameters": [
 										"\"success\"",
-										"\"PEER\" & newline & \"Esperando pelo início da partida\""
+										"\"PEER\" & newline & \"Esperando por jogadores\""
 									]
 								}
 							],
@@ -256,6 +256,53 @@
 						{
 							"id": "on-peer-message",
 							"objectClass": "Multiplayer",
+							"sid": 456441499462730,
+							"parameters": {
+								"tag": "\"log\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 459991959522539,
+							"parameters": [
+								"\"success\"",
+								"Multiplayer.Message"
+							]
+						}
+					],
+					"sid": 908580429077183
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 445417186992205,
+							"parameters": {
+								"tag": "\"gameState\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "changeGameState",
+							"sid": 989146545164789,
+							"parameters": [
+								"Multiplayer.Message"
+							]
+						}
+					],
+					"sid": 916554284443167
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
 							"sid": 864439985878875,
 							"parameters": {
 								"tag": "\"position\""
@@ -281,6 +328,37 @@
 						{
 							"id": "on-peer-message",
 							"objectClass": "Multiplayer",
+							"sid": 211804355599198,
+							"parameters": {
+								"tag": "\"newPieces\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "recievePieces",
+							"sid": 407492637362786,
+							"parameters": [
+								"Multiplayer.Message"
+							]
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 321711440303559,
+							"parameters": [
+								"\"warn\"",
+								"Multiplayer.Message"
+							]
+						}
+					],
+					"sid": 556244373464115
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
 							"sid": 339605981080145,
 							"parameters": {
 								"tag": "\"startGame\""
@@ -295,6 +373,14 @@
 								"Multiplayer.Message",
 								"str(playerPosition)"
 							]
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "myPieces",
+							"sid": 628047682874180,
+							"parameters": {
+								"visibility": "visible"
+							}
 						}
 					],
 					"sid": 239649513223726
@@ -305,54 +391,42 @@
 						{
 							"id": "on-peer-message",
 							"objectClass": "Multiplayer",
-							"sid": 151914614176746,
+							"sid": 510303656747083,
 							"parameters": {
-								"tag": "\"log\""
+								"tag": "\"Play\""
 							}
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "CallLog",
-							"sid": 228791946228731,
-							"parameters": [
-								"\"success\"",
-								"Multiplayer.Message"
-							]
-						}
-					],
-					"sid": 118656995676719
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-peer-message",
-							"objectClass": "Multiplayer",
-							"sid": 751714577643414,
-							"parameters": {
-								"tag": "\"newPieces\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "recievePieces",
-							"sid": 408641164231939,
-							"parameters": [
-								"Multiplayer.Message"
-							]
-						},
-						{
-							"callFunction": "CallLog",
-							"sid": 968900760629328,
+							"sid": 336922774224892,
 							"parameters": [
 								"\"warn\"",
 								"Multiplayer.Message"
 							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 659888878299260,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
+							"id": "send-message",
+							"objectClass": "Multiplayer",
+							"sid": 572613098459473,
+							"parameters": {
+								"peer-id": "\"\"",
+								"tag": "\"Played\"",
+								"message": "Multiplayer.MyID",
+								"mode": "reliable-ordered"
+							}
 						}
 					],
-					"sid": 273228090698129
+					"sid": 187345268352247
 				}
 			],
 			"sid": 566656446511828
@@ -421,10 +495,96 @@
 							]
 						}
 					],
-					"sid": 529805456208545
+					"sid": 529805456208545,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-peer-count",
+									"objectClass": "Multiplayer",
+									"sid": 629465872955448,
+									"parameters": {
+										"comparison": 0,
+										"count": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "startGameHOST",
+									"sid": 933630267887078
+								}
+							],
+							"sid": 263663080114711
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 117605412735077,
+							"parameters": {
+								"tag": "\"Played\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "playTurn",
+							"sid": 759810453070117
+						}
+					],
+					"sid": 411601138307062
 				}
 			],
 			"sid": 796491352801665
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Common",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Play",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 281926285867416,
+							"parameters": [
+								"\"warn\"",
+								"\"Vez do Host de jogar\""
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 413221697590224,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
+							"callFunction": "playTurn",
+							"sid": 196874851201774
+						}
+					],
+					"sid": 427178602646086
+				}
+			],
+			"sid": 354476756913533
 		}
 	],
 	"sid": 979608044117383

@@ -84,7 +84,14 @@
 							},
 							"uid": 10,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "both",
+										"enabled": false
+									}
+								}
+							},
 							"world": {
 								"x": 378,
 								"y": 900,
@@ -113,7 +120,14 @@
 							},
 							"uid": 11,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "both",
+										"enabled": false
+									}
+								}
+							},
 							"world": {
 								"x": 576,
 								"y": 900,
@@ -142,7 +156,14 @@
 							},
 							"uid": 12,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "both",
+										"enabled": false
+									}
+								}
+							},
 							"world": {
 								"x": 774,
 								"y": 900,
@@ -171,7 +192,14 @@
 							},
 							"uid": 13,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "both",
+										"enabled": false
+									}
+								}
+							},
 							"world": {
 								"x": 972,
 								"y": 900,
@@ -200,7 +228,14 @@
 							},
 							"uid": 14,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "both",
+										"enabled": false
+									}
+								}
+							},
 							"world": {
 								"x": 1170,
 								"y": 900,
@@ -229,7 +264,14 @@
 							},
 							"uid": 15,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "both",
+										"enabled": false
+									}
+								}
+							},
 							"world": {
 								"x": 1368,
 								"y": 900,
@@ -258,7 +300,14 @@
 							},
 							"uid": 16,
 							"instanceVariables": {},
-							"behaviors": {},
+							"behaviors": {
+								"DragDrop": {
+									"properties": {
+										"axes": "both",
+										"enabled": false
+									}
+								}
+							},
 							"world": {
 								"x": 1566,
 								"y": 900,
