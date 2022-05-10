@@ -32,6 +32,16 @@
 			"sid": 515345974243659
 		},
 		{
+			"eventType": "variable",
+			"name": "canPlay",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "Se pode jogar",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 877812659621795
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "esFunctions"
 		},
@@ -399,31 +409,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "CallLog",
-							"sid": 336922774224892,
-							"parameters": [
-								"\"warn\"",
-								"Multiplayer.Message"
-							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 659888878299260,
-							"parameters": {
-								"seconds": "2"
-							}
-						},
-						{
-							"id": "send-message",
-							"objectClass": "Multiplayer",
-							"sid": 572613098459473,
-							"parameters": {
-								"peer-id": "\"\"",
-								"tag": "\"Played\"",
-								"message": "Multiplayer.MyID",
-								"mode": "reliable-ordered"
-							}
+							"callFunction": "Play",
+							"sid": 269559449471867
 						}
 					],
 					"sid": 187345268352247
@@ -561,27 +548,101 @@
 					"conditions": [],
 					"actions": [
 						{
-							"callFunction": "CallLog",
-							"sid": 281926285867416,
-							"parameters": [
-								"\"warn\"",
-								"\"Vez do Host de jogar\""
-							]
-						},
-						{
-							"id": "wait",
+							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 413221697590224,
+							"sid": 625932364555265,
 							"parameters": {
-								"seconds": "2"
+								"variable": "canPlay",
+								"value": "true"
 							}
-						},
-						{
-							"callFunction": "playTurn",
-							"sid": 917360847457887
 						}
 					],
 					"sid": 427178602646086
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 669867169372596,
+							"parameters": {
+								"key": 76
+							}
+						}
+					],
+					"actions": [],
+					"sid": 108941777487132,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 941345735964265,
+									"parameters": {
+										"variable": "canPlay"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 423807770340610,
+									"parameters": {
+										"variable": "canPlay",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 261143839799564,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-host",
+											"objectClass": "Multiplayer",
+											"sid": 674452864284983
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "playTurn",
+											"sid": 736659439960623
+										}
+									],
+									"sid": 573862591189466
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 228827823676023
+										}
+									],
+									"actions": [
+										{
+											"id": "send-message",
+											"objectClass": "Multiplayer",
+											"sid": 870334151860340,
+											"parameters": {
+												"peer-id": "\"\"",
+												"tag": "\"Played\"",
+												"message": "Multiplayer.MyID",
+												"mode": "reliable-ordered"
+											}
+										}
+									],
+									"sid": 516909349938522
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 354476756913533

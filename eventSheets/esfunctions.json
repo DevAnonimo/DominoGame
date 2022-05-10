@@ -1036,6 +1036,7 @@
 												{
 													"callFunction": "CallLog",
 													"sid": 867320966531325,
+													"disabled": true,
 													"parameters": [
 														"\"warn\"",
 														"\"Primeiro jogador: \" & listOrderPlayers"
@@ -1132,6 +1133,7 @@
 												{
 													"callFunction": "CallLog",
 													"sid": 539039926417823,
+													"disabled": true,
 													"parameters": [
 														"\"warn\"",
 														"\"Primeiro jogador: \" & listOrderPlayers"
@@ -1221,7 +1223,7 @@
 			"comment": "Index de turnos",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 899160346650707
+			"sid": 386913432796990
 		},
 		{
 			"eventType": "group",
@@ -1506,6 +1508,10 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "Iniciar jogo turno com outro jogador"
+				},
+				{
 					"functionName": "playTurn",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -1523,6 +1529,15 @@
 								"variable": "Index",
 								"value": "1"
 							}
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 774441311699822,
+							"disabled": true,
+							"parameters": [
+								"\"warn\"",
+								"listOrderPlayers & \" | Index: \" & Index"
+							]
 						}
 					],
 					"sid": 633091747741852,
@@ -1545,10 +1560,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 248013430534352,
+									"sid": 838109515063436,
 									"parameters": {
 										"variable": "Index",
-										"value": "-1"
+										"value": "0"
 									}
 								}
 							],
@@ -1560,15 +1575,25 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 437012343710927,
+									"sid": 236719918192889,
 									"parameters": {
-										"first-value": "int(tokenat(listOrderPlayers, Index, \";\"))",
-										"comparison": 0,
+										"first-value": "tokenat(listOrderPlayers, Index, \";\")",
+										"comparison": 1,
 										"second-value": "\"37\""
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 161572526520326,
+									"disabled": true,
+									"parameters": [
+										"\"\"",
+										"\"Entrou como peer essa porra: \" & int(tokenat(listOrderPlayers, Index, \";\"))"
+									]
+								}
+							],
 							"sid": 218391777595944,
 							"children": [
 								{
@@ -1594,6 +1619,15 @@
 												"message": "\"sua vez\"",
 												"mode": "reliable-ordered"
 											}
+										},
+										{
+											"callFunction": "CallLog",
+											"sid": 484571414721126,
+											"disabled": true,
+											"parameters": [
+												"\"\"",
+												"\"Bom dia filha da puta: \" & playerNick.Text"
+											]
 										}
 									],
 									"sid": 412142855576971
@@ -1613,6 +1647,15 @@
 								{
 									"callFunction": "Play",
 									"sid": 405899598104473
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 233402592206445,
+									"disabled": true,
+									"parameters": [
+										"\"\"",
+										"\"Bom dia filha da puta aqui quem fala é o HOST\""
+									]
 								}
 							],
 							"sid": 320323194038754
