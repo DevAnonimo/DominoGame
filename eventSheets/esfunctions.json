@@ -1268,11 +1268,11 @@
 						{
 							"id": "broadcast-message",
 							"objectClass": "Multiplayer",
-							"sid": 541139011223801,
+							"sid": 302120605756151,
 							"parameters": {
 								"from-id": "\"\"",
 								"tag": "\"log\"",
-								"message": "\"Esperando primeiro jogador\"",
+								"message": "\"Esperando primeira peça\"",
 								"mode": "reliable-ordered"
 							}
 						}
@@ -1427,23 +1427,23 @@
 										}
 									],
 									"sid": 379048507496191
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"type": "comment",
-											"text": "Chamar primeiro jogador"
-										},
-										{
-											"callFunction": "playTurn",
-											"sid": 988566912422789
-										}
-									],
-									"sid": 894365244626616
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Chamar primeiro jogador"
+								},
+								{
+									"callFunction": "playTurn",
+									"sid": 677966942275724
+								}
+							],
+							"sid": 340986444627535
 						}
 					]
 				},

@@ -85,6 +85,14 @@
 			"author": "Scirra",
 			"version": "r293.3",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r293.3",
+			"bundled": false
 		}
 	],
 	"uniqueId": "afvzii85ib7",
@@ -112,7 +120,9 @@
 					"Background2",
 					"myPieces",
 					"Pieces",
-					"playerNick"
+					"playerNick",
+					"playable_Area",
+					"newPiece"
 				],
 				"subfolders": [],
 				"name": "Game"

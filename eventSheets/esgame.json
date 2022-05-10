@@ -256,6 +256,118 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "HOST",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-connected",
+							"objectClass": "Multiplayer",
+							"sid": 291823386776715
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 642196473560205,
+							"parameters": [
+								"\"success\"",
+								"\"HOST\" & newline & \"Número de jogadores na sala: \" & Multiplayer.PeerCount"
+							]
+						},
+						{
+							"type": "comment",
+							"text": "Passando posição para jogador que entrou"
+						},
+						{
+							"id": "send-message",
+							"objectClass": "Multiplayer",
+							"sid": 595722890336271,
+							"parameters": {
+								"peer-id": "Multiplayer.PeerID",
+								"tag": "\"position\"",
+								"message": "str(Multiplayer.PeerCount)",
+								"mode": "reliable-ordered"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Adicionando nick do jogador ao jogo local do host"
+						},
+						{
+							"callFunction": "callLayout",
+							"sid": 324897030775276,
+							"parameters": [
+								"Multiplayer.PeerID",
+								"Multiplayer.PeerAlias"
+							]
+						},
+						{
+							"type": "comment",
+							"text": "Entregar peça para peer"
+						},
+						{
+							"callFunction": "deliverPieces",
+							"sid": 247452457017704,
+							"parameters": [
+								"Multiplayer.PeerID"
+							]
+						}
+					],
+					"sid": 918152890183309,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-peer-count",
+									"objectClass": "Multiplayer",
+									"sid": 209184416991520,
+									"parameters": {
+										"comparison": 0,
+										"count": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "startGameHOST",
+									"sid": 348323465076430
+								}
+							],
+							"sid": 675204702590750
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 411587276576103,
+							"parameters": {
+								"tag": "\"Played\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "playTurn",
+							"sid": 473505526724765
+						}
+					],
+					"sid": 505088219912776
+				}
+			],
+			"sid": 980703102073303
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "PEER",
 			"description": "",
 			"isActiveOnStart": false,
@@ -421,118 +533,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "HOST",
-			"description": "",
-			"isActiveOnStart": false,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-peer-connected",
-							"objectClass": "Multiplayer",
-							"sid": 713203237930150
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "CallLog",
-							"sid": 253996432848181,
-							"parameters": [
-								"\"success\"",
-								"\"HOST\" & newline & \"Número de jogadores na sala: \" & Multiplayer.PeerCount"
-							]
-						},
-						{
-							"type": "comment",
-							"text": "Passando posição para jogador que entrou"
-						},
-						{
-							"id": "send-message",
-							"objectClass": "Multiplayer",
-							"sid": 152294811993057,
-							"parameters": {
-								"peer-id": "Multiplayer.PeerID",
-								"tag": "\"position\"",
-								"message": "str(Multiplayer.PeerCount)",
-								"mode": "reliable-ordered"
-							}
-						},
-						{
-							"type": "comment",
-							"text": "Adicionando nick do jogador ao jogo local do host"
-						},
-						{
-							"callFunction": "callLayout",
-							"sid": 743408232445651,
-							"parameters": [
-								"Multiplayer.PeerID",
-								"Multiplayer.PeerAlias"
-							]
-						},
-						{
-							"type": "comment",
-							"text": "Entregar peça para peer"
-						},
-						{
-							"callFunction": "deliverPieces",
-							"sid": 973790530929854,
-							"parameters": [
-								"Multiplayer.PeerID"
-							]
-						}
-					],
-					"sid": 529805456208545,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-peer-count",
-									"objectClass": "Multiplayer",
-									"sid": 629465872955448,
-									"parameters": {
-										"comparison": 0,
-										"count": "4"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "startGameHOST",
-									"sid": 933630267887078
-								}
-							],
-							"sid": 263663080114711
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-peer-message",
-							"objectClass": "Multiplayer",
-							"sid": 117605412735077,
-							"parameters": {
-								"tag": "\"Played\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "playTurn",
-							"sid": 759810453070117
-						}
-					],
-					"sid": 411601138307062
-				}
-			],
-			"sid": 796491352801665
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "Common",
 			"description": "",
 			"isActiveOnStart": true,
@@ -555,9 +555,74 @@
 								"variable": "canPlay",
 								"value": "true"
 							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "myPieces",
+							"sid": 377946206185852,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
 						}
 					],
 					"sid": 427178602646086
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drag-start",
+							"objectClass": "myPieces",
+							"sid": 870452036192026,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [],
+					"sid": 713237910916858,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "myPieces",
+									"sid": 259556358915097,
+									"parameters": {
+										"comparison": 0,
+										"number": "27"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "newPiece",
+									"sid": 480686915065796,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "newPiece",
+									"sid": 290699261613063,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"opacityAnim\"",
+										"property": "offsetOpacity",
+										"end-value": "15",
+										"time": "1.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "yes",
+										"ping-pong": "yes"
+									}
+								}
+							],
+							"sid": 499387214041309
+						}
+					]
 				},
 				{
 					"eventType": "block",

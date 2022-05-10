@@ -34,6 +34,54 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "project_description",
+					"properties": {
+						"text": "Alpha version 1.0.0\nBy Guilherme Simionato",
+						"enable-bbcode": true,
+						"font": "Avant Garde",
+						"size": 30,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.788235294117647,
+							0.788235294117647,
+							0.788235294117647,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 9,
+					"instanceVariables": {},
+					"behaviors": {
+						"BoundToLayout": {
+							"properties": {
+								"bound-by": "edge"
+							}
+						}
+					},
+					"world": {
+						"x": 0,
+						"y": -36,
+						"width": 1920,
+						"height": 1080,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 466946494048344,
@@ -71,7 +119,139 @@
 				{
 					"name": "GUI",
 					"overriden": 0,
-					"subLayers": [],
+					"subLayers": [
+						{
+							"name": "Pieces",
+							"overriden": 0,
+							"subLayers": [],
+							"instances": [],
+							"sid": 498485834505811,
+							"effectTypes": [],
+							"isInitiallyVisible": true,
+							"isInitiallyInteractive": true,
+							"color": [
+								1,
+								1,
+								1,
+								1
+							],
+							"backgroundColor": [
+								0.3686274509803922,
+								0.3686274509803922,
+								0.3686274509803922,
+								1
+							],
+							"isTransparent": true,
+							"parallaxX": 1,
+							"parallaxY": 1,
+							"scaleRate": 1,
+							"forceOwnTexture": false,
+							"renderingMode": "3d",
+							"drawOrder": "z-order",
+							"useRenderCells": false,
+							"blendMode": "normal",
+							"zElevation": 0,
+							"global": false
+						},
+						{
+							"name": "Colliders",
+							"overriden": 0,
+							"subLayers": [],
+							"instances": [
+								{
+									"type": "playable_Area",
+									"properties": {
+										"initially-visible": false,
+										"initial-animation": "Animation 1",
+										"initial-frame": 0,
+										"enable-collisions": true,
+										"live-preview": false
+									},
+									"uid": 44,
+									"instanceVariables": {},
+									"behaviors": {},
+									"world": {
+										"x": 962,
+										"y": 620,
+										"width": 1530,
+										"height": 882,
+										"originX": 0.5,
+										"originY": 0.5,
+										"color": [
+											1,
+											1,
+											1,
+											0.3
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								},
+								{
+									"type": "newPiece",
+									"properties": {
+										"initially-visible": false,
+										"initial-animation": "Animation 1",
+										"initial-frame": 0,
+										"enable-collisions": true,
+										"live-preview": false
+									},
+									"uid": 45,
+									"instanceVariables": {},
+									"behaviors": {
+										"Tween": {
+											"properties": {
+												"enabled": true
+											}
+										}
+									},
+									"world": {
+										"x": 954,
+										"y": 486,
+										"width": 87,
+										"height": 153,
+										"originX": 0.5,
+										"originY": 0.5,
+										"color": [
+											1,
+											1,
+											1,
+											0.6
+										],
+										"angle": 0,
+										"zElevation": 0
+									}
+								}
+							],
+							"sid": 935440870726528,
+							"effectTypes": [],
+							"isInitiallyVisible": true,
+							"isInitiallyInteractive": true,
+							"color": [
+								1,
+								1,
+								1,
+								1
+							],
+							"backgroundColor": [
+								0.3686274509803922,
+								0.3686274509803922,
+								0.3686274509803922,
+								1
+							],
+							"isTransparent": true,
+							"parallaxX": 1,
+							"parallaxY": 1,
+							"scaleRate": 1,
+							"forceOwnTexture": false,
+							"renderingMode": "3d",
+							"drawOrder": "z-order",
+							"useRenderCells": false,
+							"blendMode": "normal",
+							"zElevation": 0,
+							"global": false
+						}
+					],
 					"instances": [
 						{
 							"type": "myPieces",
@@ -89,6 +269,11 @@
 									"properties": {
 										"axes": "both",
 										"enabled": false
+									}
+								},
+								"BoundToLayout": {
+									"properties": {
+										"bound-by": "edge"
 									}
 								}
 							},
@@ -126,6 +311,11 @@
 										"axes": "both",
 										"enabled": false
 									}
+								},
+								"BoundToLayout": {
+									"properties": {
+										"bound-by": "edge"
+									}
 								}
 							},
 							"world": {
@@ -161,6 +351,11 @@
 									"properties": {
 										"axes": "both",
 										"enabled": false
+									}
+								},
+								"BoundToLayout": {
+									"properties": {
+										"bound-by": "edge"
 									}
 								}
 							},
@@ -198,6 +393,11 @@
 										"axes": "both",
 										"enabled": false
 									}
+								},
+								"BoundToLayout": {
+									"properties": {
+										"bound-by": "edge"
+									}
 								}
 							},
 							"world": {
@@ -233,6 +433,11 @@
 									"properties": {
 										"axes": "both",
 										"enabled": false
+									}
+								},
+								"BoundToLayout": {
+									"properties": {
+										"bound-by": "edge"
 									}
 								}
 							},
@@ -270,6 +475,11 @@
 										"axes": "both",
 										"enabled": false
 									}
+								},
+								"BoundToLayout": {
+									"properties": {
+										"bound-by": "edge"
+									}
 								}
 							},
 							"world": {
@@ -305,6 +515,11 @@
 									"properties": {
 										"axes": "both",
 										"enabled": false
+									}
+								},
+								"BoundToLayout": {
+									"properties": {
+										"bound-by": "edge"
 									}
 								}
 							},
@@ -1172,56 +1387,7 @@
 					"global": false
 				}
 			],
-			"instances": [
-				{
-					"type": "project_description",
-					"properties": {
-						"text": "Alpha version 1.0.0\nBy Guilherme Simionato",
-						"enable-bbcode": true,
-						"font": "Avant Garde",
-						"size": 30,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0.788235294117647,
-							0.788235294117647,
-							0.788235294117647,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 9,
-					"instanceVariables": {},
-					"behaviors": {
-						"BoundToLayout": {
-							"properties": {
-								"bound-by": "edge"
-							}
-						}
-					},
-					"world": {
-						"x": 0,
-						"y": -36,
-						"width": 1920,
-						"height": 1080,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 850799909523913,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
