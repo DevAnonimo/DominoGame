@@ -1587,7 +1587,6 @@
 								{
 									"callFunction": "CallLog",
 									"sid": 161572526520326,
-									"disabled": true,
 									"parameters": [
 										"\"\"",
 										"\"Entrou como peer essa porra: \" & int(tokenat(listOrderPlayers, Index, \";\"))"
@@ -1664,6 +1663,28 @@
 				}
 			],
 			"sid": 326468467786058
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Game",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Snap",
+					"functionDescription": "",
+					"functionCategory": "Pieces",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 171333783543333
+				}
+			],
+			"sid": 292382261703213
 		}
 	],
 	"sid": 821359700094348

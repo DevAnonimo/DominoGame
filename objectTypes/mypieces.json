@@ -14,6 +14,11 @@
 			"behaviorId": "bound",
 			"name": "BoundToLayout",
 			"sid": 161138331391006
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 465044988011884
 		}
 	],
 	"effectTypes": [],

@@ -569,12 +569,99 @@
 					"sid": 427178602646086
 				},
 				{
+					"eventType": "comment",
+					"text": "pieces"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "myPieces",
+							"sid": 712941587308634,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "newPiece",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "myPieces",
+							"sid": 781616213024638,
+							"parameters": {
+								"comparison": 0,
+								"number": "27"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 269491212400392,
+							"parameters": [
+								"\"\"",
+								"\"Tem visão\""
+							]
+						},
+						{
+							"id": "set-size",
+							"objectClass": "myPieces",
+							"sid": 868581888890868,
+							"parameters": {
+								"width": "lerp(myPieces.Width, newPiece.Width, (dt*5))",
+								"height": "lerp(myPieces.Height, newPiece.Height, (dt*5))"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "myPieces",
+							"sid": 228025824827866,
+							"parameters": {
+								"x": "lerp(myPieces.X, newPiece.X, (dt * 7))",
+								"y": "lerp(myPieces.Y, newPiece.Y, (dt * 7))"
+							}
+						}
+					],
+					"sid": 728023899788253,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 981251519726410
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 753017250447026
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "myPieces",
+							"sid": 657513939632850,
+							"parameters": {
+								"width": "lerp(myPieces.Width, 178, (dt*5))",
+								"height": "lerp(myPieces.Height, 312, (dt*5))"
+							}
+						}
+					],
+					"sid": 563342592871761
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-drag-start",
 							"objectClass": "myPieces",
-							"sid": 870452036192026,
+							"sid": 307869823278423,
 							"behaviorType": "DragDrop"
 						}
 					],
@@ -621,8 +708,33 @@
 								}
 							],
 							"sid": 499387214041309
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 431543701764737
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "newPiece",
+									"sid": 225343497252791,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 151075349738861
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "logs controllers"
 				},
 				{
 					"eventType": "block",
@@ -708,6 +820,73 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 880604354903547,
+							"parameters": {
+								"key": 72
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Aparecer / Apagar log"
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "project_description",
+							"sid": 201035474890568,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 532592001699230
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 188760436061501,
+							"parameters": {
+								"key": 75
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Hackar início do jogo"
+						},
+						{
+							"callFunction": "recievePieces",
+							"sid": 597545341991441,
+							"parameters": [
+								"\"27;0;1;2;3;4;5;\""
+							]
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "myPieces",
+							"sid": 805810778787520,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"callFunction": "Play",
+							"sid": 737473045242769
+						}
+					],
+					"sid": 663053953942454
 				}
 			],
 			"sid": 354476756913533
