@@ -42,12 +42,22 @@
 			"sid": 877812659621795
 		},
 		{
+			"eventType": "variable",
+			"name": "colocado",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "peça posicionada",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 895478002177375
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "esFunctions"
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "SIGNALLING",
 			"description": "",
 			"isActiveOnStart": true,
@@ -79,7 +89,8 @@
 							]
 						}
 					],
-					"sid": 304672748930915
+					"sid": 304672748930915,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -100,7 +111,8 @@
 							}
 						}
 					],
-					"sid": 189992680996563
+					"sid": 189992680996563,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -125,7 +137,8 @@
 							}
 						}
 					],
-					"sid": 737787568321539
+					"sid": 737787568321539,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -138,6 +151,7 @@
 					],
 					"actions": [],
 					"sid": 151028646529962,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -174,7 +188,8 @@
 									]
 								}
 							],
-							"sid": 485733222983461
+							"sid": 485733222983461,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -204,7 +219,8 @@
 									]
 								}
 							],
-							"sid": 394234097735773
+							"sid": 394234097735773,
+							"disabled": true
 						}
 					]
 				},
@@ -248,7 +264,8 @@
 							}
 						}
 					],
-					"sid": 413776618437760
+					"sid": 413776618437760,
+					"disabled": true
 				}
 			],
 			"sid": 260201199567679
@@ -550,7 +567,7 @@
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 625932364555265,
+							"sid": 750508352935236,
 							"parameters": {
 								"variable": "canPlay",
 								"value": "true"
@@ -559,239 +576,117 @@
 						{
 							"id": "set-enabled",
 							"objectClass": "myPieces",
-							"sid": 377946206185852,
+							"sid": 267630998967892,
 							"behaviorType": "DragDrop",
 							"parameters": {
 								"state": "enabled"
 							}
 						}
 					],
-					"sid": 427178602646086
+					"sid": 965767995442625
 				},
 				{
-					"eventType": "comment",
-					"text": "pieces"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "has-los-to-object",
-							"objectClass": "myPieces",
-							"sid": 712941587308634,
-							"behaviorType": "LineOfSight",
-							"parameters": {
-								"object": "newPiece",
-								"image-point": "0"
-							}
-						},
-						{
-							"id": "compare-animation-frame",
-							"objectClass": "myPieces",
-							"sid": 781616213024638,
-							"parameters": {
-								"comparison": 0,
-								"number": "27"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "CallLog",
-							"sid": 269491212400392,
-							"parameters": [
-								"\"\"",
-								"\"Tem visão\""
-							]
-						},
-						{
-							"id": "set-size",
-							"objectClass": "myPieces",
-							"sid": 868581888890868,
-							"parameters": {
-								"width": "lerp(myPieces.Width, newPiece.Width, (dt*5))",
-								"height": "lerp(myPieces.Height, newPiece.Height, (dt*5))"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "myPieces",
-							"sid": 228025824827866,
-							"parameters": {
-								"x": "lerp(myPieces.X, newPiece.X, (dt * 7))",
-								"y": "lerp(myPieces.Y, newPiece.Y, (dt * 7))"
-							}
-						}
-					],
-					"sid": 728023899788253,
+					"eventType": "group",
+					"disabled": false,
+					"title": "Pieces controller",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 981251519726410
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+							"eventType": "variable",
+							"name": "side1",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 321626588339979
+						},
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 753017250447026
-						}
-					],
-					"actions": [
+							"eventType": "variable",
+							"name": "side2",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 387448179233955
+						},
 						{
-							"id": "set-size",
-							"objectClass": "myPieces",
-							"sid": 657513939632850,
-							"parameters": {
-								"width": "lerp(myPieces.Width, 178, (dt*5))",
-								"height": "lerp(myPieces.Height, 312, (dt*5))"
-							}
-						}
-					],
-					"sid": 563342592871761
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+							"eventType": "variable",
+							"name": "count",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 801506831734508
+						},
 						{
-							"id": "on-drag-start",
-							"objectClass": "myPieces",
-							"sid": 307869823278423,
-							"behaviorType": "DragDrop"
-						}
-					],
-					"actions": [],
-					"sid": 713237910916858,
-					"children": [
+							"eventType": "comment",
+							"text": "Criar verificação da peça"
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-animation-frame",
+									"id": "on-drag-start",
 									"objectClass": "myPieces",
-									"sid": 259556358915097,
-									"parameters": {
-										"comparison": 0,
-										"number": "27"
-									}
+									"sid": 245013020303239,
+									"behaviorType": "DragDrop"
 								}
 							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "newPiece",
-									"sid": 480686915065796,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "tween-one-property",
-									"objectClass": "newPiece",
-									"sid": 290699261613063,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"opacityAnim\"",
-										"property": "offsetOpacity",
-										"end-value": "15",
-										"time": "1.5",
-										"ease": "default",
-										"destroy-on-complete": "no",
-										"loop": "yes",
-										"ping-pong": "yes"
-									}
-								}
-							],
-							"sid": 499387214041309
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 431543701764737
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "newPiece",
-									"sid": 225343497252791,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 151075349738861
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "logs controllers"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 669867169372596,
-							"parameters": {
-								"key": 76
-							}
-						}
-					],
-					"actions": [],
-					"sid": 108941777487132,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 941345735964265,
-									"parameters": {
-										"variable": "canPlay"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 423807770340610,
-									"parameters": {
-										"variable": "canPlay",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 261143839799564,
+							"actions": [],
+							"sid": 124555927233362,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-host",
-											"objectClass": "Multiplayer",
-											"sid": 674452864284983
+											"id": "compare-animation-frame",
+											"objectClass": "myPieces",
+											"sid": 772160041041632,
+											"parameters": {
+												"comparison": 0,
+												"number": "27"
+											}
 										}
 									],
 									"actions": [
 										{
-											"callFunction": "playTurn",
-											"sid": 736659439960623
+											"id": "set-animation-frame",
+											"objectClass": "newPiece",
+											"sid": 347132460106420,
+											"parameters": {
+												"frame-number": "0"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "newPiece",
+											"sid": 951718944976267,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "newPiece",
+											"sid": 920893198537485,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"opacityAnim\"",
+												"property": "offsetOpacity",
+												"end-value": "15",
+												"time": "1.5",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "yes",
+												"ping-pong": "yes"
+											}
 										}
 									],
-									"sid": 573862591189466
+									"sid": 837215561476341
 								},
 								{
 									"eventType": "block",
@@ -799,94 +694,259 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 228827823676023
+											"sid": 759944226517503
 										}
 									],
 									"actions": [
 										{
-											"id": "send-message",
-											"objectClass": "Multiplayer",
-											"sid": 870334151860340,
+											"id": "set-visible",
+											"objectClass": "newPiece",
+											"sid": 126590633712471,
 											"parameters": {
-												"peer-id": "\"\"",
-												"tag": "\"Played\"",
-												"message": "Multiplayer.MyID",
-												"mode": "reliable-ordered"
+												"visibility": "invisible"
 											}
 										}
 									],
-									"sid": 516909349938522
+									"sid": 979025704954448
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 927372336668281
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 196711122021451,
+											"parameters": {
+												"first-value": "side1",
+												"comparison": 0,
+												"second-value": "newPiece.primary"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 869139784941471,
+											"parameters": {
+												"first-value": "side2",
+												"comparison": 0,
+												"second-value": "newPiece.secondary"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 590475306387682,
+									"isOrBlock": true
 								}
 							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 880604354903547,
-							"parameters": {
-								"key": 72
-							}
-						}
-					],
-					"actions": [
-						{
-							"type": "comment",
-							"text": "Aparecer / Apagar log"
 						},
 						{
-							"id": "set-visible",
-							"objectClass": "project_description",
-							"sid": 201035474890568,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						}
-					],
-					"sid": 532592001699230
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 188760436061501,
-							"parameters": {
-								"key": 75
-							}
-						}
-					],
-					"actions": [
-						{
-							"type": "comment",
-							"text": "Hackar início do jogo"
+							"eventType": "comment",
+							"text": "Colocar peça (snap)"
 						},
 						{
-							"callFunction": "recievePieces",
-							"sid": 597545341991441,
-							"parameters": [
-								"\"27;0;1;2;3;4;5;\""
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "myPieces",
+									"sid": 336920111072118,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "newPiece",
+										"image-point": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 767428224285795,
+									"parameters": {
+										"variable": "colocado",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 818478184208236,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "myPieces",
+											"sid": 802698975639356,
+											"parameters": {
+												"comparison": 0,
+												"number": "newPiece.primary"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 427229523241117,
+											"parameters": [
+												"\"\"",
+												"\"Tem visão\""
+											]
+										},
+										{
+											"id": "set-size",
+											"objectClass": "myPieces",
+											"sid": 952269438533367,
+											"parameters": {
+												"width": "lerp(myPieces.Width, newPiece.Width, (dt*5))",
+												"height": "lerp(myPieces.Height, newPiece.Height, (dt*5))"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "myPieces",
+											"sid": 415822490964753,
+											"parameters": {
+												"x": "lerp(myPieces.X, newPiece.X, (dt * 7))",
+												"y": "lerp(myPieces.Y, newPiece.Y, (dt * 7))"
+											}
+										}
+									],
+									"sid": 974304428541699,
+									"isOrBlock": true
+								}
 							]
 						},
 						{
-							"id": "set-visible",
-							"objectClass": "myPieces",
-							"sid": 805810778787520,
-							"parameters": {
-								"visibility": "visible"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 775128273364389
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "myPieces",
+									"sid": 516199762734383,
+									"parameters": {
+										"width": "lerp(myPieces.Width, 178, (dt*5))",
+										"height": "lerp(myPieces.Height, 312, (dt*5))"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 230799812751943,
+									"parameters": {
+										"variable": "colocado",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 340020694077648
 						},
 						{
-							"callFunction": "Play",
-							"sid": 737473045242769
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "myPieces",
+									"sid": 683997120116647,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "newPiece",
+										"image-point": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 134263380093929,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-dragging",
+											"objectClass": "myPieces",
+											"sid": 520955547652247,
+											"behaviorType": "DragDrop",
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 615443493804690,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 565293861466006,
+													"parameters": {
+														"variable": "colocado"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "myPieces",
+													"sid": 529337913437811,
+													"parameters": {
+														"x": "lerp(myPieces.X, myPieces.posX, (dt * 7))",
+														"y": "lerp(myPieces.Y, myPieces.posY, (dt * 7))"
+													}
+												}
+											],
+											"sid": 152581310026294
+										}
+									],
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Enviar peça"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drop",
+									"objectClass": "myPieces",
+									"sid": 502204389182477,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [],
+							"sid": 603601661077733
 						}
 					],
-					"sid": 663053953942454
+					"sid": 762405650561258
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 551528089608687
+						}
+					],
+					"actions": [],
+					"sid": 241618743258073
 				}
 			],
 			"sid": 354476756913533

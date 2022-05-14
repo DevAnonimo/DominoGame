@@ -3,7 +3,20 @@
 	"plugin-id": "Sprite",
 	"sid": 453984289505305,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "primary",
+			"type": "number",
+			"desc": "",
+			"sid": 439131293668319
+		},
+		{
+			"name": "secondary",
+			"type": "number",
+			"desc": "",
+			"sid": 743575382886712
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Tween",
@@ -37,6 +50,18 @@
 								0.9973404255319149
 							]
 						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 204,
+						"height": 253,
+						"originX": 0.5098039215686274,
+						"originY": 0.5533596837944664,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1810035,
 						"useCollisionPoly": true,
 						"duration": 1
 					}

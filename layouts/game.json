@@ -197,7 +197,10 @@
 										"live-preview": false
 									},
 									"uid": 45,
-									"instanceVariables": {},
+									"instanceVariables": {
+										"primary": 6,
+										"secondary": 6
+									},
 									"behaviors": {
 										"Tween": {
 											"properties": {
@@ -263,7 +266,10 @@
 								"live-preview": false
 							},
 							"uid": 10,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"posX": 378,
+								"posY": 900
+							},
 							"behaviors": {
 								"DragDrop": {
 									"properties": {
@@ -312,7 +318,10 @@
 								"live-preview": false
 							},
 							"uid": 11,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"posX": 576,
+								"posY": 900
+							},
 							"behaviors": {
 								"DragDrop": {
 									"properties": {
@@ -361,7 +370,10 @@
 								"live-preview": false
 							},
 							"uid": 12,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"posX": 774,
+								"posY": 900
+							},
 							"behaviors": {
 								"DragDrop": {
 									"properties": {
@@ -410,7 +422,10 @@
 								"live-preview": false
 							},
 							"uid": 13,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"posX": 972,
+								"posY": 900
+							},
 							"behaviors": {
 								"DragDrop": {
 									"properties": {
@@ -459,7 +474,10 @@
 								"live-preview": false
 							},
 							"uid": 14,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"posX": 1170,
+								"posY": 900
+							},
 							"behaviors": {
 								"DragDrop": {
 									"properties": {
@@ -508,7 +526,10 @@
 								"live-preview": false
 							},
 							"uid": 15,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"posX": 1368,
+								"posY": 900
+							},
 							"behaviors": {
 								"DragDrop": {
 									"properties": {
@@ -557,7 +578,10 @@
 								"live-preview": false
 							},
 							"uid": 16,
-							"instanceVariables": {},
+							"instanceVariables": {
+								"posX": 1566,
+								"posY": 900
+							},
 							"behaviors": {
 								"DragDrop": {
 									"properties": {

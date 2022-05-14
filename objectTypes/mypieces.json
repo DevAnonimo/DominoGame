@@ -3,7 +3,20 @@
 	"plugin-id": "Sprite",
 	"sid": 185525814395185,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "posX",
+			"type": "number",
+			"desc": "",
+			"sid": 482603054079719
+		},
+		{
+			"name": "posY",
+			"type": "number",
+			"desc": "",
+			"sid": 362201525221837
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "DragnDrop",

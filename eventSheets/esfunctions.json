@@ -1667,24 +1667,213 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Game",
+			"title": "Logs hacks",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"functionName": "Snap",
-					"functionDescription": "",
-					"functionCategory": "Pieces",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
+					"eventType": "comment",
+					"text": "logs controllers"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 866079577340316,
+							"parameters": {
+								"key": 76
+							}
+						}
+					],
 					"actions": [],
-					"sid": 171333783543333
+					"sid": 878600248623514,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 432485615328758,
+									"parameters": {
+										"variable": "canPlay"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 341205038698490,
+									"parameters": {
+										"variable": "canPlay",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 822140092292424,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-host",
+											"objectClass": "Multiplayer",
+											"sid": 629752802629684
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "playTurn",
+											"sid": 831034007378054
+										}
+									],
+									"sid": 602604507931284
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 608274407171450
+										}
+									],
+									"actions": [
+										{
+											"id": "send-message",
+											"objectClass": "Multiplayer",
+											"sid": 665782350042770,
+											"parameters": {
+												"peer-id": "\"\"",
+												"tag": "\"Played\"",
+												"message": "Multiplayer.MyID",
+												"mode": "reliable-ordered"
+											}
+										}
+									],
+									"sid": 661643028866495
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 580630689865906,
+							"parameters": {
+								"key": 72
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Aparecer / Apagar log"
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "project_description",
+							"sid": 855437982634460,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 722041274731073
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 409545282806622,
+							"parameters": {
+								"key": 75
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Hackar início do jogo"
+						},
+						{
+							"callFunction": "recievePieces",
+							"sid": 842084774293499,
+							"parameters": [
+								"\"27;0;1;2;3;4;5;\""
+							]
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "myPieces",
+							"sid": 692094645219429,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"callFunction": "Play",
+							"sid": 444338016023672
+						}
+					],
+					"sid": 850249449208249
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 198992953183432,
+							"parameters": {
+								"key": 74
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 569288548369596,
+							"parameters": {
+								"layout": "Game"
+							}
+						}
+					],
+					"sid": 413533230428601
 				}
 			],
-			"sid": 292382261703213
+			"sid": 440742046222487
+		},
+		{
+			"functionName": "sidePiece",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 175030319846909,
+					"parameters": {
+						"value": "5"
+					}
+				}
+			],
+			"sid": 620677813738502
 		}
 	],
 	"sid": 821359700094348
