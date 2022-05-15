@@ -298,6 +298,22 @@
 			},
 			"uid": 42,
 			"instanceVariables": {}
+		},
+		{
+			"type": "JSON",
+			"properties": {},
+			"uid": 47,
+			"instanceVariables": {}
+		},
+		{
+			"type": "valuePieces",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 48,
+			"instanceVariables": {}
 		}
 	],
 	"effectTypes": [],

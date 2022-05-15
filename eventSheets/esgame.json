@@ -588,7 +588,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Pieces controller",
+					"title": "Pieces",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
@@ -711,19 +711,13 @@
 								},
 								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 927372336668281
-								},
-								{
-									"eventType": "block",
 									"conditions": [
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 196711122021451,
+											"sid": 119689496944859,
 											"parameters": {
-												"first-value": "side1",
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
 												"comparison": 0,
 												"second-value": "newPiece.primary"
 											}
@@ -731,9 +725,9 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 869139784941471,
+											"sid": 544529702838789,
 											"parameters": {
-												"first-value": "side2",
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
 												"comparison": 0,
 												"second-value": "newPiece.secondary"
 											}
@@ -780,24 +774,27 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-animation-frame",
-											"objectClass": "myPieces",
-											"sid": 802698975639356,
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 393982397011599,
 											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
 												"comparison": 0,
-												"number": "newPiece.primary"
+												"second-value": "newPiece.primary"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 715059699269482,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
+												"comparison": 0,
+												"second-value": "newPiece.secondary"
 											}
 										}
 									],
 									"actions": [
-										{
-											"callFunction": "CallLog",
-											"sid": 427229523241117,
-											"parameters": [
-												"\"\"",
-												"\"Tem visão\""
-											]
-										},
 										{
 											"id": "set-size",
 											"objectClass": "myPieces",
@@ -945,8 +942,42 @@
 							"sid": 551528089608687
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 395224212105654,
+							"parameters": {
+								"tag": "\"pieces\"",
+								"file": "file.json"
+							}
+						}
+					],
 					"sid": 241618743258073
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 662819492604845,
+							"parameters": {
+								"tag": "\"pieces\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "JSON",
+							"sid": 842401572923016,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 135540766634504
 				}
 			],
 			"sid": 354476756913533

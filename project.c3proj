@@ -40,6 +40,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r293.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Multiplayer",
 			"name": "Multiplayer",
 			"author": "Scirra",
@@ -56,16 +64,24 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Arr",
-			"name": "Array",
+			"id": "Keyboard",
+			"name": "Keyboard",
 			"author": "Scirra",
 			"version": "r293.3",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Keyboard",
-			"name": "Keyboard",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r293.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
 			"author": "Scirra",
 			"version": "r293.3",
 			"bundled": false
@@ -109,8 +125,9 @@
 			"Multiplayer",
 			"project_description",
 			"Browser",
-			"piecesArray",
-			"Keyboard"
+			"Keyboard",
+			"AJAX",
+			"JSON"
 		],
 		"subfolders": [
 			{
@@ -134,6 +151,14 @@
 				],
 				"subfolders": [],
 				"name": "Game"
+			},
+			{
+				"items": [
+					"piecesArray",
+					"valuePieces"
+				],
+				"subfolders": [],
+				"name": "Arrays"
 			}
 		]
 	},

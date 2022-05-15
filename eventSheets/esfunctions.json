@@ -818,7 +818,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Pieces",
+			"title": "Pieces Management ",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -1211,6 +1211,18 @@
 							]
 						}
 					]
+				},
+				{
+					"functionName": "createValues",
+					"functionDescription": "",
+					"functionCategory": "Pieces",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 381391986357384
 				}
 			],
 			"sid": 780755616163252
@@ -1841,11 +1853,75 @@
 					],
 					"actions": [
 						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 569288548369596,
+							"type": "comment",
+							"text": "Mapeamento de funções, me permite chamar as funções de acordo com o valor de alguma String"
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 970662921789520,
 							"parameters": {
-								"layout": "Game"
+								"name": "\"logMap\"",
+								"string": "\"error\"",
+								"function": "ErrorLogFeedback"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 868988496508084,
+							"parameters": {
+								"name": "\"logMap\"",
+								"string": "\"success\"",
+								"function": "SuccessLogFeedback"
+							}
+						},
+						{
+							"id": "map-function-default",
+							"objectClass": "Functions",
+							"sid": 725671708545662,
+							"parameters": {
+								"name": "\"logMap\"",
+								"function": "Debug"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 248799321908583,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"string": "\"2\"",
+								"function": "2"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 779002102879193,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"string": "\"3\"",
+								"function": "3"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 458940115564943,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"string": "\"4\"",
+								"function": "4"
+							}
+						},
+						{
+							"id": "map-function-default",
+							"objectClass": "Functions",
+							"sid": 769679525179737,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"function": "hostLayout"
 							}
 						}
 					],
