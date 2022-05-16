@@ -1199,7 +1199,6 @@
 										{
 											"callFunction": "CallLog",
 											"sid": 507603243384070,
-											"disabled": true,
 											"parameters": [
 												"\"\"",
 												"\"Peças enviadas: \" & pieces"
@@ -1211,18 +1210,6 @@
 							]
 						}
 					]
-				},
-				{
-					"functionName": "createValues",
-					"functionDescription": "",
-					"functionCategory": "Pieces",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 381391986357384
 				}
 			],
 			"sid": 780755616163252
@@ -1545,7 +1532,6 @@
 						{
 							"callFunction": "CallLog",
 							"sid": 774441311699822,
-							"disabled": true,
 							"parameters": [
 								"\"warn\"",
 								"listOrderPlayers & \" | Index: \" & Index"
@@ -1598,10 +1584,10 @@
 							"actions": [
 								{
 									"callFunction": "CallLog",
-									"sid": 161572526520326,
+									"sid": 698544542962848,
 									"parameters": [
 										"\"\"",
-										"\"Entrou como peer essa porra: \" & int(tokenat(listOrderPlayers, Index, \";\"))"
+										"\"Entrou como peer essa porra: \" & int(tokenat(listOrderPlayers, Index, \";\"))\n& newline &\n\"Lista: \" & listOrderPlayers"
 									]
 								}
 							],
@@ -1652,6 +1638,16 @@
 									"id": "else",
 									"objectClass": "System",
 									"sid": 898464145871629
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 982341809977168,
+									"parameters": {
+										"first-value": "tokenat(listOrderPlayers, Index, \";\")",
+										"comparison": 0,
+										"second-value": "\"37\""
+									}
 								}
 							],
 							"actions": [
@@ -1662,7 +1658,6 @@
 								{
 									"callFunction": "CallLog",
 									"sid": 233402592206445,
-									"disabled": true,
 									"parameters": [
 										"\"\"",
 										"\"Bom dia filha da puta aqui quem fala é o HOST\""

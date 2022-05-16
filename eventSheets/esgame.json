@@ -57,7 +57,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "SIGNALLING",
 			"description": "",
 			"isActiveOnStart": true,
@@ -89,8 +89,7 @@
 							]
 						}
 					],
-					"sid": 304672748930915,
-					"disabled": true
+					"sid": 304672748930915
 				},
 				{
 					"eventType": "block",
@@ -111,8 +110,7 @@
 							}
 						}
 					],
-					"sid": 189992680996563,
-					"disabled": true
+					"sid": 189992680996563
 				},
 				{
 					"eventType": "block",
@@ -137,8 +135,7 @@
 							}
 						}
 					],
-					"sid": 737787568321539,
-					"disabled": true
+					"sid": 737787568321539
 				},
 				{
 					"eventType": "block",
@@ -151,7 +148,6 @@
 					],
 					"actions": [],
 					"sid": 151028646529962,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -188,8 +184,7 @@
 									]
 								}
 							],
-							"sid": 485733222983461,
-							"disabled": true
+							"sid": 485733222983461
 						},
 						{
 							"eventType": "block",
@@ -219,8 +214,7 @@
 									]
 								}
 							],
-							"sid": 394234097735773,
-							"disabled": true
+							"sid": 394234097735773
 						}
 					]
 				},
@@ -264,8 +258,7 @@
 							}
 						}
 					],
-					"sid": 413776618437760,
-					"disabled": true
+					"sid": 413776618437760
 				}
 			],
 			"sid": 260201199567679
@@ -593,34 +586,30 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "variable",
-							"name": "side1",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 321626588339979
-						},
-						{
-							"eventType": "variable",
-							"name": "side2",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 387448179233955
-						},
-						{
-							"eventType": "variable",
-							"name": "count",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 801506831734508
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 441652694517984,
+									"parameters": {
+										"variable": "canPlay"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "myPieces",
+									"sid": 243268914156916,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 247847657798218
 						},
 						{
 							"eventType": "comment",
@@ -643,99 +632,116 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-animation-frame",
-											"objectClass": "myPieces",
-											"sid": 772160041041632,
-											"parameters": {
-												"comparison": 0,
-												"number": "27"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation-frame",
-											"objectClass": "newPiece",
-											"sid": 347132460106420,
-											"parameters": {
-												"frame-number": "0"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "newPiece",
-											"sid": 951718944976267,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "tween-one-property",
-											"objectClass": "newPiece",
-											"sid": 920893198537485,
-											"behaviorType": "Tween",
-											"parameters": {
-												"tags": "\"opacityAnim\"",
-												"property": "offsetOpacity",
-												"end-value": "15",
-												"time": "1.5",
-												"ease": "default",
-												"destroy-on-complete": "no",
-												"loop": "yes",
-												"ping-pong": "yes"
-											}
-										}
-									],
-									"sid": 837215561476341
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
+											"id": "for-each",
 											"objectClass": "System",
-											"sid": 759944226517503
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "newPiece",
-											"sid": 126590633712471,
+											"sid": 165819716960729,
 											"parameters": {
-												"visibility": "invisible"
-											}
-										}
-									],
-									"sid": 979025704954448
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 119689496944859,
-											"parameters": {
-												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
-												"comparison": 0,
-												"second-value": "newPiece.primary"
-											}
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 544529702838789,
-											"parameters": {
-												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
-												"comparison": 0,
-												"second-value": "newPiece.secondary"
+												"object": "newPiece"
 											}
 										}
 									],
 									"actions": [],
-									"sid": 590475306387682,
-									"isOrBlock": true
+									"sid": 795742217043420,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 131431667332666,
+													"parameters": {
+														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
+														"comparison": 0,
+														"second-value": "newPiece.primary"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 234351537958532,
+													"parameters": {
+														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
+														"comparison": 0,
+														"second-value": "newPiece.secondary"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "newPiece",
+													"sid": 824553928363377,
+													"parameters": {
+														"frame-number": "0"
+													}
+												},
+												{
+													"id": "set-collisions-enabled",
+													"objectClass": "newPiece",
+													"sid": 899248441580833,
+													"parameters": {
+														"collisions": "enabled"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "newPiece",
+													"sid": 349637659258508,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "tween-one-property",
+													"objectClass": "newPiece",
+													"sid": 755440171901542,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"opacityAnim\"",
+														"property": "offsetOpacity",
+														"end-value": "15",
+														"time": "1.5",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "yes",
+														"ping-pong": "yes"
+													}
+												}
+											],
+											"sid": 442779461094943,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 478791976225363
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "newPiece",
+													"sid": 216077623914584,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-collisions-enabled",
+													"objectClass": "newPiece",
+													"sid": 804638271998516,
+													"parameters": {
+														"collisions": "disabled"
+													}
+												}
+											],
+											"sid": 457074675897130
+										}
+									]
 								}
 							]
 						},
@@ -877,39 +883,29 @@
 											"sid": 520955547652247,
 											"behaviorType": "DragDrop",
 											"isInverted": true
-										}
-									],
-									"actions": [],
-									"sid": 615443493804690,
-									"children": [
+										},
 										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 565293861466006,
-													"parameters": {
-														"variable": "colocado"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "set-position",
-													"objectClass": "myPieces",
-													"sid": 529337913437811,
-													"parameters": {
-														"x": "lerp(myPieces.X, myPieces.posX, (dt * 7))",
-														"y": "lerp(myPieces.Y, myPieces.posY, (dt * 7))"
-													}
-												}
-											],
-											"sid": 152581310026294
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 335946058091277,
+											"parameters": {
+												"variable": "colocado"
+											},
+											"isInverted": true
 										}
 									],
-									"isOrBlock": true
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "myPieces",
+											"sid": 675537602960793,
+											"parameters": {
+												"x": "lerp(myPieces.X, myPieces.posX, (dt * 7))",
+												"y": "lerp(myPieces.Y, myPieces.posY, (dt * 7))"
+											}
+										}
+									],
+									"sid": 615443493804690
 								}
 							]
 						},
@@ -928,7 +924,80 @@
 								}
 							],
 							"actions": [],
-							"sid": 603601661077733
+							"sid": 603601661077733,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-los-to-object",
+											"objectClass": "myPieces",
+											"sid": 976125218768498,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"object": "newPiece",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "newPiece",
+											"sid": 276008147581873
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 988258076727030,
+											"parameters": {
+												"object-to-create": "Pieces",
+												"layer": "\"HUD\"",
+												"x": "newPiece.X",
+												"y": "newPiece.Y",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Pieces",
+											"sid": 753581111453258,
+											"parameters": {
+												"animation": "\"Front\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Pieces",
+											"sid": 878325818364188,
+											"parameters": {
+												"frame-number": "myPieces.AnimationFrame"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Pieces",
+											"sid": 468831518226391,
+											"parameters": {
+												"angle": "newPiece.Angle"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "myPieces",
+											"sid": 454994013677210
+										},
+										{
+											"id": "destroy",
+											"objectClass": "newPiece",
+											"sid": 595576616652899
+										}
+									],
+									"sid": 814403178270679
+								}
+							]
 						}
 					],
 					"sid": 762405650561258
