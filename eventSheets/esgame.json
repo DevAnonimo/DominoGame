@@ -366,6 +366,27 @@
 					],
 					"actions": [
 						{
+							"id": "broadcast-message",
+							"objectClass": "Multiplayer",
+							"sid": 229226123815446,
+							"parameters": {
+								"from-id": "Multiplayer.FromID",
+								"tag": "\"newPiece\"",
+								"message": "Multiplayer.Message",
+								"mode": "reliable-ordered"
+							}
+						},
+						{
+							"callFunction": "createPiece",
+							"sid": 868925645406040,
+							"parameters": [
+								"int(tokenat(Multiplayer.Message, 0, \";\"))",
+								"int(tokenat(Multiplayer.Message, 1, \";\"))",
+								"int(tokenat(Multiplayer.Message, 2, \";\"))",
+								"int(tokenat(Multiplayer.Message, 3, \";\"))"
+							]
+						},
+						{
 							"callFunction": "playTurn",
 							"sid": 473505526724765
 						}
@@ -460,9 +481,9 @@
 						{
 							"id": "on-peer-message",
 							"objectClass": "Multiplayer",
-							"sid": 211804355599198,
+							"sid": 357282096121355,
 							"parameters": {
-								"tag": "\"newPieces\""
+								"tag": "\"takePieces\""
 							}
 						}
 					],
@@ -536,6 +557,32 @@
 						}
 					],
 					"sid": 187345268352247
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 561992631524226,
+							"parameters": {
+								"tag": "\"newPiece\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "createPiece",
+							"sid": 873391637416518,
+							"parameters": [
+								"int(tokenat(Multiplayer.Message, 0, \";\"))",
+								"int(tokenat(Multiplayer.Message, 1, \";\"))",
+								"int(tokenat(Multiplayer.Message, 2, \";\"))",
+								"int(tokenat(Multiplayer.Message, 3, \";\"))"
+							]
+						}
+					],
+					"sid": 194642270398010
 				}
 			],
 			"sid": 566656446511828
@@ -636,7 +683,7 @@
 											"objectClass": "System",
 											"sid": 165819716960729,
 											"parameters": {
-												"object": "newPiece"
+												"object": "pieceCollider"
 											}
 										}
 									],
@@ -653,7 +700,7 @@
 													"parameters": {
 														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
 														"comparison": 0,
-														"second-value": "newPiece.primary"
+														"second-value": "pieceCollider.primary"
 													}
 												},
 												{
@@ -663,14 +710,14 @@
 													"parameters": {
 														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
 														"comparison": 0,
-														"second-value": "newPiece.secondary"
+														"second-value": "pieceCollider.secondary"
 													}
 												}
 											],
 											"actions": [
 												{
 													"id": "set-animation-frame",
-													"objectClass": "newPiece",
+													"objectClass": "pieceCollider",
 													"sid": 824553928363377,
 													"parameters": {
 														"frame-number": "0"
@@ -678,7 +725,7 @@
 												},
 												{
 													"id": "set-collisions-enabled",
-													"objectClass": "newPiece",
+													"objectClass": "pieceCollider",
 													"sid": 899248441580833,
 													"parameters": {
 														"collisions": "enabled"
@@ -686,7 +733,7 @@
 												},
 												{
 													"id": "set-visible",
-													"objectClass": "newPiece",
+													"objectClass": "pieceCollider",
 													"sid": 349637659258508,
 													"parameters": {
 														"visibility": "visible"
@@ -694,7 +741,7 @@
 												},
 												{
 													"id": "tween-one-property",
-													"objectClass": "newPiece",
+													"objectClass": "pieceCollider",
 													"sid": 755440171901542,
 													"behaviorType": "Tween",
 													"parameters": {
@@ -724,7 +771,7 @@
 											"actions": [
 												{
 													"id": "set-visible",
-													"objectClass": "newPiece",
+													"objectClass": "pieceCollider",
 													"sid": 216077623914584,
 													"parameters": {
 														"visibility": "invisible"
@@ -732,7 +779,7 @@
 												},
 												{
 													"id": "set-collisions-enabled",
-													"objectClass": "newPiece",
+													"objectClass": "pieceCollider",
 													"sid": 804638271998516,
 													"parameters": {
 														"collisions": "disabled"
@@ -758,7 +805,7 @@
 									"sid": 336920111072118,
 									"behaviorType": "LineOfSight",
 									"parameters": {
-										"object": "newPiece",
+										"object": "pieceCollider",
 										"image-point": "0"
 									}
 								}
@@ -786,7 +833,7 @@
 											"parameters": {
 												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
 												"comparison": 0,
-												"second-value": "newPiece.primary"
+												"second-value": "pieceCollider.primary"
 											}
 										},
 										{
@@ -796,7 +843,7 @@
 											"parameters": {
 												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
 												"comparison": 0,
-												"second-value": "newPiece.secondary"
+												"second-value": "pieceCollider.secondary"
 											}
 										}
 									],
@@ -806,8 +853,8 @@
 											"objectClass": "myPieces",
 											"sid": 952269438533367,
 											"parameters": {
-												"width": "lerp(myPieces.Width, newPiece.Width, (dt*5))",
-												"height": "lerp(myPieces.Height, newPiece.Height, (dt*5))"
+												"width": "lerp(myPieces.Width, pieceCollider.Width, (dt*5))",
+												"height": "lerp(myPieces.Height, pieceCollider.Height, (dt*5))"
 											}
 										},
 										{
@@ -815,8 +862,8 @@
 											"objectClass": "myPieces",
 											"sid": 415822490964753,
 											"parameters": {
-												"x": "lerp(myPieces.X, newPiece.X, (dt * 7))",
-												"y": "lerp(myPieces.Y, newPiece.Y, (dt * 7))"
+												"x": "lerp(myPieces.X, pieceCollider.X, (dt * 7))",
+												"y": "lerp(myPieces.Y, pieceCollider.Y, (dt * 7))"
 											}
 										}
 									],
@@ -865,7 +912,7 @@
 									"sid": 683997120116647,
 									"behaviorType": "LineOfSight",
 									"parameters": {
-										"object": "newPiece",
+										"object": "pieceCollider",
 										"image-point": "0"
 									},
 									"isInverted": true
@@ -935,13 +982,13 @@
 											"sid": 976125218768498,
 											"behaviorType": "LineOfSight",
 											"parameters": {
-												"object": "newPiece",
+												"object": "pieceCollider",
 												"image-point": "0"
 											}
 										},
 										{
 											"id": "is-visible",
-											"objectClass": "newPiece",
+											"objectClass": "pieceCollider",
 											"sid": 276008147581873
 										}
 									],
@@ -953,8 +1000,8 @@
 											"parameters": {
 												"object-to-create": "Pieces",
 												"layer": "\"HUD\"",
-												"x": "newPiece.X",
-												"y": "newPiece.Y",
+												"x": "pieceCollider.X",
+												"y": "pieceCollider.Y",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -981,7 +1028,7 @@
 											"objectClass": "Pieces",
 											"sid": 468831518226391,
 											"parameters": {
-												"angle": "newPiece.Angle"
+												"angle": "pieceCollider.Angle"
 											}
 										},
 										{
@@ -991,11 +1038,50 @@
 										},
 										{
 											"id": "destroy",
-											"objectClass": "newPiece",
+											"objectClass": "pieceCollider",
 											"sid": 595576616652899
 										}
 									],
-									"sid": 814403178270679
+									"sid": 814403178270679,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-host",
+													"objectClass": "Multiplayer",
+													"sid": 922417964776518,
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "send-message",
+													"objectClass": "Multiplayer",
+													"sid": 385768837367950,
+													"parameters": {
+														"peer-id": "\"\"",
+														"tag": "\"Played\"",
+														"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
+														"mode": "reliable-ordered"
+													}
+												}
+											],
+											"sid": 731065158319705
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 547476735990664
+												}
+											],
+											"actions": [],
+											"sid": 928495927883827
+										}
+									]
 								}
 							]
 						}

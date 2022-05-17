@@ -1,5 +1,5 @@
 {
-	"name": "newPiece",
+	"name": "pieceCollider",
 	"plugin-id": "Sprite",
 	"sid": 453984289505305,
 	"isGlobal": false,

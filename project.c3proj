@@ -147,7 +147,7 @@
 					"Pieces",
 					"playerNick",
 					"playable_Area",
-					"newPiece"
+					"pieceCollider"
 				],
 				"subfolders": [],
 				"name": "Game"

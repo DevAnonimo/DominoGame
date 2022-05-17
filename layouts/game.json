@@ -188,7 +188,7 @@
 									}
 								},
 								{
-									"type": "newPiece",
+									"type": "pieceCollider",
 									"properties": {
 										"initially-visible": false,
 										"initial-animation": "Animation 1",

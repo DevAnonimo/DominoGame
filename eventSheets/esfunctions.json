@@ -1198,10 +1198,10 @@
 										{
 											"id": "send-message",
 											"objectClass": "Multiplayer",
-											"sid": 133225034000096,
+											"sid": 330533347469483,
 											"parameters": {
 												"peer-id": "peerID",
-												"tag": "\"newPieces\"",
+												"tag": "\"takePieces\"",
 												"message": "pieces",
 												"mode": "reliable-ordered"
 											}
@@ -1221,6 +1221,86 @@
 							]
 						}
 					]
+				},
+				{
+					"functionName": "createPiece",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "frame",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 826219243243589
+						},
+						{
+							"name": "posX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 180711321998852
+						},
+						{
+							"name": "posY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 527339820381488
+						},
+						{
+							"name": "posAngle",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 454635598112396
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 420124745650460,
+							"parameters": {
+								"object-to-create": "Pieces",
+								"layer": "\"HUD\"",
+								"x": "posX",
+								"y": "posY",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Pieces",
+							"sid": 311048552310665,
+							"parameters": {
+								"animation": "\"Front\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Pieces",
+							"sid": 488738499406561,
+							"parameters": {
+								"frame-number": "frame"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Pieces",
+							"sid": 434506404673998,
+							"parameters": {
+								"angle": "posAngle"
+							}
+						}
+					],
+					"sid": 729971090022952
 				}
 			],
 			"sid": 780755616163252
@@ -1606,10 +1686,11 @@
 							"actions": [
 								{
 									"callFunction": "CallLog",
-									"sid": 698544542962848,
+									"sid": 810377595927689,
+									"disabled": true,
 									"parameters": [
 										"\"\"",
-										"\"Entrou como peer essa porra: \" & int(tokenat(listOrderPlayers, Index, \";\"))\n& newline &\n\"Lista: \" & listOrderPlayers"
+										"\"Entrou como peer: \" & int(tokenat(listOrderPlayers, Index, \";\"))\n& newline &\n\"Lista: \" & listOrderPlayers"
 									]
 								}
 							],
@@ -1679,10 +1760,11 @@
 								},
 								{
 									"callFunction": "CallLog",
-									"sid": 233402592206445,
+									"sid": 472942758441847,
+									"disabled": true,
 									"parameters": [
 										"\"\"",
-										"\"Bom dia filha da puta aqui quem fala é o HOST\""
+										"\"Bom dia, aqui quem fala é o HOST\""
 									]
 								}
 							],
