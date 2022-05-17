@@ -175,6 +175,7 @@
 									"id": "set-visible",
 									"objectClass": "myPieces",
 									"sid": 360357429558419,
+									"disabled": true,
 									"parameters": {
 										"visibility": "visible"
 									}
@@ -748,13 +749,22 @@
 											}
 										},
 										{
-											"id": "add-to-eventvar",
+											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 983984889347911,
+											"sid": 328669420104545,
 											"parameters": {
 												"variable": "players",
 												"value": "Multiplayer.MyAlias & \";\""
 											}
+										},
+										{
+											"callFunction": "CallLog",
+											"sid": 844703174553856,
+											"disabled": true,
+											"parameters": [
+												"\"warn\"",
+												"players"
+											]
 										}
 									],
 									"sid": 269702208462928
@@ -1027,10 +1037,10 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 737310683381302,
+													"sid": 554939683119792,
 													"parameters": {
 														"variable": "listOrderPlayers",
-														"value": "peerID"
+														"value": "\"37\""
 													}
 												},
 												{
@@ -1199,6 +1209,7 @@
 										{
 											"callFunction": "CallLog",
 											"sid": 507603243384070,
+											"disabled": true,
 											"parameters": [
 												"\"\"",
 												"\"Peças enviadas: \" & pieces"
@@ -1293,7 +1304,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 949529066501992,
+									"disabled": true,
+									"parameters": [
+										"\"warn\"",
+										"listOrderPlayers"
+									]
+								}
+							],
 							"sid": 233984799088974,
 							"children": [
 								{
@@ -1532,6 +1553,7 @@
 						{
 							"callFunction": "CallLog",
 							"sid": 774441311699822,
+							"disabled": true,
 							"parameters": [
 								"\"warn\"",
 								"listOrderPlayers & \" | Index: \" & Index"
@@ -1815,6 +1837,7 @@
 						{
 							"callFunction": "recievePieces",
 							"sid": 842084774293499,
+							"disabled": true,
 							"parameters": [
 								"\"27;0;1;2;3;4;5;\""
 							]
@@ -1829,7 +1852,8 @@
 						},
 						{
 							"callFunction": "Play",
-							"sid": 444338016023672
+							"sid": 444338016023672,
+							"disabled": true
 						}
 					],
 					"sid": 850249449208249
