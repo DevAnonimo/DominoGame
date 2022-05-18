@@ -47,6 +47,106 @@
 					"sid": 630827939543588
 				},
 				{
+					"functionName": "\"log\"",
+					"functionDescription": "\"\"",
+					"functionCategory": "Log",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 945505101385354
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 990779326309455,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 678212487342357,
+									"parameters": {
+										"first-value": "message",
+										"comparison": 0,
+										"second-value": "\"1\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "project_description",
+									"sid": 513281821829768,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 687813051648609
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 103339349550151,
+									"parameters": {
+										"first-value": "message",
+										"comparison": 0,
+										"second-value": "\"0\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "project_description",
+									"sid": 721302076810156,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 225599305548047
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 255966078964354,
+									"parameters": {
+										"first-value": "message",
+										"comparison": 0,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "project_description",
+									"sid": 822590120328899,
+									"parameters": {
+										"visibility": "toggle"
+									}
+								}
+							],
+							"sid": 124755497992454
+						}
+					]
+				},
+				{
 					"functionName": "ErrorLogFeedback",
 					"functionDescription": "Passar o log para o usuário",
 					"functionCategory": "Log",
@@ -64,6 +164,14 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "project_description",
+							"sid": 295628034280876,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
 						{
 							"id": "set-font-color",
 							"objectClass": "project_description",
@@ -101,6 +209,14 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "project_description",
+							"sid": 764448983100903,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
 						{
 							"id": "set-font-color",
 							"objectClass": "project_description",
@@ -1377,6 +1493,7 @@
 						{
 							"callFunction": "CallLog",
 							"sid": 834761680465180,
+							"disabled": true,
 							"parameters": [
 								"\"warn\"",
 								"listOrderPlayers"
@@ -1621,6 +1738,7 @@
 						{
 							"callFunction": "CallLog",
 							"sid": 774441311699822,
+							"disabled": true,
 							"parameters": [
 								"\"warn\"",
 								"listOrderPlayers & \" | Index: \" & Index"
@@ -1732,6 +1850,14 @@
 								{
 									"callFunction": "Play",
 									"sid": 405899598104473
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 760218675682586,
+									"parameters": [
+										"\"success\"",
+										"\"sua vez\""
+									]
 								},
 								{
 									"callFunction": "CallLog",

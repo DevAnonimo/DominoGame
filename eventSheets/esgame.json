@@ -554,6 +554,14 @@
 						{
 							"callFunction": "Play",
 							"sid": 269559449471867
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 323055421511146,
+							"parameters": [
+								"\"success\"",
+								"Multiplayer.Message"
+							]
 						}
 					],
 					"sid": 187345268352247
@@ -571,6 +579,14 @@
 						}
 					],
 					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 206503099174241,
+							"parameters": [
+								"\"log\"",
+								"\"0\""
+							]
+						},
 						{
 							"callFunction": "createPiece",
 							"sid": 873391637416518,
@@ -1049,6 +1065,14 @@
 												"variable": "canPlay",
 												"value": "false"
 											}
+										},
+										{
+											"callFunction": "CallLog",
+											"sid": 448217441110527,
+											"parameters": [
+												"\"log\"",
+												"\"0\""
+											]
 										}
 									],
 									"sid": 814403178270679,

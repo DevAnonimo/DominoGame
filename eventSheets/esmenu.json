@@ -72,6 +72,16 @@
 				{
 					"id": "map-function",
 					"objectClass": "Functions",
+					"sid": 411721379129449,
+					"parameters": {
+						"name": "\"logMap\"",
+						"string": "\"log\"",
+						"function": "\"log\""
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
 					"sid": 394593769981381,
 					"parameters": {
 						"name": "\"logMap\"",
