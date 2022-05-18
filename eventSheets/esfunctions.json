@@ -1064,6 +1064,156 @@
 						}
 					],
 					"sid": 729971090022952
+				},
+				{
+					"functionName": "verifyPieces",
+					"functionDescription": "",
+					"functionCategory": "Pieces",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "frame",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 285237934267667
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 817693908927392,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 963443894213809,
+									"parameters": {
+										"object": "myPieces"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 304959911193512,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 882370972878284,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
+												"comparison": 0,
+												"second-value": "JSON.Get(frame & \".1\")"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 102069892384245,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
+												"comparison": 0,
+												"second-value": "JSON.Get(frame & \".1\")"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 405052691393509,
+											"parameters": {
+												"variable": "canPlay",
+												"value": "false"
+											}
+										},
+										{
+											"callFunction": "CallLog",
+											"sid": 348014142325596,
+											"parameters": [
+												"\"sussess\"",
+												"\"Você passou a vez\""
+											]
+										}
+									],
+									"sid": 530387439351295,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-host",
+													"objectClass": "Multiplayer",
+													"sid": 679791925405181
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "playTurn",
+													"sid": 136413108361390
+												}
+											],
+											"sid": 359406045618598
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 872385847653206
+												}
+											],
+											"actions": [
+												{
+													"id": "send-message",
+													"objectClass": "Multiplayer",
+													"sid": 331673791779414,
+													"parameters": {
+														"peer-id": "\"\"",
+														"tag": "\"Played\"",
+														"message": "Multiplayer.MyID",
+														"mode": "reliable-ordered"
+													}
+												}
+											],
+											"sid": 219526389334007
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 892455686370664
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 323055421511146,
+											"parameters": [
+												"\"success\"",
+												"Multiplayer.Message"
+											]
+										}
+									],
+									"sid": 662234021472210
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 780755616163252

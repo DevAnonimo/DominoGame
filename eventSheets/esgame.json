@@ -554,14 +554,6 @@
 						{
 							"callFunction": "Play",
 							"sid": 269559449471867
-						},
-						{
-							"callFunction": "CallLog",
-							"sid": 323055421511146,
-							"parameters": [
-								"\"success\"",
-								"Multiplayer.Message"
-							]
 						}
 					],
 					"sid": 187345268352247
