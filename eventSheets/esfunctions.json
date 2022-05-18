@@ -4,367 +4,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Log",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"functionName": "CallLog",
-					"functionDescription": "",
-					"functionCategory": "Log",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "logType",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 556089398394709
-						},
-						{
-							"name": "message",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 605327995356118
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "call-mapped-function",
-							"objectClass": "Functions",
-							"sid": 785326962092481,
-							"parameters": {
-								"name": "\"logMap\"",
-								"string": "logType",
-								"forward-params": "1"
-							}
-						}
-					],
-					"sid": 630827939543588
-				},
-				{
-					"functionName": "\"log\"",
-					"functionDescription": "\"\"",
-					"functionCategory": "Log",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "message",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 945505101385354
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 990779326309455,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 678212487342357,
-									"parameters": {
-										"first-value": "message",
-										"comparison": 0,
-										"second-value": "\"1\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "project_description",
-									"sid": 513281821829768,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 687813051648609
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 103339349550151,
-									"parameters": {
-										"first-value": "message",
-										"comparison": 0,
-										"second-value": "\"0\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "project_description",
-									"sid": 721302076810156,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 225599305548047
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 255966078964354,
-									"parameters": {
-										"first-value": "message",
-										"comparison": 0,
-										"second-value": "\"\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "project_description",
-									"sid": 822590120328899,
-									"parameters": {
-										"visibility": "toggle"
-									}
-								}
-							],
-							"sid": 124755497992454
-						}
-					]
-				},
-				{
-					"functionName": "ErrorLogFeedback",
-					"functionDescription": "Passar o log para o usuário",
-					"functionCategory": "Log",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "message",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 992722131485507
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "project_description",
-							"sid": 295628034280876,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-font-color",
-							"objectClass": "project_description",
-							"sid": 219963545571534,
-							"parameters": {
-								"color": "rgbEx(255, 0, 0)"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "project_description",
-							"sid": 953408498328975,
-							"parameters": {
-								"text": "message"
-							}
-						}
-					],
-					"sid": 776908091298175
-				},
-				{
-					"functionName": "SuccessLogFeedback",
-					"functionDescription": "Passar o log para o usuário",
-					"functionCategory": "Log",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "message",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 643672592521910
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "project_description",
-							"sid": 764448983100903,
-							"parameters": {
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-font-color",
-							"objectClass": "project_description",
-							"sid": 948430428036723,
-							"parameters": {
-								"color": "rgbEx(255, 255, 255)"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "project_description",
-							"sid": 114232784661645,
-							"parameters": {
-								"text": "message"
-							}
-						}
-					],
-					"sid": 508653242568717
-				},
-				{
-					"functionName": "Debug",
-					"functionDescription": "",
-					"functionCategory": "Log",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "logType",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 585350167465443
-						},
-						{
-							"name": "message",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 767919272624749
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 439745894632705,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 324623974605079,
-									"parameters": {
-										"first-value": "logType",
-										"comparison": 0,
-										"second-value": "\"\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 311838497708043,
-									"parameters": {
-										"type": "log",
-										"message": "message"
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "myPieces",
-									"sid": 360357429558419,
-									"disabled": true,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 236245222972696
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 200793986659335,
-									"parameters": {
-										"first-value": "logType",
-										"comparison": 0,
-										"second-value": "\"warn\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 929487712139204,
-									"parameters": {
-										"type": "warn",
-										"message": "message"
-									}
-								}
-							],
-							"sid": 685272171221557
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 352969469541133,
-									"parameters": {
-										"first-value": "logType",
-										"comparison": 0,
-										"second-value": "\"error\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 366826971293268,
-									"parameters": {
-										"type": "error",
-										"message": "message"
-									}
-								}
-							],
-							"sid": 205900947515794
-						}
-					]
-				}
-			],
-			"sid": 271150093540162
-		},
-		{
-			"eventType": "comment",
-			"text": ""
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "Layout & Positioning",
 			"description": "",
 			"isActiveOnStart": true,
@@ -1876,6 +1515,367 @@
 			"sid": 326468467786058
 		},
 		{
+			"eventType": "comment",
+			"text": ""
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Log",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "CallLog",
+					"functionDescription": "",
+					"functionCategory": "Log",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "logType",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 556089398394709
+						},
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 605327995356118
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "call-mapped-function",
+							"objectClass": "Functions",
+							"sid": 568907740553798,
+							"parameters": {
+								"name": "\"logMap\"",
+								"string": "logType",
+								"forward-params": "1"
+							}
+						}
+					],
+					"sid": 768563786953224
+				},
+				{
+					"functionName": "\"log\"",
+					"functionDescription": "\"\"",
+					"functionCategory": "Log",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 945505101385354
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 604983843304131,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 896596262576273,
+									"parameters": {
+										"first-value": "message",
+										"comparison": 0,
+										"second-value": "\"1\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "project_description",
+									"sid": 852035342484048,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 559748498810369
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 152851520249239,
+									"parameters": {
+										"first-value": "message",
+										"comparison": 0,
+										"second-value": "\"0\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "project_description",
+									"sid": 400113884867098,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 739697766488635
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 908570343871642,
+									"parameters": {
+										"first-value": "message",
+										"comparison": 0,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "project_description",
+									"sid": 636646389244038,
+									"parameters": {
+										"visibility": "toggle"
+									}
+								}
+							],
+							"sid": 878507804579685
+						}
+					]
+				},
+				{
+					"functionName": "ErrorLogFeedback",
+					"functionDescription": "Passar o log para o usuário",
+					"functionCategory": "Log",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 992722131485507
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "project_description",
+							"sid": 573192672979510,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "project_description",
+							"sid": 382824829744711,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "project_description",
+							"sid": 805412972235836,
+							"parameters": {
+								"text": "message"
+							}
+						}
+					],
+					"sid": 804672516233589
+				},
+				{
+					"functionName": "SuccessLogFeedback",
+					"functionDescription": "Passar o log para o usuário",
+					"functionCategory": "Log",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 643672592521910
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "project_description",
+							"sid": 319444421068309,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "project_description",
+							"sid": 980366197379460,
+							"parameters": {
+								"color": "rgbEx(255, 255, 255)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "project_description",
+							"sid": 299259231894398,
+							"parameters": {
+								"text": "message"
+							}
+						}
+					],
+					"sid": 356006000107766
+				},
+				{
+					"functionName": "Debug",
+					"functionDescription": "",
+					"functionCategory": "Log",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "logType",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 585350167465443
+						},
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 767919272624749
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 867442533195017,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 803022348059042,
+									"parameters": {
+										"first-value": "logType",
+										"comparison": 0,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 562141004067386,
+									"parameters": {
+										"type": "log",
+										"message": "message"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "myPieces",
+									"sid": 422211369355579,
+									"disabled": true,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 684038860460918
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 725018132479616,
+									"parameters": {
+										"first-value": "logType",
+										"comparison": 0,
+										"second-value": "\"warn\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 580584874753177,
+									"parameters": {
+										"type": "warn",
+										"message": "message"
+									}
+								}
+							],
+							"sid": 336058382225069
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 857972754880940,
+									"parameters": {
+										"first-value": "logType",
+										"comparison": 0,
+										"second-value": "\"error\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 447921522678672,
+									"parameters": {
+										"type": "error",
+										"message": "message"
+									}
+								}
+							],
+							"sid": 100993534799906
+						}
+					]
+				}
+			],
+			"sid": 474586859329902
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Logs hacks",
@@ -1892,14 +1892,14 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 866079577340316,
+							"sid": 848339722555792,
 							"parameters": {
 								"key": 76
 							}
 						}
 					],
 					"actions": [],
-					"sid": 878600248623514,
+					"sid": 653295212713691,
 					"children": [
 						{
 							"eventType": "block",
@@ -1907,7 +1907,7 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 432485615328758,
+									"sid": 115720751038501,
 									"parameters": {
 										"variable": "canPlay"
 									}
@@ -1917,14 +1917,14 @@
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 341205038698490,
+									"sid": 248751520243084,
 									"parameters": {
 										"variable": "canPlay",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 822140092292424,
+							"sid": 347103307119781,
 							"children": [
 								{
 									"eventType": "block",
@@ -1932,16 +1932,16 @@
 										{
 											"id": "is-host",
 											"objectClass": "Multiplayer",
-											"sid": 629752802629684
+											"sid": 713393761457333
 										}
 									],
 									"actions": [
 										{
 											"callFunction": "playTurn",
-											"sid": 831034007378054
+											"sid": 406942169004365
 										}
 									],
-									"sid": 602604507931284
+									"sid": 484352547457086
 								},
 								{
 									"eventType": "block",
@@ -1949,14 +1949,14 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 608274407171450
+											"sid": 597897952584327
 										}
 									],
 									"actions": [
 										{
 											"id": "send-message",
 											"objectClass": "Multiplayer",
-											"sid": 665782350042770,
+											"sid": 561568827067473,
 											"parameters": {
 												"peer-id": "\"\"",
 												"tag": "\"Played\"",
@@ -1965,7 +1965,7 @@
 											}
 										}
 									],
-									"sid": 661643028866495
+									"sid": 106996073218834
 								}
 							]
 						}
@@ -1977,7 +1977,7 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 580630689865906,
+							"sid": 849340955777450,
 							"parameters": {
 								"key": 72
 							}
@@ -1991,13 +1991,13 @@
 						{
 							"id": "set-visible",
 							"objectClass": "project_description",
-							"sid": 855437982634460,
+							"sid": 429831236713472,
 							"parameters": {
 								"visibility": "toggle"
 							}
 						}
 					],
-					"sid": 722041274731073
+					"sid": 978021160494800
 				},
 				{
 					"eventType": "block",
@@ -2005,7 +2005,7 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 409545282806622,
+							"sid": 885605901283447,
 							"parameters": {
 								"key": 75
 							}
@@ -2018,7 +2018,7 @@
 						},
 						{
 							"callFunction": "recievePieces",
-							"sid": 842084774293499,
+							"sid": 544188808068159,
 							"disabled": true,
 							"parameters": [
 								"\"27;0;1;2;3;4;5;\""
@@ -2027,18 +2027,18 @@
 						{
 							"id": "set-visible",
 							"objectClass": "myPieces",
-							"sid": 692094645219429,
+							"sid": 994302930830396,
 							"parameters": {
 								"visibility": "visible"
 							}
 						},
 						{
 							"callFunction": "Play",
-							"sid": 444338016023672,
+							"sid": 395438986484857,
 							"disabled": true
 						}
 					],
-					"sid": 850249449208249
+					"sid": 585248508038094
 				},
 				{
 					"eventType": "block",
@@ -2046,7 +2046,7 @@
 						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 198992953183432,
+							"sid": 770968808958979,
 							"parameters": {
 								"key": 74
 							}
@@ -2060,7 +2060,7 @@
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 970662921789520,
+							"sid": 701214291243475,
 							"parameters": {
 								"name": "\"logMap\"",
 								"string": "\"error\"",
@@ -2070,7 +2070,7 @@
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 868988496508084,
+							"sid": 556966530933728,
 							"parameters": {
 								"name": "\"logMap\"",
 								"string": "\"success\"",
@@ -2080,7 +2080,7 @@
 						{
 							"id": "map-function-default",
 							"objectClass": "Functions",
-							"sid": 725671708545662,
+							"sid": 868345970909026,
 							"parameters": {
 								"name": "\"logMap\"",
 								"function": "Debug"
@@ -2089,7 +2089,7 @@
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 248799321908583,
+							"sid": 881390488850938,
 							"parameters": {
 								"name": "\"layoutMap\"",
 								"string": "\"2\"",
@@ -2099,7 +2099,7 @@
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 779002102879193,
+							"sid": 363688405057137,
 							"parameters": {
 								"name": "\"layoutMap\"",
 								"string": "\"3\"",
@@ -2109,7 +2109,7 @@
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 458940115564943,
+							"sid": 204303592273327,
 							"parameters": {
 								"name": "\"layoutMap\"",
 								"string": "\"4\"",
@@ -2119,38 +2119,17 @@
 						{
 							"id": "map-function-default",
 							"objectClass": "Functions",
-							"sid": 769679525179737,
+							"sid": 987500931500921,
 							"parameters": {
 								"name": "\"layoutMap\"",
 								"function": "hostLayout"
 							}
 						}
 					],
-					"sid": 413533230428601
+					"sid": 501429326663083
 				}
 			],
-			"sid": 440742046222487
-		},
-		{
-			"functionName": "sidePiece",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "number",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-function-return-value",
-					"objectClass": "Functions",
-					"sid": 175030319846909,
-					"parameters": {
-						"value": "5"
-					}
-				}
-			],
-			"sid": 620677813738502
+			"sid": 159388379465158
 		}
 	],
 	"sid": 821359700094348
