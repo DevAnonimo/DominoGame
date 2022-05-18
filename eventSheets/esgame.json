@@ -1040,6 +1040,15 @@
 											"id": "destroy",
 											"objectClass": "pieceCollider",
 											"sid": 595576616652899
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 135837283485316,
+											"parameters": {
+												"variable": "canPlay",
+												"value": "false"
+											}
 										}
 									],
 									"sid": 814403178270679,
@@ -1078,7 +1087,23 @@
 													"sid": 547476735990664
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "broadcast-message",
+													"objectClass": "Multiplayer",
+													"sid": 109972213799320,
+													"parameters": {
+														"from-id": "\"\"",
+														"tag": "\"newPiece\"",
+														"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
+														"mode": "reliable-ordered"
+													}
+												},
+												{
+													"callFunction": "playTurn",
+													"sid": 897443194013370
+												}
+											],
 											"sid": 928495927883827
 										}
 									]

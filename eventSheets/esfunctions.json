@@ -1298,6 +1298,14 @@
 							"parameters": {
 								"angle": "posAngle"
 							}
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 877807226648069,
+							"parameters": [
+								"\"\"",
+								"\"Peça criada\""
+							]
 						}
 					],
 					"sid": 729971090022952
@@ -1633,7 +1641,6 @@
 						{
 							"callFunction": "CallLog",
 							"sid": 774441311699822,
-							"disabled": true,
 							"parameters": [
 								"\"warn\"",
 								"listOrderPlayers & \" | Index: \" & Index"
@@ -1686,11 +1693,10 @@
 							"actions": [
 								{
 									"callFunction": "CallLog",
-									"sid": 810377595927689,
-									"disabled": true,
+									"sid": 294664340765001,
 									"parameters": [
 										"\"\"",
-										"\"Entrou como peer: \" & int(tokenat(listOrderPlayers, Index, \";\"))\n& newline &\n\"Lista: \" & listOrderPlayers"
+										"\"Próximo da lista:  \" & int(tokenat(listOrderPlayers, Index, \";\"))\n& newline &\n\"Lista completa: \" & listOrderPlayers"
 									]
 								}
 							],
@@ -1722,11 +1728,10 @@
 										},
 										{
 											"callFunction": "CallLog",
-											"sid": 484571414721126,
-											"disabled": true,
+											"sid": 525281358140943,
 											"parameters": [
 												"\"\"",
-												"\"Bom dia filha da puta: \" & playerNick.Text"
+												"\"O Player de agora é:  \" & playerNick.Text"
 											]
 										}
 									],
@@ -1741,16 +1746,6 @@
 									"id": "else",
 									"objectClass": "System",
 									"sid": 898464145871629
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 982341809977168,
-									"parameters": {
-										"first-value": "tokenat(listOrderPlayers, Index, \";\")",
-										"comparison": 0,
-										"second-value": "\"37\""
-									}
 								}
 							],
 							"actions": [
@@ -1761,7 +1756,6 @@
 								{
 									"callFunction": "CallLog",
 									"sid": 472942758441847,
-									"disabled": true,
 									"parameters": [
 										"\"\"",
 										"\"Bom dia, aqui quem fala é o HOST\""
