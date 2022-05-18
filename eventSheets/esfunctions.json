@@ -1373,6 +1373,14 @@
 								"message": "\"Esperando primeira peça\"",
 								"mode": "reliable-ordered"
 							}
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 834761680465180,
+							"parameters": [
+								"\"warn\"",
+								"listOrderPlayers"
+							]
 						}
 					],
 					"sid": 978603672876337,
@@ -1381,9 +1389,41 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 289998049281096,
+									"parameters": {
+										"first-value": "listOrderPlayers",
+										"comparison": 0,
+										"second-value": "\"37\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 365335801326248,
+									"parameters": {
+										"variable": "listOrderPlayers",
+										"value": "\"37;40;39;38\""
+									}
+								}
+							],
+							"sid": 551575244143594
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 335453904489252
+								},
+								{
 									"id": "pick-by-comparison",
 									"objectClass": "System",
-									"sid": 905979230965181,
+									"sid": 981222461155053,
 									"parameters": {
 										"object": "playerNick",
 										"expression": "playerNick.belongToPlayer",
@@ -1392,18 +1432,8 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"callFunction": "CallLog",
-									"sid": 949529066501992,
-									"disabled": true,
-									"parameters": [
-										"\"warn\"",
-										"listOrderPlayers"
-									]
-								}
-							],
-							"sid": 233984799088974,
+							"actions": [],
+							"sid": 900477270331396,
 							"children": [
 								{
 									"eventType": "block",
@@ -1411,7 +1441,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 704284234357556,
+											"sid": 484997812949265,
 											"parameters": {
 												"first-value": "playerNick.UID",
 												"comparison": 0,
@@ -1423,14 +1453,14 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 285442294763015,
+											"sid": 616555181584633,
 											"parameters": {
 												"variable": "listOrderPlayers",
 												"value": "\"38;37;40;39\""
 											}
 										}
 									],
-									"sid": 568207608930942
+									"sid": 188318799502894
 								},
 								{
 									"eventType": "block",
@@ -1438,7 +1468,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 524314859406580,
+											"sid": 462050511658023,
 											"parameters": {
 												"first-value": "playerNick.UID",
 												"comparison": 0,
@@ -1450,14 +1480,14 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 544520149717063,
+											"sid": 489508734626386,
 											"parameters": {
 												"variable": "listOrderPlayers",
 												"value": "\"39;38;37;40\""
 											}
 										}
 									],
-									"sid": 614965337603646
+									"sid": 831505542047997
 								},
 								{
 									"eventType": "block",
@@ -1465,7 +1495,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 818188554061854,
+											"sid": 250896747317536,
 											"parameters": {
 												"first-value": "playerNick.UID",
 												"comparison": 0,
@@ -1477,64 +1507,14 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 712925783184052,
+											"sid": 960761704358152,
 											"parameters": {
 												"variable": "listOrderPlayers",
 												"value": "\"40;39;38;37\""
 											}
 										}
 									],
-									"sid": 765228771806156
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 774793674910456,
-											"parameters": {
-												"first-value": "playerNick.UID",
-												"comparison": 0,
-												"second-value": "40"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 873091984388537,
-											"parameters": {
-												"first-value": "playerNick.UID",
-												"comparison": 0,
-												"second-value": "39"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 924229629511300,
-											"parameters": {
-												"first-value": "playerNick.UID",
-												"comparison": 0,
-												"second-value": "38"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 240216152303294,
-											"parameters": {
-												"variable": "listOrderPlayers",
-												"value": "\"37;40;39;38\""
-											}
-										}
-									],
-									"sid": 379048507496191
+									"sid": 792427343075123
 								}
 							]
 						},
