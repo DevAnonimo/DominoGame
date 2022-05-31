@@ -1066,6 +1066,10 @@
 					"sid": 729971090022952
 				},
 				{
+					"eventType": "comment",
+					"text": "Verificar se deve pular a vez ou deve jogar"
+				},
+				{
 					"functionName": "verifyPieces",
 					"functionDescription": "",
 					"functionCategory": "Pieces",
@@ -1082,7 +1086,16 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 594790609463898,
+							"parameters": [
+								"\"sussess\"",
+								"frame"
+							]
+						}
+					],
 					"sid": 817693908927392,
 					"children": [
 						{
@@ -1201,12 +1214,29 @@
 									],
 									"actions": [
 										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 435992298043795
+										},
+										{
 											"callFunction": "CallLog",
-											"sid": 323055421511146,
+											"sid": 386999672153147,
 											"parameters": [
 												"\"success\"",
-												"Multiplayer.Message"
+												"\"Você tem a peça\""
 											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 817328873022471,
+											"parameters": {
+												"seconds": "5"
+											}
+										},
+										{
+											"callFunction": "Play",
+											"sid": 661109084228070
 										}
 									],
 									"sid": 662234021472210
@@ -1605,11 +1635,11 @@
 										{
 											"id": "send-message",
 											"objectClass": "Multiplayer",
-											"sid": 307836602653494,
+											"sid": 133334156282408,
 											"parameters": {
 												"peer-id": "playerNick.belongToPlayer",
 												"tag": "\"Play\"",
-												"message": "\"sua vez\"",
+												"message": "lastLeft & \";\" & lastRight & \";\"",
 												"mode": "reliable-ordered"
 											}
 										},
@@ -2048,7 +2078,12 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Simular rodada"
+						}
+					],
 					"sid": 653295212713691,
 					"children": [
 						{
@@ -2189,6 +2224,33 @@
 						}
 					],
 					"sid": 585248508038094
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 742654478270942,
+							"parameters": {
+								"key": 86
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Chamar verificação"
+						},
+						{
+							"callFunction": "verifyPieces",
+							"sid": 757995087967241,
+							"parameters": [
+								"\"3\""
+							]
+						}
+					],
+					"sid": 686312067420228
 				},
 				{
 					"eventType": "block",

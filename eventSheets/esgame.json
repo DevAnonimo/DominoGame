@@ -23,6 +23,36 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "lastLeft",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "Última peça jogada na esquerda",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 412233372433065
+		},
+		{
+			"eventType": "variable",
+			"name": "lastRight",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "Última peça jogada na direita",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 288430495228173
+		},
+		{
+			"eventType": "variable",
+			"name": "lastPiece",
+			"type": "number",
+			"initialValue": "27",
+			"comment": "Última peça jogada",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 122958790114212
+		},
+		{
+			"eventType": "variable",
 			"name": "listOrderPlayers",
 			"type": "string",
 			"initialValue": "",
@@ -364,34 +394,70 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 505088219912776,
+					"children": [
 						{
-							"id": "broadcast-message",
-							"objectClass": "Multiplayer",
-							"sid": 229226123815446,
-							"parameters": {
-								"from-id": "Multiplayer.FromID",
-								"tag": "\"newPiece\"",
-								"message": "Multiplayer.Message",
-								"mode": "reliable-ordered"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 728859489036528,
+									"parameters": {
+										"first-value": "Multiplayer.Message",
+										"comparison": 0,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "playTurn",
+									"sid": 844256247367209
+								}
+							],
+							"sid": 105306404990444
 						},
 						{
-							"callFunction": "createPiece",
-							"sid": 868925645406040,
-							"parameters": [
-								"int(tokenat(Multiplayer.Message, 0, \";\"))",
-								"int(tokenat(Multiplayer.Message, 1, \";\"))",
-								"int(tokenat(Multiplayer.Message, 2, \";\"))",
-								"int(tokenat(Multiplayer.Message, 3, \";\"))"
-							]
-						},
-						{
-							"callFunction": "playTurn",
-							"sid": 473505526724765
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 239580233141011
+								}
+							],
+							"actions": [
+								{
+									"id": "broadcast-message",
+									"objectClass": "Multiplayer",
+									"sid": 752868417122892,
+									"parameters": {
+										"from-id": "Multiplayer.FromID",
+										"tag": "\"newPiece\"",
+										"message": "Multiplayer.Message",
+										"mode": "reliable-ordered"
+									}
+								},
+								{
+									"callFunction": "createPiece",
+									"sid": 111103043630467,
+									"parameters": [
+										"int(tokenat(Multiplayer.Message, 0, \";\"))",
+										"int(tokenat(Multiplayer.Message, 1, \";\"))",
+										"int(tokenat(Multiplayer.Message, 2, \";\"))",
+										"int(tokenat(Multiplayer.Message, 3, \";\"))"
+									]
+								},
+								{
+									"callFunction": "playTurn",
+									"sid": 366905075587017
+								}
+							],
+							"sid": 269647139398249
 						}
-					],
-					"sid": 505088219912776
+					]
 				}
 			],
 			"sid": 980703102073303
@@ -552,8 +618,24 @@
 					],
 					"actions": [
 						{
+							"callFunction": "verifyPieces",
+							"sid": 388543957915052,
+							"parameters": [
+								"Multiplayer.Message"
+							]
+						},
+						{
 							"callFunction": "Play",
-							"sid": 269559449471867
+							"sid": 591147080936360,
+							"disabled": true
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 359588859747989,
+							"parameters": [
+								"\"\"",
+								"Multiplayer.Message"
+							]
 						}
 					],
 					"sid": 187345268352247
@@ -668,7 +750,7 @@
 						},
 						{
 							"eventType": "comment",
-							"text": "Criar verificação da peça"
+							"text": "Criar verificação da peça durante a jogada"
 						},
 						{
 							"eventType": "block",
