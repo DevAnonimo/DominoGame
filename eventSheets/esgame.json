@@ -25,7 +25,7 @@
 			"eventType": "variable",
 			"name": "lastLeft",
 			"type": "number",
-			"initialValue": "6",
+			"initialValue": "27",
 			"comment": "Última peça jogada na esquerda",
 			"isStatic": false,
 			"isConstant": false,
@@ -35,7 +35,7 @@
 			"eventType": "variable",
 			"name": "lastRight",
 			"type": "number",
-			"initialValue": "6",
+			"initialValue": "27",
 			"comment": "Última peça jogada na direita",
 			"isStatic": false,
 			"isConstant": false,
@@ -413,6 +413,14 @@
 							],
 							"actions": [
 								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 690508447896089,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
 									"callFunction": "playTurn",
 									"sid": 844256247367209
 								}
@@ -428,34 +436,99 @@
 									"sid": 239580233141011
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 269647139398249,
+							"children": [
 								{
-									"id": "broadcast-message",
-									"objectClass": "Multiplayer",
-									"sid": 752868417122892,
-									"parameters": {
-										"from-id": "Multiplayer.FromID",
-										"tag": "\"newPiece\"",
-										"message": "Multiplayer.Message",
-										"mode": "reliable-ordered"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 643686526568886,
+											"parameters": {
+												"first-value": "int(tokenat(Multiplayer.Message, 1, \";\"))",
+												"comparison": 4,
+												"second-value": "954"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 400295624680122,
+											"parameters": {
+												"variable": "lastRight",
+												"value": "int(tokenat(Multiplayer.Message, 0, \";\"))"
+											}
+										}
+									],
+									"sid": 861095237686706
 								},
 								{
-									"callFunction": "createPiece",
-									"sid": 111103043630467,
-									"parameters": [
-										"int(tokenat(Multiplayer.Message, 0, \";\"))",
-										"int(tokenat(Multiplayer.Message, 1, \";\"))",
-										"int(tokenat(Multiplayer.Message, 2, \";\"))",
-										"int(tokenat(Multiplayer.Message, 3, \";\"))"
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 312594393259378
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 214367941542813,
+											"parameters": {
+												"variable": "lastLeft",
+												"value": "int(tokenat(Multiplayer.Message, 0, \";\"))"
+											}
+										}
+									],
+									"sid": 536791796695226
 								},
 								{
-									"callFunction": "playTurn",
-									"sid": 366905075587017
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "broadcast-message",
+											"objectClass": "Multiplayer",
+											"sid": 785862802604778,
+											"parameters": {
+												"from-id": "Multiplayer.FromID",
+												"tag": "\"newPiece\"",
+												"message": "Multiplayer.Message",
+												"mode": "reliable-ordered"
+											}
+										},
+										{
+											"callFunction": "createPiece",
+											"sid": 944979308499287,
+											"parameters": [
+												"int(tokenat(Multiplayer.Message, 0, \";\"))",
+												"int(tokenat(Multiplayer.Message, 1, \";\"))",
+												"int(tokenat(Multiplayer.Message, 2, \";\"))",
+												"int(tokenat(Multiplayer.Message, 3, \";\"))"
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 774258951576275,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"callFunction": "playTurn",
+											"sid": 860534018349178
+										}
+									],
+									"sid": 633702184092282
 								}
-							],
-							"sid": 269647139398249
+							]
 						}
 					]
 				}
@@ -951,6 +1024,7 @@
 											"id": "set-position",
 											"objectClass": "myPieces",
 											"sid": 415822490964753,
+											"disabled": true,
 											"parameters": {
 												"x": "lerp(myPieces.X, pieceCollider.X, (dt * 7))",
 												"y": "lerp(myPieces.Y, pieceCollider.Y, (dt * 7))"
@@ -1129,7 +1203,8 @@
 										{
 											"id": "destroy",
 											"objectClass": "pieceCollider",
-											"sid": 595576616652899
+											"sid": 595576616652899,
+											"disabled": true
 										},
 										{
 											"id": "set-boolean-eventvar",
@@ -1185,24 +1260,89 @@
 													"sid": 547476735990664
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 928495927883827,
+											"children": [
 												{
-													"id": "broadcast-message",
-													"objectClass": "Multiplayer",
-													"sid": 109972213799320,
-													"parameters": {
-														"from-id": "\"\"",
-														"tag": "\"newPiece\"",
-														"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
-														"mode": "reliable-ordered"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 573257949792393,
+															"parameters": {
+																"first-value": "myPieces.X",
+																"comparison": 4,
+																"second-value": "954"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 392827668585730,
+															"parameters": {
+																"variable": "lastRight",
+																"value": "myPieces.AnimationFrame"
+															}
+														}
+													],
+													"sid": 707002833701496
 												},
 												{
-													"callFunction": "playTurn",
-													"sid": 897443194013370
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 905665977934660
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 413511375782801,
+															"parameters": {
+																"variable": "lastLeft",
+																"value": "myPieces.AnimationFrame"
+															}
+														}
+													],
+													"sid": 322760430757142
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "broadcast-message",
+															"objectClass": "Multiplayer",
+															"sid": 109972213799320,
+															"parameters": {
+																"from-id": "\"\"",
+																"tag": "\"newPiece\"",
+																"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
+																"mode": "reliable-ordered"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 598674476388409,
+															"parameters": {
+																"seconds": "1"
+															}
+														},
+														{
+															"callFunction": "playTurn",
+															"sid": 897443194013370
+														}
+													],
+													"sid": 616870546106147
 												}
-											],
-											"sid": 928495927883827
+											]
 										}
 									]
 								}

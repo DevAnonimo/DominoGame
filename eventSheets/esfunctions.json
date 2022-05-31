@@ -1099,6 +1099,16 @@
 					"sid": 817693908927392,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "count",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 602660805035162
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -1110,7 +1120,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 890003065099333,
+									"parameters": {
+										"variable": "count",
+										"value": "1"
+									}
+								}
+							],
 							"sid": 304959911193512,
 							"children": [
 								{
@@ -1119,22 +1139,88 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 882370972878284,
+											"sid": 106723743163634,
 											"parameters": {
 												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
 												"comparison": 0,
-												"second-value": "JSON.Get(frame & \".1\")"
+												"second-value": "JSON.Get(tokenat(frame, 0, \";\") & \".0\")"
 											},
 											"isInverted": true
 										},
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 102069892384245,
+											"sid": 437127573141915,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
+												"comparison": 0,
+												"second-value": "JSON.Get(tokenat(frame, 0, \";\") & \".1\")"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 239910186037269,
 											"parameters": {
 												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
 												"comparison": 0,
-												"second-value": "JSON.Get(frame & \".1\")"
+												"second-value": "JSON.Get(tokenat(frame, 0, \";\") & \".0\")"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 242036304693478,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
+												"comparison": 0,
+												"second-value": "JSON.Get(tokenat(frame, 0, \";\") & \".1\")"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 977673960799199,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
+												"comparison": 0,
+												"second-value": "JSON.Get(tokenat(frame, 1, \";\") & \".0\")"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 762001391009768,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
+												"comparison": 0,
+												"second-value": "JSON.Get(tokenat(frame, 1, \";\") & \".1\")"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 225891684000251,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
+												"comparison": 0,
+												"second-value": "JSON.Get(tokenat(frame, 1, \";\") & \".0\")"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 996067475058142,
+											"parameters": {
+												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
+												"comparison": 0,
+												"second-value": "JSON.Get(tokenat(frame, 1, \";\") & \".1\")"
 											},
 											"isInverted": true
 										}
@@ -1152,6 +1238,7 @@
 										{
 											"callFunction": "CallLog",
 											"sid": 348014142325596,
+											"disabled": true,
 											"parameters": [
 												"\"sussess\"",
 												"\"Você passou a vez\""
@@ -1164,29 +1251,33 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "is-host",
-													"objectClass": "Multiplayer",
-													"sid": 679791925405181
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "playTurn",
-													"sid": 136413108361390
-												}
-											],
-											"sid": 359406045618598
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
+													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 872385847653206
+													"sid": 373186517106144,
+													"parameters": {
+														"first-value": "count",
+														"comparison": 0,
+														"second-value": "myPieces.Count"
+													}
 												}
 											],
 											"actions": [
+												{
+													"callFunction": "CallLog",
+													"sid": 689676512770964,
+													"parameters": [
+														"\"warn\"",
+														"\"Você passou a vez\""
+													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 897989552723225,
+													"parameters": {
+														"seconds": "3"
+													}
+												},
 												{
 													"id": "send-message",
 													"objectClass": "Multiplayer",
@@ -2219,8 +2310,7 @@
 						},
 						{
 							"callFunction": "Play",
-							"sid": 395438986484857,
-							"disabled": true
+							"sid": 395438986484857
 						}
 					],
 					"sid": 585248508038094
@@ -2250,7 +2340,8 @@
 							]
 						}
 					],
-					"sid": 686312067420228
+					"sid": 686312067420228,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
