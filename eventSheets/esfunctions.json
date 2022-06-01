@@ -980,7 +980,7 @@
 				{
 					"functionName": "createPiece",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Pieces",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -1063,7 +1063,187 @@
 							]
 						}
 					],
-					"sid": 729971090022952
+					"sid": 729971090022952,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Detectando se a peça está na esquerda ou direita. Então destruo os colliders correspondentes ao lado da nova peça"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Pieces",
+									"sid": 643777540858608,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "954"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 449189871410638,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 493432088578192,
+											"parameters": {
+												"object": "pieceCollider"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 467381388691987,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "pieceCollider",
+													"sid": 284832131702917,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "954"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "pieceCollider",
+													"sid": 419349495529925
+												}
+											],
+											"sid": 212458069389615
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 171353039469893
+								}
+							],
+							"actions": [],
+							"sid": 145254572282439,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 281922551663539,
+											"parameters": {
+												"object": "pieceCollider"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 931581204389044,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "pieceCollider",
+													"sid": 199790744518118,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "954"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "pieceCollider",
+													"sid": 885068006998313
+												}
+											],
+											"sid": 537221982298407
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Primeira peça"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 638308936070982,
+									"parameters": {
+										"first-value": "Pieces.Angle",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 635165930826251,
+									"parameters": {
+										"object-to-create": "pieceCollider",
+										"layer": "\"Colliders\"",
+										"x": "Pieces.ImagePointX(\"left\")-79",
+										"y": "Pieces.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "rotate-clockwise",
+									"objectClass": "pieceCollider",
+									"sid": 855448290908262,
+									"parameters": {
+										"degrees": "90"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 481558024464381,
+									"parameters": {
+										"object-to-create": "pieceCollider",
+										"layer": "\"Colliders\"",
+										"x": "Pieces.ImagePointX(\"right\")+78",
+										"y": "Pieces.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "rotate-counter-clockwise",
+									"objectClass": "pieceCollider",
+									"sid": 851862878591555,
+									"parameters": {
+										"degrees": "90"
+									}
+								}
+							],
+							"sid": 470755933913095
+						}
+					]
 				},
 				{
 					"eventType": "comment",
@@ -2294,10 +2474,9 @@
 						},
 						{
 							"callFunction": "recievePieces",
-							"sid": 544188808068159,
-							"disabled": true,
+							"sid": 531362269901582,
 							"parameters": [
-								"\"27;0;1;2;3;4;5;\""
+								"\"27;21;1;2;3;4;5;\""
 							]
 						},
 						{

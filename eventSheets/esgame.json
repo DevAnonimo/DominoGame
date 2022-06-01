@@ -288,7 +288,8 @@
 							}
 						}
 					],
-					"sid": 413776618437760
+					"sid": 413776618437760,
+					"disabled": true
 				}
 			],
 			"sid": 260201199567679
@@ -1024,10 +1025,17 @@
 											"id": "set-position",
 											"objectClass": "myPieces",
 											"sid": 415822490964753,
-											"disabled": true,
 											"parameters": {
 												"x": "lerp(myPieces.X, pieceCollider.X, (dt * 7))",
 												"y": "lerp(myPieces.Y, pieceCollider.Y, (dt * 7))"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "myPieces",
+											"sid": 600702765255254,
+											"parameters": {
+												"angle": "lerp(myPieces.Angle, pieceCollider.Angle, (dt * 7))"
 											}
 										}
 									],
@@ -1053,6 +1061,14 @@
 									"parameters": {
 										"width": "lerp(myPieces.Width, 178, (dt*5))",
 										"height": "lerp(myPieces.Height, 312, (dt*5))"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "myPieces",
+									"sid": 939408671754079,
+									"parameters": {
+										"angle": "lerp(myPieces.Angle, 0, (dt * 7))"
 									}
 								},
 								{
@@ -1161,6 +1177,7 @@
 											"id": "create-object",
 											"objectClass": "System",
 											"sid": 988258076727030,
+											"disabled": true,
 											"parameters": {
 												"object-to-create": "Pieces",
 												"layer": "\"HUD\"",
@@ -1174,6 +1191,7 @@
 											"id": "set-animation",
 											"objectClass": "Pieces",
 											"sid": 753581111453258,
+											"disabled": true,
 											"parameters": {
 												"animation": "\"Front\"",
 												"from": "beginning"
@@ -1183,6 +1201,7 @@
 											"id": "set-animation-frame",
 											"objectClass": "Pieces",
 											"sid": 878325818364188,
+											"disabled": true,
 											"parameters": {
 												"frame-number": "myPieces.AnimationFrame"
 											}
@@ -1191,6 +1210,7 @@
 											"id": "set-angle",
 											"objectClass": "Pieces",
 											"sid": 468831518226391,
+											"disabled": true,
 											"parameters": {
 												"angle": "pieceCollider.Angle"
 											}
@@ -1203,8 +1223,7 @@
 										{
 											"id": "destroy",
 											"objectClass": "pieceCollider",
-											"sid": 595576616652899,
-											"disabled": true
+											"sid": 595576616652899
 										},
 										{
 											"id": "set-boolean-eventvar",
@@ -1221,6 +1240,16 @@
 											"parameters": [
 												"\"log\"",
 												"\"0\""
+											]
+										},
+										{
+											"callFunction": "createPiece",
+											"sid": 926047700313456,
+											"parameters": [
+												"myPieces.AnimationFrame",
+												"myPieces.X",
+												"myPieces.Y",
+												"myPieces.Angle"
 											]
 										}
 									],
