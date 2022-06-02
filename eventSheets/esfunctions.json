@@ -1195,6 +1195,16 @@
 										"comparison": 0,
 										"second-value": "0"
 									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 604814094492928,
+									"parameters": {
+										"first-value": "Pieces.AnimationFrame",
+										"comparison": 0,
+										"second-value": "27"
+									}
 								}
 							],
 							"actions": [
@@ -1235,13 +1245,188 @@
 								{
 									"id": "rotate-counter-clockwise",
 									"objectClass": "pieceCollider",
-									"sid": 851862878591555,
+									"sid": 239102589758408,
 									"parameters": {
 										"degrees": "90"
 									}
 								}
 							],
 							"sid": 470755933913095
+						},
+						{
+							"eventType": "comment",
+							"text": "Vertical na direita"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 845901027683363,
+									"parameters": {
+										"first-value": "Pieces.Angle",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Pieces",
+									"sid": 447226228263060,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "954"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 943185641045785,
+									"parameters": {
+										"object-to-create": "pieceCollider",
+										"layer": "\"Colliders\"",
+										"x": "Pieces.ImagePointX(\"right\")+78",
+										"y": "Pieces.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "rotate-counter-clockwise",
+									"objectClass": "pieceCollider",
+									"sid": 101954272115004,
+									"parameters": {
+										"degrees": "90"
+									}
+								}
+							],
+							"sid": 896439273328870
+						},
+						{
+							"eventType": "comment",
+							"text": "Vertical na esquerda"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 227694766963469,
+									"parameters": {
+										"first-value": "Pieces.Angle",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Pieces",
+									"sid": 109010038545720,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "954"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 827479725473087,
+									"parameters": {
+										"object-to-create": "pieceCollider",
+										"layer": "\"Colliders\"",
+										"x": "Pieces.ImagePointX(\"right\")+78",
+										"y": "Pieces.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "rotate-counter-clockwise",
+									"objectClass": "pieceCollider",
+									"sid": 820512148185184,
+									"parameters": {
+										"degrees": "90"
+									}
+								}
+							],
+							"sid": 122673121326387
+						},
+						{
+							"eventType": "comment",
+							"text": "Horizontal na direita"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 658553330343550,
+									"parameters": {
+										"first-value": "Pieces.Angle",
+										"comparison": 5,
+										"second-value": "269"
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Pieces",
+									"sid": 436286532960386,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "954"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 216495005527482,
+									"parameters": {
+										"object-to-create": "pieceCollider",
+										"layer": "\"Colliders\"",
+										"x": "Pieces.X + 38",
+										"y": "Pieces.Y - 123",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 665985878289257,
+									"disabled": true,
+									"parameters": {
+										"object-to-create": "pieceCollider",
+										"layer": "\"Colliders\"",
+										"x": "Pieces.ImagePointX(\"right\")+78",
+										"y": "Pieces.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "rotate-counter-clockwise",
+									"objectClass": "pieceCollider",
+									"sid": 615435193215864,
+									"disabled": true,
+									"parameters": {
+										"degrees": "90"
+									}
+								}
+							],
+							"sid": 218194664149367
+						},
+						{
+							"eventType": "comment",
+							"text": "Horizontal na esquerda"
 						}
 					]
 				},

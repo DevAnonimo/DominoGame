@@ -1236,10 +1236,10 @@
 										},
 										{
 											"callFunction": "CallLog",
-											"sid": 448217441110527,
+											"sid": 762864921401141,
 											"parameters": [
-												"\"log\"",
-												"\"0\""
+												"\"\"",
+												"str(myPieces.Angle)"
 											]
 										},
 										{
