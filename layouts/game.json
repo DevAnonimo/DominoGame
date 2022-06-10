@@ -199,7 +199,8 @@
 									"uid": 45,
 									"instanceVariables": {
 										"primary": 6,
-										"secondary": 6
+										"secondary": 6,
+										"connection": 6
 									},
 									"behaviors": {
 										"Tween": {

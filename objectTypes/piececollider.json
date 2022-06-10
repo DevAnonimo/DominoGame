@@ -15,6 +15,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 743575382886712
+		},
+		{
+			"name": "connection",
+			"type": "number",
+			"desc": "",
+			"sid": 943954182512967
 		}
 	],
 	"behaviorTypes": [
