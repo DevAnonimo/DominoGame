@@ -1531,10 +1531,10 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "pieceCollider",
-											"sid": 821477377328491,
+											"sid": 198139094121472,
 											"parameters": {
 												"instance-variable": "connection",
-												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\")"
+												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".1\")"
 											}
 										},
 										{
@@ -1552,11 +1552,11 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 270295220104172,
+											"sid": 386385716010930,
 											"parameters": {
 												"object-to-create": "pieceCollider",
 												"layer": "\"Colliders\"",
-												"x": "Pieces.ImagePointX(\"bottom\")+78",
+												"x": "Pieces.ImagePointX(\"top\")+78",
 												"y": "Pieces.Y",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -1565,10 +1565,10 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "pieceCollider",
-											"sid": 721161921228931,
+											"sid": 618232048347124,
 											"parameters": {
 												"instance-variable": "connection",
-												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\")"
+												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".1\")"
 											}
 										},
 										{
@@ -1599,10 +1599,10 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "pieceCollider",
-											"sid": 343303908475213,
+											"sid": 718823738607492,
 											"parameters": {
 												"instance-variable": "connection",
-												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\")"
+												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".1\")"
 											}
 										}
 									],
