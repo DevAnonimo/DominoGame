@@ -43,10 +43,10 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "lastPiece",
-			"type": "number",
-			"initialValue": "27",
-			"comment": "Última peça jogada",
+			"name": "lastPiecePos",
+			"type": "string",
+			"initialValue": "",
+			"comment": "Posição da última peça jogada",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 122958790114212

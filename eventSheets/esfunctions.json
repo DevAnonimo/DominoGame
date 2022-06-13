@@ -1623,16 +1623,6 @@
 									"sid": 695487653574205
 								},
 								{
-									"id": "is-between-values",
-									"objectClass": "System",
-									"sid": 310461614614450,
-									"parameters": {
-										"value": "int(Pieces.Angle)",
-										"lower-bound": "356",
-										"upper-bound": "6"
-									}
-								},
-								{
 									"id": "compare-x",
 									"objectClass": "Pieces",
 									"sid": 761862221099668,
@@ -1655,111 +1645,340 @@
 								}
 							],
 							"sid": 234663536449496,
-							"disabled": true,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": ""
+								},
+								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"conditions": [
 										{
-											"type": "comment",
-											"text": "Cima"
-										},
-										{
-											"id": "create-object",
+											"id": "is-between-values",
 											"objectClass": "System",
-											"sid": 631904596566325,
+											"sid": 436956114895054,
 											"parameters": {
-												"object-to-create": "pieceCollider",
-												"layer": "\"Colliders\"",
-												"x": "Pieces.X + 38",
-												"y": "Pieces.Y - 123",
-												"create-hierarchy": false,
-												"template-name": "\"\""
+												"value": "int(Pieces.Angle)",
+												"lower-bound": "356",
+												"upper-bound": "359.99"
 											}
 										},
 										{
-											"id": "set-instvar-value",
-											"objectClass": "pieceCollider",
-											"sid": 967130184254706,
-											"parameters": {
-												"instance-variable": "connection",
-												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\")"
-											}
-										},
-										{
-											"id": "rotate-counter-clockwise",
-											"objectClass": "pieceCollider",
-											"sid": 859115279319092,
-											"parameters": {
-												"degrees": "180"
-											}
-										},
-										{
-											"type": "comment",
-											"text": "Meio"
-										},
-										{
-											"id": "create-object",
+											"id": "is-between-values",
 											"objectClass": "System",
-											"sid": 711076369872976,
+											"sid": 259756783997667,
 											"parameters": {
-												"object-to-create": "pieceCollider",
-												"layer": "\"Colliders\"",
-												"x": "Pieces.ImagePointX(\"bottom\")+78",
-												"y": "Pieces.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "pieceCollider",
-											"sid": 523042973717765,
-											"parameters": {
-												"instance-variable": "connection",
-												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\")"
-											}
-										},
-										{
-											"id": "rotate-counter-clockwise",
-											"objectClass": "pieceCollider",
-											"sid": 741057013584359,
-											"parameters": {
-												"degrees": "90"
-											}
-										},
-										{
-											"type": "comment",
-											"text": "Baixo"
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 212550076545087,
-											"parameters": {
-												"object-to-create": "pieceCollider",
-												"layer": "\"Colliders\"",
-												"x": "Pieces.X + 38",
-												"y": "Pieces.Y + 123",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "pieceCollider",
-											"sid": 380739072424385,
-											"parameters": {
-												"instance-variable": "connection",
-												"value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\")"
+												"value": "int(Pieces.Angle)",
+												"lower-bound": "0",
+												"upper-bound": "9"
 											}
 										}
 									],
+									"actions": [],
 									"sid": 830500887071913,
-									"disabled": true
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 616334721159478,
+													"disabled": true,
+													"parameters": {
+														"first-value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\") / JSON.Get(str(Pieces.AnimationFrame) & \".1\")",
+														"comparison": 0,
+														"second-value": "1"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-number-nan",
+													"objectClass": "System",
+													"sid": 634584739443201,
+													"disabled": true,
+													"parameters": {
+														"number": "JSON.Get(str(Pieces.AnimationFrame) & \".0\") / JSON.Get(str(Pieces.AnimationFrame) & \".1\")"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 704545193717433,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 820595409331505,
+													"parameters": {
+														"first-value": "posY",
+														"comparison": 2,
+														"second-value": "tokenat(lastPiecePos, 1, \";\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "direita"
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 686497551216086,
+													"parameters": {
+														"object-to-create": "pieceCollider",
+														"layer": "\"Colliders\"",
+														"x": "Pieces.ImagePointX(\"right\")+78",
+														"y": "Pieces.Y+40",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "pieceCollider",
+													"sid": 241538739429654,
+													"parameters": {
+														"instance-variable": "connection",
+														"value": "JSON.Get(str(Pieces.AnimationFrame) & \".1\")"
+													}
+												},
+												{
+													"id": "rotate-counter-clockwise",
+													"objectClass": "pieceCollider",
+													"sid": 180063874558533,
+													"parameters": {
+														"degrees": "90"
+													}
+												}
+											],
+											"sid": 620933407186676
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 586960145064755
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "direita"
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 293991857911779,
+													"parameters": {
+														"object-to-create": "pieceCollider",
+														"layer": "\"Colliders\"",
+														"x": "Pieces.ImagePointX(\"right\")+78",
+														"y": "Pieces.Y-40",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "pieceCollider",
+													"sid": 427391159397331,
+													"parameters": {
+														"instance-variable": "connection",
+														"value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\")"
+													}
+												},
+												{
+													"id": "rotate-counter-clockwise",
+													"objectClass": "pieceCollider",
+													"sid": 998507729541528,
+													"parameters": {
+														"degrees": "90"
+													}
+												}
+											],
+											"sid": 603795681382259
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 988094538376449
+										},
+										{
+											"id": "is-between-values",
+											"objectClass": "System",
+											"sid": 917678000814700,
+											"parameters": {
+												"value": "int(Pieces.Angle)",
+												"lower-bound": "172",
+												"upper-bound": "190"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 776394935060233,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 450834976482382,
+													"disabled": true,
+													"parameters": {
+														"first-value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\") / JSON.Get(str(Pieces.AnimationFrame) & \".1\")",
+														"comparison": 0,
+														"second-value": "1"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-number-nan",
+													"objectClass": "System",
+													"sid": 165276009343506,
+													"disabled": true,
+													"parameters": {
+														"number": "JSON.Get(str(Pieces.AnimationFrame) & \".0\") / JSON.Get(str(Pieces.AnimationFrame) & \".1\")"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 572435054186664,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 222764941690874,
+													"parameters": {
+														"first-value": "posY",
+														"comparison": 2,
+														"second-value": "tokenat(lastPiecePos, 1, \";\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "direita"
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 718618226739509,
+													"parameters": {
+														"object-to-create": "pieceCollider",
+														"layer": "\"Colliders\"",
+														"x": "Pieces.ImagePointX(\"left\")+78",
+														"y": "Pieces.Y-40",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "pieceCollider",
+													"sid": 296241713416190,
+													"parameters": {
+														"instance-variable": "connection",
+														"value": "JSON.Get(str(Pieces.AnimationFrame) & \".0\")"
+													}
+												},
+												{
+													"id": "rotate-counter-clockwise",
+													"objectClass": "pieceCollider",
+													"sid": 866699184872040,
+													"parameters": {
+														"degrees": "90"
+													}
+												}
+											],
+											"sid": 505436567884445
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 527767689178371
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "direita"
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 811320376309446,
+													"parameters": {
+														"object-to-create": "pieceCollider",
+														"layer": "\"Colliders\"",
+														"x": "Pieces.ImagePointX(\"left\")+78",
+														"y": "Pieces.Y+40",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "pieceCollider",
+													"sid": 223439910635797,
+													"parameters": {
+														"instance-variable": "connection",
+														"value": "JSON.Get(str(Pieces.AnimationFrame) & \".1\")"
+													}
+												},
+												{
+													"id": "rotate-counter-clockwise",
+													"objectClass": "pieceCollider",
+													"sid": 258326210871553,
+													"parameters": {
+														"degrees": "90"
+													}
+												}
+											],
+											"sid": 475585070955787
+										}
+									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 535397201398921,
+									"parameters": {
+										"variable": "lastPiecePos",
+										"value": "str(posX) &  \";\" & str(posY)"
+									}
+								}
+							],
+							"sid": 346173560742613
 						}
 					]
 				},
