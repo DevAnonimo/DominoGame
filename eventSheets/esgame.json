@@ -913,6 +913,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 825120131524868,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\".1\""
@@ -993,6 +994,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 881557591942129,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\".0\""
@@ -1228,7 +1230,17 @@
 									"behaviorType": "DragDrop"
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "pieceCollider",
+									"sid": 536677664554215,
+									"disabled": true,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
 							"sid": 603601661077733,
 							"children": [
 								{
