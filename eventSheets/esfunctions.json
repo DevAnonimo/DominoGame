@@ -2060,17 +2060,26 @@
 									"conditions": [],
 									"actions": [
 										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 742013687964930,
+											"parameters": {
+												"type": "log",
+												"message": "\"Horizontal na opção 1,0\""
+											}
+										},
+										{
 											"type": "comment",
 											"text": "Cima"
 										},
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 191301264693718,
+											"sid": 689293191802366,
 											"parameters": {
 												"object-to-create": "pieceCollider",
 												"layer": "\"Colliders\"",
-												"x": "Pieces.X + 38",
+												"x": "Pieces.X - 38",
 												"y": "Pieces.Y - 123",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -2100,11 +2109,11 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 467039143442529,
+											"sid": 912709963467901,
 											"parameters": {
 												"object-to-create": "pieceCollider",
 												"layer": "\"Colliders\"",
-												"x": "Pieces.ImagePointX(\"bottom\")+78",
+												"x": "Pieces.ImagePointX(\"top\")-78",
 												"y": "Pieces.Y",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -2120,9 +2129,9 @@
 											}
 										},
 										{
-											"id": "rotate-counter-clockwise",
+											"id": "rotate-clockwise",
 											"objectClass": "pieceCollider",
-											"sid": 810556485544403,
+											"sid": 721810075467832,
 											"parameters": {
 												"degrees": "90"
 											}
@@ -2134,11 +2143,11 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 453600189206643,
+											"sid": 681494507552932,
 											"parameters": {
 												"object-to-create": "pieceCollider",
 												"layer": "\"Colliders\"",
-												"x": "Pieces.X + 38",
+												"x": "Pieces.X - 38",
 												"y": "Pieces.Y + 123",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -2213,6 +2222,15 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 647765229571209,
+											"parameters": {
+												"type": "log",
+												"message": "\"Horizontal na opção 0,1\""
+											}
+										},
 										{
 											"type": "comment",
 											"text": "Cima"
