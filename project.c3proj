@@ -127,7 +127,8 @@
 			"Browser",
 			"Keyboard",
 			"AJAX",
-			"JSON"
+			"JSON",
+			"camera"
 		],
 		"subfolders": [
 			{

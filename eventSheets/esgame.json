@@ -43,13 +43,23 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "lastPiecePos",
+			"name": "lastPiecePosR",
 			"type": "string",
 			"initialValue": "",
 			"comment": "Posição da última peça jogada",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 122958790114212
+		},
+		{
+			"eventType": "variable",
+			"name": "lastPiecePosL",
+			"type": "string",
+			"initialValue": "",
+			"comment": "Posição da última peça jogada",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 442551897310297
 		},
 		{
 			"eventType": "variable",
@@ -1117,6 +1127,14 @@
 											"parameters": {
 												"angle": "lerp(myPieces.Angle, pieceCollider.Angle, (dt * 7))"
 											}
+										},
+										{
+											"id": "set-layout-scale",
+											"objectClass": "System",
+											"sid": 302799599319111,
+											"parameters": {
+												"scale": "lerp(LayoutScale, 2, (dt * 7))"
+											}
 										}
 									],
 									"sid": 974304428541699,
@@ -1158,6 +1176,14 @@
 									"parameters": {
 										"variable": "colocado",
 										"value": "false"
+									}
+								},
+								{
+									"id": "set-layout-scale",
+									"objectClass": "System",
+									"sid": 561198958717059,
+									"parameters": {
+										"scale": "lerp(LayoutScale, 1, (dt * 7))"
 									}
 								}
 							],
@@ -1471,614 +1497,6 @@
 					"sid": 762405650561258
 				},
 				{
-					"eventType": "group",
-					"disabled": true,
-					"title": "Pieces2",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 979936630998281,
-									"parameters": {
-										"variable": "canPlay"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-enabled",
-									"objectClass": "myPieces",
-									"sid": 354689295968806,
-									"behaviorType": "DragDrop",
-									"parameters": {
-										"state": "disabled"
-									}
-								}
-							],
-							"sid": 815706512693088,
-							"disabled": true
-						},
-						{
-							"eventType": "comment",
-							"text": "Criar verificação da peça durante a jogada"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-drag-start",
-									"objectClass": "myPieces",
-									"sid": 706431058086355,
-									"behaviorType": "DragDrop"
-								}
-							],
-							"actions": [],
-							"sid": 116610249420662,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 206137561849844,
-											"parameters": {
-												"object": "pieceCollider"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 462298462186958,
-									"disabled": true,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 767987625929038,
-													"parameters": {
-														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
-														"comparison": 0,
-														"second-value": "pieceCollider.primary"
-													}
-												},
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 982988854279303,
-													"parameters": {
-														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
-														"comparison": 0,
-														"second-value": "pieceCollider.secondary"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "pieceCollider",
-													"sid": 803821976810389,
-													"parameters": {
-														"frame-number": "0"
-													}
-												},
-												{
-													"id": "set-collisions-enabled",
-													"objectClass": "pieceCollider",
-													"sid": 670438634925012,
-													"parameters": {
-														"collisions": "enabled"
-													}
-												},
-												{
-													"id": "set-visible",
-													"objectClass": "pieceCollider",
-													"sid": 931951418681710,
-													"parameters": {
-														"visibility": "visible"
-													}
-												},
-												{
-													"id": "tween-one-property",
-													"objectClass": "pieceCollider",
-													"sid": 543195079736751,
-													"behaviorType": "Tween",
-													"parameters": {
-														"tags": "\"opacityAnim\"",
-														"property": "offsetOpacity",
-														"end-value": "15",
-														"time": "1.5",
-														"ease": "default",
-														"destroy-on-complete": "no",
-														"loop": "yes",
-														"ping-pong": "yes"
-													}
-												}
-											],
-											"sid": 207523465311165,
-											"disabled": true,
-											"isOrBlock": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 911649279157270
-												}
-											],
-											"actions": [
-												{
-													"id": "set-visible",
-													"objectClass": "pieceCollider",
-													"sid": 524262629032792,
-													"parameters": {
-														"visibility": "invisible"
-													}
-												},
-												{
-													"id": "set-collisions-enabled",
-													"objectClass": "pieceCollider",
-													"sid": 475295385117172,
-													"parameters": {
-														"collisions": "disabled"
-													}
-												}
-											],
-											"sid": 566429076689689,
-											"disabled": true
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Colocar peça (snap)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "has-los-to-object",
-									"objectClass": "myPieces",
-									"sid": 637205481911899,
-									"behaviorType": "LineOfSight",
-									"parameters": {
-										"object": "pieceCollider",
-										"image-point": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 130090470768253,
-									"parameters": {
-										"variable": "colocado",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 953758107119206,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 262572254367148,
-											"parameters": {
-												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
-												"comparison": 0,
-												"second-value": "pieceCollider.primary"
-											}
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 567013959035228,
-											"parameters": {
-												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
-												"comparison": 0,
-												"second-value": "pieceCollider.secondary"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-size",
-											"objectClass": "myPieces",
-											"sid": 168356499227448,
-											"parameters": {
-												"width": "lerp(myPieces.Width, pieceCollider.Width, (dt*5))",
-												"height": "lerp(myPieces.Height, pieceCollider.Height, (dt*5))"
-											}
-										},
-										{
-											"id": "set-position",
-											"objectClass": "myPieces",
-											"sid": 856429333317597,
-											"parameters": {
-												"x": "lerp(myPieces.X, pieceCollider.X, (dt * 7))",
-												"y": "lerp(myPieces.Y, pieceCollider.Y, (dt * 7))"
-											}
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "myPieces",
-											"sid": 135718732634481,
-											"parameters": {
-												"angle": "lerp(myPieces.Angle, pieceCollider.Angle, (dt * 7))"
-											}
-										}
-									],
-									"sid": 994358371847441,
-									"disabled": true,
-									"isOrBlock": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 250391839949769
-								}
-							],
-							"actions": [
-								{
-									"id": "set-size",
-									"objectClass": "myPieces",
-									"sid": 369696031687747,
-									"parameters": {
-										"width": "lerp(myPieces.Width, 178, (dt*5))",
-										"height": "lerp(myPieces.Height, 312, (dt*5))"
-									}
-								},
-								{
-									"id": "set-angle",
-									"objectClass": "myPieces",
-									"sid": 205421680181970,
-									"parameters": {
-										"angle": "lerp(myPieces.Angle, 0, (dt * 7))"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 771915617140987,
-									"parameters": {
-										"variable": "colocado",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 759836820976239,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "has-los-to-object",
-									"objectClass": "myPieces",
-									"sid": 234001700585555,
-									"behaviorType": "LineOfSight",
-									"parameters": {
-										"object": "pieceCollider",
-										"image-point": "0"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 561481283962934,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-dragging",
-											"objectClass": "myPieces",
-											"sid": 257832802122990,
-											"behaviorType": "DragDrop",
-											"isInverted": true
-										},
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 282860027461758,
-											"parameters": {
-												"variable": "colocado"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "myPieces",
-											"sid": 474162361733512,
-											"parameters": {
-												"x": "lerp(myPieces.X, myPieces.posX, (dt * 7))",
-												"y": "lerp(myPieces.Y, myPieces.posY, (dt * 7))"
-											}
-										}
-									],
-									"sid": 742422115439595,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Enviar peça"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-drop",
-									"objectClass": "myPieces",
-									"sid": 813655617086181,
-									"behaviorType": "DragDrop"
-								}
-							],
-							"actions": [],
-							"sid": 822897586809473,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "has-los-to-object",
-											"objectClass": "myPieces",
-											"sid": 538779410704858,
-											"behaviorType": "LineOfSight",
-											"parameters": {
-												"object": "pieceCollider",
-												"image-point": "0"
-											}
-										},
-										{
-											"id": "is-visible",
-											"objectClass": "pieceCollider",
-											"sid": 620138699460258
-										}
-									],
-									"actions": [
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 690828952698246,
-											"disabled": true,
-											"parameters": {
-												"object-to-create": "Pieces",
-												"layer": "\"HUD\"",
-												"x": "pieceCollider.X",
-												"y": "pieceCollider.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Pieces",
-											"sid": 216612381358292,
-											"disabled": true,
-											"parameters": {
-												"animation": "\"Front\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "Pieces",
-											"sid": 345703636534846,
-											"disabled": true,
-											"parameters": {
-												"frame-number": "myPieces.AnimationFrame"
-											}
-										},
-										{
-											"id": "set-angle",
-											"objectClass": "Pieces",
-											"sid": 477807527632293,
-											"disabled": true,
-											"parameters": {
-												"angle": "pieceCollider.Angle"
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "myPieces",
-											"sid": 226273197079560
-										},
-										{
-											"id": "destroy",
-											"objectClass": "pieceCollider",
-											"sid": 861368737907404
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 929593198805860,
-											"parameters": {
-												"variable": "canPlay",
-												"value": "false"
-											}
-										},
-										{
-											"callFunction": "CallLog",
-											"sid": 726330688752756,
-											"parameters": [
-												"\"\"",
-												"str(myPieces.Angle)"
-											]
-										},
-										{
-											"callFunction": "createPiece",
-											"sid": 112007628767600,
-											"parameters": [
-												"myPieces.AnimationFrame",
-												"myPieces.X",
-												"myPieces.Y",
-												"myPieces.Angle"
-											]
-										}
-									],
-									"sid": 403709626666921,
-									"disabled": true,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-host",
-													"objectClass": "Multiplayer",
-													"sid": 506256478124625,
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "send-message",
-													"objectClass": "Multiplayer",
-													"sid": 176737351915509,
-													"parameters": {
-														"peer-id": "\"\"",
-														"tag": "\"Played\"",
-														"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
-														"mode": "reliable-ordered"
-													}
-												}
-											],
-											"sid": 287710538417894,
-											"disabled": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 878825180679296
-												}
-											],
-											"actions": [],
-											"sid": 989908223335653,
-											"disabled": true,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 816232677007487,
-															"parameters": {
-																"first-value": "myPieces.X",
-																"comparison": 4,
-																"second-value": "954"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 277562269493665,
-															"parameters": {
-																"variable": "lastRight",
-																"value": "myPieces.AnimationFrame"
-															}
-														}
-													],
-													"sid": 263799444863242,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 688524165567972
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 659094373622084,
-															"parameters": {
-																"variable": "lastLeft",
-																"value": "myPieces.AnimationFrame"
-															}
-														}
-													],
-													"sid": 546456980437528,
-													"disabled": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [
-														{
-															"id": "broadcast-message",
-															"objectClass": "Multiplayer",
-															"sid": 639483767951189,
-															"parameters": {
-																"from-id": "\"\"",
-																"tag": "\"newPiece\"",
-																"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
-																"mode": "reliable-ordered"
-															}
-														},
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 362312105520528,
-															"parameters": {
-																"seconds": "1"
-															}
-														},
-														{
-															"callFunction": "playTurn",
-															"sid": 303327818691724
-														}
-													],
-													"sid": 353781802418824,
-													"disabled": true
-												}
-											]
-										}
-									]
-								}
-							]
-						}
-					],
-					"sid": 170160581268081
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -2123,6 +1541,21 @@
 						}
 					],
 					"sid": 135540766634504
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "myPieces",
+							"sid": 804855053940290,
+							"parameters": {
+								"object": "playable_Area"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 786720230940227
 				}
 			],
 			"sid": 354476756913533

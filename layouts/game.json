@@ -171,9 +171,9 @@
 									"instanceVariables": {},
 									"behaviors": {},
 									"world": {
-										"x": 962,
-										"y": 620,
-										"width": 1530,
+										"x": 270,
+										"y": 540,
+										"width": 162,
 										"height": 882,
 										"originX": 0.5,
 										"originY": 0.5,
@@ -1468,7 +1468,37 @@
 					"global": false
 				}
 			],
-			"instances": [],
+			"instances": [
+				{
+					"type": "camera",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 49,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 954,
+						"y": 486,
+						"width": 162,
+						"height": 162,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 850799909523913,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
