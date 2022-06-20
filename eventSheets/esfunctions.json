@@ -1017,12 +1017,20 @@
 					"conditions": [],
 					"actions": [
 						{
+							"id": "set-visible",
+							"objectClass": "pieceCollider",
+							"sid": 790126800992399,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 420124745650460,
+							"sid": 416239765366688,
 							"parameters": {
 								"object-to-create": "Pieces",
-								"layer": "\"HUD\"",
+								"layer": "\"Pieces\"",
 								"x": "posX",
 								"y": "posY",
 								"create-hierarchy": false,
@@ -1057,6 +1065,7 @@
 						{
 							"callFunction": "CallLog",
 							"sid": 877807226648069,
+							"disabled": true,
 							"parameters": [
 								"\"\"",
 								"\"Peça criada\""
@@ -1229,7 +1238,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 604814094492928,
+									"sid": 175603950459621,
 									"parameters": {
 										"first-value": "Pieces.AnimationFrame",
 										"comparison": 0,
@@ -1242,7 +1251,74 @@
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [],
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 377836327020249,
+											"disabled": true,
+											"parameters": {
+												"first-value": "Pieces.AnimationFrame",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 966503143543478,
+											"disabled": true,
+											"parameters": {
+												"first-value": "Pieces.AnimationFrame",
+												"comparison": 0,
+												"second-value": "7"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 260893972603079,
+											"disabled": true,
+											"parameters": {
+												"first-value": "Pieces.AnimationFrame",
+												"comparison": 0,
+												"second-value": "13"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 332418972065494,
+											"disabled": true,
+											"parameters": {
+												"first-value": "Pieces.AnimationFrame",
+												"comparison": 0,
+												"second-value": "18"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 830986999478681,
+											"disabled": true,
+											"parameters": {
+												"first-value": "Pieces.AnimationFrame",
+												"comparison": 0,
+												"second-value": "22"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 535589508851330,
+											"disabled": true,
+											"parameters": {
+												"first-value": "Pieces.AnimationFrame",
+												"comparison": 0,
+												"second-value": "25"
+											}
+										}
+									],
 									"actions": [
 										{
 											"id": "create-object",
@@ -2471,9 +2547,9 @@
 															}
 														},
 														{
-															"id": "rotate-counter-clockwise",
+															"id": "rotate-clockwise",
 															"objectClass": "pieceCollider",
-															"sid": 373579933598087,
+															"sid": 240402005957293,
 															"parameters": {
 																"degrees": "90"
 															}
@@ -3980,15 +4056,15 @@
 							"text": "Chamar verificação"
 						},
 						{
-							"callFunction": "verifyPieces",
-							"sid": 757995087967241,
-							"parameters": [
-								"\"3\""
-							]
+							"id": "set-visible",
+							"objectClass": "pieceCollider",
+							"sid": 909777475536316,
+							"parameters": {
+								"visibility": "visible"
+							}
 						}
 					],
-					"sid": 686312067420228,
-					"disabled": true
+					"sid": 686312067420228
 				},
 				{
 					"eventType": "block",

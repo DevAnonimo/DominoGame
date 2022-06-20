@@ -87,17 +87,17 @@
 			"bundled": false
 		},
 		{
-			"type": "behavior",
-			"id": "DragnDrop",
-			"name": "Drag & Drop",
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
 			"author": "Scirra",
 			"version": "r293.3",
 			"bundled": false
 		},
 		{
 			"type": "behavior",
-			"id": "bound",
-			"name": "Bound to layout",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
 			"author": "Scirra",
 			"version": "r293.3",
 			"bundled": false
@@ -117,6 +117,22 @@
 			"author": "Scirra",
 			"version": "r293.3",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
+			"author": "Scirra",
+			"version": "r293.3",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r293.3",
+			"bundled": false
 		}
 	],
 	"uniqueId": "afvzii85ib7",
@@ -128,7 +144,8 @@
 			"Keyboard",
 			"AJAX",
 			"JSON",
-			"camera"
+			"camera",
+			"Mouse"
 		],
 		"subfolders": [
 			{

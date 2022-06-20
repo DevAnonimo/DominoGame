@@ -828,6 +828,14 @@
 									"parameters": {
 										"state": "disabled"
 									}
+								},
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "myPieces",
+									"sid": 771616513372377,
+									"parameters": {
+										"collisions": "disabled"
+									}
 								}
 							],
 							"sid": 247847657798218
@@ -846,7 +854,16 @@
 									"behaviorType": "DragDrop"
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "myPieces",
+									"sid": 903654520914517,
+									"parameters": {
+										"collisions": "enabled"
+									}
+								}
+							],
 							"sid": 124555927233362,
 							"children": [
 								{
@@ -1068,7 +1085,7 @@
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 767428224285795,
+									"sid": 840938337383440,
 									"parameters": {
 										"variable": "colocado",
 										"value": "true"
@@ -1134,6 +1151,15 @@
 											"sid": 302799599319111,
 											"parameters": {
 												"scale": "lerp(LayoutScale, 2, (dt * 7))"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "camera",
+											"sid": 874938573460413,
+											"parameters": {
+												"x": "lerp(954, myPieces.X,0.5)",
+												"y": "lerp(486, myPieces.Y,0.5)"
 											}
 										}
 									],
@@ -1238,7 +1264,35 @@
 											}
 										}
 									],
-									"sid": 615443493804690
+									"sid": 615443493804690,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "camera",
+													"sid": 252449118176806,
+													"parameters": {
+														"instance-variable": "arrastando"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "camera",
+													"sid": 368190665678070,
+													"parameters": {
+														"x": "lerp(camera.X,954, dt*4)",
+														"y": "lerp(camera.Y,486, dt*4)"
+													}
+												}
+											],
+											"sid": 955606060699430
+										}
+									]
 								}
 							]
 						},
@@ -1264,6 +1318,15 @@
 									"disabled": true,
 									"parameters": {
 										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "camera",
+									"sid": 112105842386827,
+									"parameters": {
+										"instance-variable": "arrastando",
+										"value": "false"
 									}
 								}
 							],
@@ -1492,6 +1555,44 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "ajustar câmera"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "myPieces",
+									"sid": 972962986225738,
+									"parameters": {
+										"object": "playable_Area"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "camera",
+									"sid": 850198232552614,
+									"parameters": {
+										"instance-variable": "arrastando",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "camera",
+									"sid": 949202154783410,
+									"parameters": {
+										"x": "lerp(954, myPieces.X,0.5)",
+										"y": "lerp(486, myPieces.Y,0.5)"
+									}
+								}
+							],
+							"sid": 764115495413524
 						}
 					],
 					"sid": 762405650561258
@@ -1546,16 +1647,28 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "myPieces",
-							"sid": 804855053940290,
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 221918695017889,
 							"parameters": {
-								"object": "playable_Area"
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "pieceCollider"
 							}
 						}
 					],
-					"actions": [],
-					"sid": 786720230940227
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 547568712929264,
+							"parameters": {
+								"type": "warn",
+								"message": "\"Conector: \" & pieceCollider.connection"
+							}
+						}
+					],
+					"sid": 349443367309400
 				}
 			],
 			"sid": 354476756913533

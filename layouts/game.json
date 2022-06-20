@@ -95,9 +95,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0.043137254901960784,
+				0.0784313725490196,
+				0.14901960784313725,
 				1
 			],
 			"isTransparent": false,
@@ -158,35 +158,6 @@
 							"overriden": 0,
 							"subLayers": [],
 							"instances": [
-								{
-									"type": "playable_Area",
-									"properties": {
-										"initially-visible": false,
-										"initial-animation": "Animation 1",
-										"initial-frame": 0,
-										"enable-collisions": true,
-										"live-preview": false
-									},
-									"uid": 44,
-									"instanceVariables": {},
-									"behaviors": {},
-									"world": {
-										"x": 270,
-										"y": 540,
-										"width": 162,
-										"height": 882,
-										"originX": 0.5,
-										"originY": 0.5,
-										"color": [
-											1,
-											1,
-											1,
-											0.3
-										],
-										"angle": 0,
-										"zElevation": 0
-									}
-								},
 								{
 									"type": "pieceCollider",
 									"properties": {
@@ -278,11 +249,6 @@
 										"enabled": false
 									}
 								},
-								"BoundToLayout": {
-									"properties": {
-										"bound-by": "edge"
-									}
-								},
 								"LineOfSight": {
 									"properties": {
 										"obstacles": "solids",
@@ -328,11 +294,6 @@
 									"properties": {
 										"axes": "both",
 										"enabled": false
-									}
-								},
-								"BoundToLayout": {
-									"properties": {
-										"bound-by": "edge"
 									}
 								},
 								"LineOfSight": {
@@ -382,11 +343,6 @@
 										"enabled": false
 									}
 								},
-								"BoundToLayout": {
-									"properties": {
-										"bound-by": "edge"
-									}
-								},
 								"LineOfSight": {
 									"properties": {
 										"obstacles": "solids",
@@ -432,11 +388,6 @@
 									"properties": {
 										"axes": "both",
 										"enabled": false
-									}
-								},
-								"BoundToLayout": {
-									"properties": {
-										"bound-by": "edge"
 									}
 								},
 								"LineOfSight": {
@@ -486,11 +437,6 @@
 										"enabled": false
 									}
 								},
-								"BoundToLayout": {
-									"properties": {
-										"bound-by": "edge"
-									}
-								},
 								"LineOfSight": {
 									"properties": {
 										"obstacles": "solids",
@@ -538,11 +484,6 @@
 										"enabled": false
 									}
 								},
-								"BoundToLayout": {
-									"properties": {
-										"bound-by": "edge"
-									}
-								},
 								"LineOfSight": {
 									"properties": {
 										"obstacles": "solids",
@@ -588,11 +529,6 @@
 									"properties": {
 										"axes": "both",
 										"enabled": false
-									}
-								},
-								"BoundToLayout": {
-									"properties": {
-										"bound-by": "edge"
 									}
 								},
 								"LineOfSight": {
@@ -1437,6 +1373,122 @@
 								"angle": 4.71238898038469,
 								"zElevation": 0
 							}
+						},
+						{
+							"type": "playable_Area",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 44,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 954,
+								"y": -36,
+								"width": 1584,
+								"height": 162,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.3
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "playable_Area",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 51,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 1980,
+								"y": 630,
+								"width": 1584,
+								"height": 162,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.3
+								],
+								"angle": 4.71238898038469,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "playable_Area",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 52,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 972,
+								"y": 1170,
+								"width": 1584,
+								"height": 162,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.3
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "playable_Area",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 53,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": -36,
+								"y": 720,
+								"width": 1584,
+								"height": 162,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.3
+								],
+								"angle": 4.71238898038469,
+								"zElevation": 0
+							}
 						}
 					],
 					"sid": 914945122682411,
@@ -1456,8 +1508,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -1479,13 +1531,27 @@
 						"live-preview": false
 					},
 					"uid": 49,
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"arrastando": false
+					},
+					"behaviors": {
+						"ScrollTo": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 954,
 						"y": 486,
-						"width": 162,
-						"height": 162,
+						"width": 72,
+						"height": 72,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -1533,7 +1599,7 @@
 	"effectTypes": [],
 	"width": 1920,
 	"height": 1080,
-	"unboundedScrolling": false,
+	"unboundedScrolling": true,
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
