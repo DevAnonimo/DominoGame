@@ -1446,7 +1446,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 972,
-								"y": 1170,
+								"y": 1278,
 								"width": 1584,
 								"height": 162,
 								"originX": 0.5,
@@ -1543,6 +1543,17 @@
 						"DragDrop": {
 							"properties": {
 								"axes": "both",
+								"enabled": true
+							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 3000,
+								"acceleration": 2000,
+								"deceleration": 2000,
+								"directions": "dir-8",
+								"set-angle": "smooth",
+								"default-controls": true,
 								"enabled": true
 							}
 						}

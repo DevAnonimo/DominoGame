@@ -21,6 +21,11 @@
 			"behaviorId": "DragnDrop",
 			"name": "DragDrop",
 			"sid": 666376775101898
+		},
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direction",
+			"sid": 101330556227931
 		}
 	],
 	"effectTypes": [],

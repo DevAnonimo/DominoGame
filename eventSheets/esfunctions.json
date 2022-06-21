@@ -4062,6 +4062,14 @@
 							"parameters": {
 								"visibility": "visible"
 							}
+						},
+						{
+							"id": "toggle-boolean-instvar",
+							"objectClass": "camera",
+							"sid": 302049968767851,
+							"parameters": {
+								"instance-variable": "arrastando"
+							}
 						}
 					],
 					"sid": 686312067420228
