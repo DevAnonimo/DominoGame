@@ -862,6 +862,14 @@
 									"parameters": {
 										"collisions": "enabled"
 									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "myPieces",
+									"sid": 745673821226961,
+									"parameters": {
+										"layer": "\"Pieces\""
+									}
 								}
 							],
 							"sid": 124555927233362,
@@ -1553,6 +1561,27 @@
 											]
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 151075636356044
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-layer",
+											"objectClass": "myPieces",
+											"sid": 184198811265319,
+											"parameters": {
+												"layer": "\"GUI\""
+											}
+										}
+									],
+									"sid": 903086461041783
 								}
 							]
 						},
@@ -1808,6 +1837,56 @@
 						}
 					],
 					"sid": 349443367309400
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 623961770862059,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "myPieces"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 189330539452539,
+							"parameters": {
+								"type": "warn",
+								"message": "\"PosY: \" & myPieces.posY"
+							}
+						}
+					],
+					"sid": 125063124186275
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drag-start",
+							"objectClass": "camera",
+							"sid": 122378530302632,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "camera",
+							"sid": 832650770181877,
+							"parameters": {
+								"instance-variable": "arrastando",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 816428040484034
 				}
 			],
 			"sid": 354476756913533

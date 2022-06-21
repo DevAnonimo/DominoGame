@@ -575,8 +575,8 @@
 						1
 					],
 					"isTransparent": true,
-					"parallaxX": 1,
-					"parallaxY": 1,
+					"parallaxX": 0,
+					"parallaxY": 0,
 					"scaleRate": 1,
 					"forceOwnTexture": false,
 					"renderingMode": "3d",
@@ -1377,7 +1377,7 @@
 						{
 							"type": "playable_Area",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -1388,9 +1388,9 @@
 							"behaviors": {},
 							"world": {
 								"x": 954,
-								"y": -36,
+								"y": -378,
 								"width": 1584,
-								"height": 162,
+								"height": 846,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -1406,7 +1406,7 @@
 						{
 							"type": "playable_Area",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -1416,10 +1416,10 @@
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
-								"x": 1980,
-								"y": 630,
+								"x": 2520,
+								"y": 629.9999999999999,
 								"width": 1584,
-								"height": 162,
+								"height": 1242,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -1435,7 +1435,7 @@
 						{
 							"type": "playable_Area",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -1446,9 +1446,9 @@
 							"behaviors": {},
 							"world": {
 								"x": 972,
-								"y": 1278,
+								"y": 1593,
 								"width": 1584,
-								"height": 162,
+								"height": 792,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -1464,7 +1464,7 @@
 						{
 							"type": "playable_Area",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -1474,10 +1474,10 @@
 							"instanceVariables": {},
 							"behaviors": {},
 							"world": {
-								"x": -36,
-								"y": 720,
+								"x": -450,
+								"y": 720.0000000000001,
 								"width": 1584,
-								"height": 162,
+								"height": 990,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -1524,7 +1524,7 @@
 				{
 					"type": "camera",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -1543,14 +1543,14 @@
 						"DragDrop": {
 							"properties": {
 								"axes": "both",
-								"enabled": true
+								"enabled": false
 							}
 						},
 						"8Direction": {
 							"properties": {
-								"max-speed": 3000,
-								"acceleration": 2000,
-								"deceleration": 2000,
+								"max-speed": 200,
+								"acceleration": 100,
+								"deceleration": 200,
 								"directions": "dir-8",
 								"set-angle": "smooth",
 								"default-controls": true,
@@ -1560,16 +1560,16 @@
 					},
 					"world": {
 						"x": 954,
-						"y": 486,
-						"width": 72,
-						"height": 72,
+						"y": 369,
+						"width": 1692,
+						"height": 594,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
 							1,
 							1,
 							1,
-							1
+							0.2
 						],
 						"angle": 0,
 						"zElevation": 0
