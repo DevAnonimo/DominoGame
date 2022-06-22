@@ -1560,9 +1560,9 @@
 					},
 					"world": {
 						"x": 954,
-						"y": 369,
-						"width": 1692,
-						"height": 594,
+						"y": 486,
+						"width": 126,
+						"height": 126,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

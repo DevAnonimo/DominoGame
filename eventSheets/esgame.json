@@ -866,9 +866,9 @@
 								{
 									"id": "move-to-layer",
 									"objectClass": "myPieces",
-									"sid": 745673821226961,
+									"sid": 262867587360499,
 									"parameters": {
-										"layer": "\"Pieces\""
+										"layer": "\"Colliders\""
 									}
 								}
 							],
@@ -1291,10 +1291,10 @@
 												{
 													"id": "set-position",
 													"objectClass": "camera",
-													"sid": 368190665678070,
+													"sid": 423655561215129,
 													"parameters": {
 														"x": "lerp(camera.X,954, dt*4)",
-														"y": "lerp(camera.Y,486, dt*4)"
+														"y": "lerp(camera.Y,460, dt*4)"
 													}
 												}
 											],
@@ -1423,10 +1423,10 @@
 										},
 										{
 											"callFunction": "CallLog",
-											"sid": 762864921401141,
+											"sid": 290654447306806,
 											"parameters": [
-												"\"\"",
-												"str(myPieces.Angle)"
+												"\"log\"",
+												"\"\""
 											]
 										},
 										{
