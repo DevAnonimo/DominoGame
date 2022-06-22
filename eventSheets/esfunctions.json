@@ -2812,6 +2812,10 @@
 					"conditions": [],
 					"actions": [
 						{
+							"callFunction": "Play",
+							"sid": 383903507051474
+						},
+						{
 							"callFunction": "CallLog",
 							"sid": 594790609463898,
 							"parameters": [
@@ -2856,6 +2860,7 @@
 								}
 							],
 							"sid": 304959911193512,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -2954,6 +2959,7 @@
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
 											"sid": 405052691393509,
+											"disabled": true,
 											"parameters": {
 												"variable": "canPlay",
 												"value": "false"
@@ -2970,6 +2976,7 @@
 										}
 									],
 									"sid": 530387439351295,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -3014,8 +3021,7 @@
 													}
 												}
 											],
-											"sid": 219526389334007,
-											"disabled": true
+											"sid": 219526389334007
 										}
 									]
 								},
@@ -3045,9 +3051,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 817328873022471,
+											"sid": 112377537180681,
 											"parameters": {
-												"seconds": "5"
+												"seconds": "1"
 											}
 										},
 										{
@@ -3055,7 +3061,8 @@
 											"sid": 661109084228070
 										}
 									],
-									"sid": 662234021472210
+									"sid": 662234021472210,
+									"disabled": true
 								}
 							]
 						}
@@ -3957,11 +3964,11 @@
 										{
 											"id": "send-message",
 											"objectClass": "Multiplayer",
-											"sid": 561568827067473,
+											"sid": 426627389984562,
 											"parameters": {
 												"peer-id": "\"\"",
 												"tag": "\"Played\"",
-												"message": "Multiplayer.MyID",
+												"message": "\"\"",
 												"mode": "reliable-ordered"
 											}
 										}

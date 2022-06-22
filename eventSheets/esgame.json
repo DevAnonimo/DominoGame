@@ -414,7 +414,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 728859489036528,
+									"sid": 287348377737949,
 									"parameters": {
 										"first-value": "Multiplayer.Message",
 										"comparison": 0,
@@ -434,6 +434,14 @@
 								{
 									"callFunction": "playTurn",
 									"sid": 844256247367209
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 427409340446864,
+									"parameters": [
+										"\"warn\"",
+										"\"Jogador pulou a vez\""
+									]
 								}
 							],
 							"sid": 105306404990444
