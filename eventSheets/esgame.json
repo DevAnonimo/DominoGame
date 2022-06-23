@@ -1162,21 +1162,11 @@
 											}
 										},
 										{
-											"id": "set-layout-scale",
-											"objectClass": "System",
-											"sid": 302799599319111,
-											"parameters": {
-												"scale": "lerp(LayoutScale, 2, (dt * 7))"
-											}
-										},
-										{
-											"id": "set-position",
-											"objectClass": "camera",
-											"sid": 874938573460413,
-											"parameters": {
-												"x": "lerp(954, myPieces.X,0.5)",
-												"y": "lerp(486, myPieces.Y,0.5)"
-											}
+											"callFunction": "stateCamera",
+											"sid": 339417889602219,
+											"parameters": [
+												"\"colocando\""
+											]
 										}
 									],
 									"sid": 974304428541699,
@@ -1221,12 +1211,11 @@
 									}
 								},
 								{
-									"id": "set-layout-scale",
-									"objectClass": "System",
-									"sid": 561198958717059,
-									"parameters": {
-										"scale": "lerp(LayoutScale, 1, (dt * 7))"
-									}
+									"callFunction": "stateCamera",
+									"sid": 473265275593321,
+									"parameters": [
+										"\"tirando\""
+									]
 								}
 							],
 							"sid": 340020694077648
@@ -1300,6 +1289,7 @@
 													"id": "set-position",
 													"objectClass": "camera",
 													"sid": 423655561215129,
+													"disabled": true,
 													"parameters": {
 														"x": "lerp(camera.X,954, dt*4)",
 														"y": "lerp(camera.Y,460, dt*4)"
@@ -1340,6 +1330,7 @@
 									"id": "set-boolean-instvar",
 									"objectClass": "camera",
 									"sid": 112105842386827,
+									"disabled": true,
 									"parameters": {
 										"instance-variable": "arrastando",
 										"value": "false"
@@ -1445,6 +1436,14 @@
 												"myPieces.X",
 												"myPieces.Y",
 												"myPieces.Angle"
+											]
+										},
+										{
+											"callFunction": "stateCamera",
+											"sid": 607432080829938,
+											"disabled": true,
+											"parameters": [
+												"\"resetando\""
 											]
 										}
 									],
@@ -1627,6 +1626,7 @@
 								}
 							],
 							"sid": 764115495413524,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -1661,7 +1661,8 @@
 											}
 										}
 									],
-									"sid": 294807459831860
+									"sid": 294807459831860,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -1696,7 +1697,8 @@
 											}
 										}
 									],
-									"sid": 703958783783776
+									"sid": 703958783783776,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -1731,7 +1733,8 @@
 											}
 										}
 									],
-									"sid": 991447110610059
+									"sid": 991447110610059,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -1766,7 +1769,8 @@
 											}
 										}
 									],
-									"sid": 478208316860174
+									"sid": 478208316860174,
+									"disabled": true
 								}
 							]
 						}

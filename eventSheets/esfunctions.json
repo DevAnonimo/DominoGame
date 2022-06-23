@@ -3091,7 +3091,7 @@
 				{
 					"functionName": "startGameHOST",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Game Control",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [],
@@ -3301,7 +3301,7 @@
 				{
 					"functionName": "changeGameState",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Game Control",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -3361,7 +3361,7 @@
 				{
 					"functionName": "playTurn",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Game Control",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [],
@@ -3513,6 +3513,219 @@
 							"sid": 320323194038754
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Controle da câmera"
+				},
+				{
+					"eventType": "variable",
+					"name": "cameraState",
+					"type": "string",
+					"initialValue": "",
+					"comment": "estado atual da câmera",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 748626773768409
+				},
+				{
+					"functionName": "stateCamera",
+					"functionDescription": "",
+					"functionCategory": "Game Control",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "action",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 348992015079346
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "call-mapped-function",
+							"objectClass": "Functions",
+							"sid": 429266389026339,
+							"parameters": {
+								"name": "\"camera\"",
+								"string": "action",
+								"forward-params": "0"
+							}
+						}
+					],
+					"sid": 743789329398833
+				},
+				{
+					"functionName": "zoomIn",
+					"functionDescription": "",
+					"functionCategory": "Game Control",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 621852509706974,
+							"parameters": {
+								"type": "log",
+								"message": "\"chamando\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 852331052316795,
+							"parameters": {
+								"variable": "cameraState",
+								"value": "\"colocando\""
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 858383119548873,
+							"parameters": {
+								"scale": "lerp(LayoutScale, 1.4, (dt * 7))"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "camera",
+							"sid": 874938573460413,
+							"parameters": {
+								"x": "lerp(954, myPieces.X,0.5)",
+								"y": "lerp(486, myPieces.Y,0.5)"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 694557232888397,
+							"parameters": {
+								"seconds": "1.5"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 888078339070017,
+							"parameters": {
+								"variable": "cameraState",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 491531884732382
+				},
+				{
+					"functionName": "zoomOut",
+					"functionDescription": "",
+					"functionCategory": "Game Control",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 957309617705207,
+							"parameters": {
+								"variable": "cameraState",
+								"value": "\"tirando\""
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 169439703936816,
+							"parameters": {
+								"scale": "lerp(LayoutScale, 1, (dt * 7))"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 635705844869437,
+							"parameters": {
+								"seconds": "1.5"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 941683485001387,
+							"parameters": {
+								"variable": "cameraState",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 509269794345585
+				},
+				{
+					"functionName": "resetCamera",
+					"functionDescription": "",
+					"functionCategory": "Game Control",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 243248996812326,
+							"parameters": {
+								"variable": "cameraState",
+								"value": "\"resetando\""
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 230383869294992,
+							"parameters": {
+								"scale": "lerp(LayoutScale, 1, (dt * 7))"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "camera",
+							"sid": 317674104756926,
+							"parameters": {
+								"x": "lerp(camera.X,954, dt*4)",
+								"y": "lerp(camera.Y,460, dt*4)"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 729530755762354,
+							"parameters": {
+								"seconds": "1.5"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 783014970551942,
+							"parameters": {
+								"variable": "cameraState",
+								"value": "\"\""
+							}
+						}
+					],
+					"sid": 711132048586313
 				}
 			],
 			"sid": 326468467786058
@@ -4100,9 +4313,13 @@
 							"text": "Mapeamento de funções, me permite chamar as funções de acordo com o valor de alguma String"
 						},
 						{
+							"type": "comment",
+							"text": "Logs"
+						},
+						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 701214291243475,
+							"sid": 205570037178065,
 							"parameters": {
 								"name": "\"logMap\"",
 								"string": "\"error\"",
@@ -4112,7 +4329,17 @@
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 556966530933728,
+							"sid": 796516755842316,
+							"parameters": {
+								"name": "\"logMap\"",
+								"string": "\"log\"",
+								"function": "\"log\""
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 369991101020655,
 							"parameters": {
 								"name": "\"logMap\"",
 								"string": "\"success\"",
@@ -4122,16 +4349,20 @@
 						{
 							"id": "map-function-default",
 							"objectClass": "Functions",
-							"sid": 868345970909026,
+							"sid": 635340246996794,
 							"parameters": {
 								"name": "\"logMap\"",
 								"function": "Debug"
 							}
 						},
 						{
+							"type": "comment",
+							"text": "Layout"
+						},
+						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 881390488850938,
+							"sid": 921590849549981,
 							"parameters": {
 								"name": "\"layoutMap\"",
 								"string": "\"2\"",
@@ -4141,7 +4372,7 @@
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 363688405057137,
+							"sid": 462527649112791,
 							"parameters": {
 								"name": "\"layoutMap\"",
 								"string": "\"3\"",
@@ -4151,7 +4382,7 @@
 						{
 							"id": "map-function",
 							"objectClass": "Functions",
-							"sid": 204303592273327,
+							"sid": 624646852724835,
 							"parameters": {
 								"name": "\"layoutMap\"",
 								"string": "\"4\"",
@@ -4161,10 +4392,44 @@
 						{
 							"id": "map-function-default",
 							"objectClass": "Functions",
-							"sid": 987500931500921,
+							"sid": 172203335186949,
 							"parameters": {
 								"name": "\"layoutMap\"",
 								"function": "hostLayout"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Câmera"
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 813208323258078,
+							"parameters": {
+								"name": "\"camera\"",
+								"string": "\"colocando\"",
+								"function": "zoomIn"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 516447553143338,
+							"parameters": {
+								"name": "\"camera\"",
+								"string": "\"tirando\"",
+								"function": "zoomOut"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 386224720149424,
+							"parameters": {
+								"name": "\"camera\"",
+								"string": "\"resetando\"",
+								"function": "resetCamera"
 							}
 						}
 					],
