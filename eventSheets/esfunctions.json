@@ -3082,6 +3082,30 @@
 			"sid": 386913432796990
 		},
 		{
+			"eventType": "comment",
+			"text": "Controle da câmera"
+		},
+		{
+			"eventType": "variable",
+			"name": "cameraState",
+			"type": "string",
+			"initialValue": "",
+			"comment": "estado atual da câmera",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 379250196255193
+		},
+		{
+			"eventType": "variable",
+			"name": "ocupado",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "estado atual da câmera",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 239904572069818
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Game Control",
@@ -3516,17 +3540,7 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "Controle da câmera"
-				},
-				{
-					"eventType": "variable",
-					"name": "cameraState",
-					"type": "string",
-					"initialValue": "",
-					"comment": "estado atual da câmera",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 748626773768409
+					"text": "Câmera"
 				},
 				{
 					"functionName": "stateCamera",
@@ -3541,23 +3555,127 @@
 							"initialValue": "",
 							"comment": "",
 							"sid": 348992015079346
+						},
+						{
+							"name": "message",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 537576027759524
 						}
 					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
 						{
-							"id": "call-mapped-function",
-							"objectClass": "Functions",
-							"sid": 429266389026339,
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 281554415594460,
 							"parameters": {
-								"name": "\"camera\"",
-								"string": "action",
-								"forward-params": "0"
+								"type": "warn",
+								"message": "\"Comando: \" & action & \" | mensagem: \" & message"
 							}
 						}
 					],
-					"sid": 743789329398833
+					"sid": 743789329398833,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 945267618203716,
+									"parameters": {
+										"variable": "ocupado"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 725103270342793,
+									"parameters": {
+										"variable": "ocupado",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 296051301528042,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 610095376674998,
+											"parameters": {
+												"first-value": "cameraState",
+												"comparison": 1,
+												"second-value": "\"colocando\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 197112967479616,
+											"parameters": {
+												"seconds": "2"
+											}
+										},
+										{
+											"id": "call-mapped-function",
+											"objectClass": "Functions",
+											"sid": 520023425967340,
+											"parameters": {
+												"name": "\"camera\"",
+												"string": "action",
+												"forward-params": "1"
+											}
+										}
+									],
+									"sid": 555030586908138
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 603149570511457
+										}
+									],
+									"actions": [
+										{
+											"id": "call-mapped-function",
+											"objectClass": "Functions",
+											"sid": 676607451705621,
+											"parameters": {
+												"name": "\"camera\"",
+												"string": "action",
+												"forward-params": "1"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 439378158100445,
+											"parameters": {
+												"variable": "ocupado",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 718303355002504
+								}
+							]
+						}
+					]
 				},
 				{
 					"functionName": "zoomIn",
@@ -3565,28 +3683,18 @@
 					"functionCategory": "Game Control",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "pos",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 347760920402445
+						}
+					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 621852509706974,
-							"parameters": {
-								"type": "log",
-								"message": "\"chamando\""
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 852331052316795,
-							"parameters": {
-								"variable": "cameraState",
-								"value": "\"colocando\""
-							}
-						},
 						{
 							"id": "set-layout-scale",
 							"objectClass": "System",
@@ -3598,27 +3706,10 @@
 						{
 							"id": "set-position",
 							"objectClass": "camera",
-							"sid": 874938573460413,
+							"sid": 324625207306902,
 							"parameters": {
-								"x": "lerp(954, myPieces.X,0.5)",
-								"y": "lerp(486, myPieces.Y,0.5)"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 694557232888397,
-							"parameters": {
-								"seconds": "1.5"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 888078339070017,
-							"parameters": {
-								"variable": "cameraState",
-								"value": "\"\""
+								"x": "lerp(954, int(tokenat(pos, 0, \";\")),0.5)",
+								"y": "lerp(486, int(tokenat(pos, 1, \";\")),0.5)"
 							}
 						}
 					],
@@ -3635,37 +3726,11 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 957309617705207,
-							"parameters": {
-								"variable": "cameraState",
-								"value": "\"tirando\""
-							}
-						},
-						{
 							"id": "set-layout-scale",
 							"objectClass": "System",
 							"sid": 169439703936816,
 							"parameters": {
 								"scale": "lerp(LayoutScale, 1, (dt * 7))"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 635705844869437,
-							"parameters": {
-								"seconds": "1.5"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 941683485001387,
-							"parameters": {
-								"variable": "cameraState",
-								"value": "\"\""
 							}
 						}
 					],
@@ -3682,18 +3747,9 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 243248996812326,
-							"parameters": {
-								"variable": "cameraState",
-								"value": "\"resetando\""
-							}
-						},
-						{
 							"id": "set-layout-scale",
 							"objectClass": "System",
-							"sid": 230383869294992,
+							"sid": 599207361561826,
 							"parameters": {
 								"scale": "lerp(LayoutScale, 1, (dt * 7))"
 							}
@@ -3701,27 +3757,19 @@
 						{
 							"id": "set-position",
 							"objectClass": "camera",
-							"sid": 317674104756926,
+							"sid": 157217505483200,
 							"parameters": {
 								"x": "lerp(camera.X,954, dt*4)",
 								"y": "lerp(camera.Y,460, dt*4)"
 							}
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 729530755762354,
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 464774937315558,
 							"parameters": {
-								"seconds": "1.5"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 783014970551942,
-							"parameters": {
-								"variable": "cameraState",
-								"value": "\"\""
+								"type": "log",
+								"message": "\"resetado\""
 							}
 						}
 					],

@@ -1087,138 +1087,147 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "has-los-to-object",
+									"id": "is-dragging",
 									"objectClass": "myPieces",
-									"sid": 336920111072118,
-									"behaviorType": "LineOfSight",
-									"parameters": {
-										"object": "pieceCollider",
-										"image-point": "0"
-									}
+									"sid": 602714678968826,
+									"behaviorType": "DragDrop"
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 840938337383440,
-									"parameters": {
-										"variable": "colocado",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 818478184208236,
+							"actions": [],
+							"sid": 194515057939705,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 192022610638174,
+											"id": "has-los-to-object",
+											"objectClass": "myPieces",
+											"sid": 504329256902770,
+											"behaviorType": "LineOfSight",
 											"parameters": {
-												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
-												"comparison": 0,
-												"second-value": "pieceCollider.connection"
+												"object": "pieceCollider",
+												"image-point": "0"
 											}
-										},
+										}
+									],
+									"actions": [
 										{
-											"id": "compare-two-values",
+											"id": "set-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 553404475919153,
+											"sid": 743151241580406,
 											"parameters": {
-												"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
-												"comparison": 0,
-												"second-value": "pieceCollider.connection"
+												"variable": "colocado",
+												"value": "true"
 											}
+										}
+									],
+									"sid": 845550254120846,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 791826976034725,
+													"parameters": {
+														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
+														"comparison": 0,
+														"second-value": "pieceCollider.connection"
+													}
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 941127031161756,
+													"parameters": {
+														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
+														"comparison": 0,
+														"second-value": "pieceCollider.connection"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "myPieces",
+													"sid": 328087089961305,
+													"parameters": {
+														"width": "lerp(myPieces.Width, pieceCollider.Width, (dt*5))",
+														"height": "lerp(myPieces.Height, pieceCollider.Height, (dt*5))"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "myPieces",
+													"sid": 582787106596537,
+													"parameters": {
+														"x": "lerp(myPieces.X, pieceCollider.X, (dt * 7))",
+														"y": "lerp(myPieces.Y, pieceCollider.Y, (dt * 7))"
+													}
+												},
+												{
+													"id": "set-angle",
+													"objectClass": "myPieces",
+													"sid": 777954584617031,
+													"parameters": {
+														"angle": "lerp(myPieces.Angle, pieceCollider.Angle, (dt * 7))"
+													}
+												},
+												{
+													"callFunction": "stateCamera",
+													"sid": 891049097993130,
+													"parameters": [
+														"\"colocando\"",
+														"str(int(pieceCollider.X)) & \";\" & str(int(pieceCollider.Y))"
+													]
+												}
+											],
+											"sid": 915889942417102,
+											"isOrBlock": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 872201551120061
 										}
 									],
 									"actions": [
 										{
 											"id": "set-size",
 											"objectClass": "myPieces",
-											"sid": 952269438533367,
+											"sid": 731109957160758,
 											"parameters": {
-												"width": "lerp(myPieces.Width, pieceCollider.Width, (dt*5))",
-												"height": "lerp(myPieces.Height, pieceCollider.Height, (dt*5))"
-											}
-										},
-										{
-											"id": "set-position",
-											"objectClass": "myPieces",
-											"sid": 415822490964753,
-											"parameters": {
-												"x": "lerp(myPieces.X, pieceCollider.X, (dt * 7))",
-												"y": "lerp(myPieces.Y, pieceCollider.Y, (dt * 7))"
+												"width": "lerp(myPieces.Width, 178, (dt*5))",
+												"height": "lerp(myPieces.Height, 312, (dt*5))"
 											}
 										},
 										{
 											"id": "set-angle",
 											"objectClass": "myPieces",
-											"sid": 600702765255254,
+											"sid": 713026017588256,
 											"parameters": {
-												"angle": "lerp(myPieces.Angle, pieceCollider.Angle, (dt * 7))"
+												"angle": "lerp(myPieces.Angle, 0, (dt * 7))"
 											}
 										},
 										{
-											"callFunction": "stateCamera",
-											"sid": 339417889602219,
-											"parameters": [
-												"\"colocando\""
-											]
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 278018706674674,
+											"parameters": {
+												"variable": "colocado",
+												"value": "false"
+											}
 										}
 									],
-									"sid": 974304428541699,
-									"isOrBlock": true
+									"sid": 864930757476313
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 775128273364389
-								}
-							],
-							"actions": [
-								{
-									"id": "set-size",
-									"objectClass": "myPieces",
-									"sid": 516199762734383,
-									"parameters": {
-										"width": "lerp(myPieces.Width, 178, (dt*5))",
-										"height": "lerp(myPieces.Height, 312, (dt*5))"
-									}
-								},
-								{
-									"id": "set-angle",
-									"objectClass": "myPieces",
-									"sid": 939408671754079,
-									"parameters": {
-										"angle": "lerp(myPieces.Angle, 0, (dt * 7))"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 230799812751943,
-									"parameters": {
-										"variable": "colocado",
-										"value": "false"
-									}
-								},
-								{
-									"callFunction": "stateCamera",
-									"sid": 473265275593321,
-									"parameters": [
-										"\"tirando\""
-									]
-								}
-							],
-							"sid": 340020694077648
 						},
 						{
 							"eventType": "block",
@@ -1267,6 +1276,15 @@
 												"x": "lerp(myPieces.X, myPieces.posX, (dt * 7))",
 												"y": "lerp(myPieces.Y, myPieces.posY, (dt * 7))"
 											}
+										},
+										{
+											"callFunction": "stateCamera",
+											"sid": 170636728166712,
+											"disabled": true,
+											"parameters": [
+												"\"tirando\"",
+												"\"\""
+											]
 										}
 									],
 									"sid": 615443493804690,
@@ -1335,6 +1353,33 @@
 										"instance-variable": "arrastando",
 										"value": "false"
 									}
+								},
+								{
+									"callFunction": "stateCamera",
+									"sid": 166017895869568,
+									"disabled": true,
+									"parameters": [
+										"\"resetando\"",
+										"\"\""
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 722983595645100,
+									"disabled": true,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"callFunction": "stateCamera",
+									"sid": 784668891947214,
+									"disabled": true,
+									"parameters": [
+										"\"resetando\"",
+										"\"\""
+									]
 								}
 							],
 							"sid": 603601661077733,
@@ -1436,14 +1481,6 @@
 												"myPieces.X",
 												"myPieces.Y",
 												"myPieces.Angle"
-											]
-										},
-										{
-											"callFunction": "stateCamera",
-											"sid": 607432080829938,
-											"disabled": true,
-											"parameters": [
-												"\"resetando\""
 											]
 										}
 									],
