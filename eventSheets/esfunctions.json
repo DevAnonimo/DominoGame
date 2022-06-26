@@ -3082,30 +3082,6 @@
 			"sid": 386913432796990
 		},
 		{
-			"eventType": "comment",
-			"text": "Controle da câmera"
-		},
-		{
-			"eventType": "variable",
-			"name": "cameraState",
-			"type": "string",
-			"initialValue": "",
-			"comment": "estado atual da câmera",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 379250196255193
-		},
-		{
-			"eventType": "variable",
-			"name": "ocupado",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "estado atual da câmera",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 239904572069818
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Game Control",
@@ -3540,7 +3516,7 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "Câmera"
+					"text": "Controle da câmera"
 				},
 				{
 					"functionName": "stateCamera",
@@ -3568,12 +3544,12 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 281554415594460,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 253826214123992,
 							"parameters": {
-								"type": "warn",
-								"message": "\"Comando: \" & action & \" | mensagem: \" & message"
+								"variable": "cameraState",
+								"value": "action"
 							}
 						}
 					],
@@ -3585,7 +3561,7 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 945267618203716,
+									"sid": 955055940924770,
 									"parameters": {
 										"variable": "ocupado"
 									},
@@ -3594,16 +3570,25 @@
 							],
 							"actions": [
 								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 309850496919543,
+									"parameters": {
+										"type": "warn",
+										"message": "\"Comando: \" & action & \" | mensagem: \" & message"
+									}
+								},
+								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 725103270342793,
+									"sid": 199407611612532,
 									"parameters": {
 										"variable": "ocupado",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 296051301528042,
+							"sid": 695943080183096,
 							"children": [
 								{
 									"eventType": "block",
@@ -3611,67 +3596,53 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 610095376674998,
+											"sid": 936097552325355,
 											"parameters": {
 												"first-value": "cameraState",
-												"comparison": 1,
-												"second-value": "\"colocando\""
-											}
+												"comparison": 0,
+												"second-value": "\"tirando\""
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
 										{
+											"id": "call-mapped-function",
+											"objectClass": "Functions",
+											"sid": 853086714110923,
+											"parameters": {
+												"name": "\"camera\"",
+												"string": "action",
+												"forward-params": "1"
+											}
+										}
+									],
+									"sid": 640354038363286
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 197112967479616,
+											"sid": 865580693731143,
 											"parameters": {
 												"seconds": "2"
 											}
 										},
 										{
-											"id": "call-mapped-function",
-											"objectClass": "Functions",
-											"sid": 520023425967340,
-											"parameters": {
-												"name": "\"camera\"",
-												"string": "action",
-												"forward-params": "1"
-											}
-										}
-									],
-									"sid": 555030586908138
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 603149570511457
-										}
-									],
-									"actions": [
-										{
-											"id": "call-mapped-function",
-											"objectClass": "Functions",
-											"sid": 676607451705621,
-											"parameters": {
-												"name": "\"camera\"",
-												"string": "action",
-												"forward-params": "1"
-											}
-										},
-										{
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 439378158100445,
+											"sid": 179936077826624,
+											"disabled": true,
 											"parameters": {
 												"variable": "ocupado",
 												"value": "false"
 											}
 										}
 									],
-									"sid": 718303355002504
+									"sid": 700460913615841
 								}
 							]
 						}
@@ -3695,6 +3666,15 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 803299408811993,
+							"parameters": {
+								"variable": "ocupado",
+								"value": "true"
+							}
+						},
 						{
 							"id": "set-layout-scale",
 							"objectClass": "System",
@@ -3749,9 +3729,9 @@
 						{
 							"id": "set-layout-scale",
 							"objectClass": "System",
-							"sid": 599207361561826,
+							"sid": 301434630101199,
 							"parameters": {
-								"scale": "lerp(LayoutScale, 1, (dt * 7))"
+								"scale": "1"
 							}
 						},
 						{
@@ -3761,15 +3741,6 @@
 							"parameters": {
 								"x": "lerp(camera.X,954, dt*4)",
 								"y": "lerp(camera.Y,460, dt*4)"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 464774937315558,
-							"parameters": {
-								"type": "log",
-								"message": "\"resetado\""
 							}
 						}
 					],
@@ -4330,14 +4301,6 @@
 							"sid": 909777475536316,
 							"parameters": {
 								"visibility": "visible"
-							}
-						},
-						{
-							"id": "toggle-boolean-instvar",
-							"objectClass": "camera",
-							"sid": 302049968767851,
-							"parameters": {
-								"instance-variable": "arrastando"
 							}
 						}
 					],

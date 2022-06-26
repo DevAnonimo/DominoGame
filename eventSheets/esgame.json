@@ -92,6 +92,26 @@
 			"sid": 895478002177375
 		},
 		{
+			"eventType": "variable",
+			"name": "cameraState",
+			"type": "string",
+			"initialValue": "",
+			"comment": "Controle da câmera",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 679747727545147
+		},
+		{
+			"eventType": "variable",
+			"name": "ocupado",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "Controlar os estados da câmera",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 499792488732314
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "esFunctions"
 		},
@@ -1175,11 +1195,10 @@
 													}
 												},
 												{
-													"callFunction": "stateCamera",
-													"sid": 891049097993130,
+													"callFunction": "zoomIn",
+													"sid": 198635141652816,
 													"parameters": [
-														"\"colocando\"",
-														"str(int(pieceCollider.X)) & \";\" & str(int(pieceCollider.Y))"
+														"pieceCollider.X & \";\" & pieceCollider.Y"
 													]
 												}
 											],
@@ -1223,6 +1242,10 @@
 												"variable": "colocado",
 												"value": "false"
 											}
+										},
+										{
+											"callFunction": "zoomOut",
+											"sid": 295387366280921
 										}
 									],
 									"sid": 864930757476313
@@ -1278,6 +1301,15 @@
 											}
 										},
 										{
+											"id": "set-size",
+											"objectClass": "myPieces",
+											"sid": 575658936402513,
+											"parameters": {
+												"width": "lerp(myPieces.Width, 178, (dt*5))",
+												"height": "lerp(myPieces.Height, 312, (dt*5))"
+											}
+										},
+										{
 											"callFunction": "stateCamera",
 											"sid": 170636728166712,
 											"disabled": true,
@@ -1287,36 +1319,7 @@
 											]
 										}
 									],
-									"sid": 615443493804690,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-boolean-instance-variable-set",
-													"objectClass": "camera",
-													"sid": 252449118176806,
-													"parameters": {
-														"instance-variable": "arrastando"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "set-position",
-													"objectClass": "camera",
-													"sid": 423655561215129,
-													"disabled": true,
-													"parameters": {
-														"x": "lerp(camera.X,954, dt*4)",
-														"y": "lerp(camera.Y,460, dt*4)"
-													}
-												}
-											],
-											"sid": 955606060699430
-										}
-									]
+									"sid": 615443493804690
 								}
 							]
 						},
@@ -1334,54 +1337,7 @@
 									"behaviorType": "DragDrop"
 								}
 							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "pieceCollider",
-									"sid": 536677664554215,
-									"disabled": true,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "camera",
-									"sid": 112105842386827,
-									"disabled": true,
-									"parameters": {
-										"instance-variable": "arrastando",
-										"value": "false"
-									}
-								},
-								{
-									"callFunction": "stateCamera",
-									"sid": 166017895869568,
-									"disabled": true,
-									"parameters": [
-										"\"resetando\"",
-										"\"\""
-									]
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 722983595645100,
-									"disabled": true,
-									"parameters": {
-										"seconds": "2"
-									}
-								},
-								{
-									"callFunction": "stateCamera",
-									"sid": 784668891947214,
-									"disabled": true,
-									"parameters": [
-										"\"resetando\"",
-										"\"\""
-									]
-								}
-							],
+							"actions": [],
 							"sid": 603601661077733,
 							"children": [
 								{
@@ -1482,6 +1438,10 @@
 												"myPieces.Y",
 												"myPieces.Angle"
 											]
+										},
+										{
+											"callFunction": "resetCamera",
+											"sid": 189160090976154
 										}
 									],
 									"sid": 814403178270679,
@@ -1623,6 +1583,14 @@
 											"parameters": {
 												"layer": "\"GUI\""
 											}
+										},
+										{
+											"id": "set-layout-scale",
+											"objectClass": "System",
+											"sid": 152214684853933,
+											"parameters": {
+												"scale": "1"
+											}
 										}
 									],
 									"sid": 903086461041783
@@ -1651,17 +1619,7 @@
 									"behaviorType": "DragDrop"
 								}
 							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "camera",
-									"sid": 850198232552614,
-									"parameters": {
-										"instance-variable": "arrastando",
-										"value": "true"
-									}
-								}
-							],
+							"actions": [],
 							"sid": 764115495413524,
 							"disabled": true,
 							"children": [
@@ -1913,29 +1871,6 @@
 						}
 					],
 					"sid": 125063124186275
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-drag-start",
-							"objectClass": "camera",
-							"sid": 122378530302632,
-							"behaviorType": "DragDrop"
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "camera",
-							"sid": 832650770181877,
-							"parameters": {
-								"instance-variable": "arrastando",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 816428040484034
 				}
 			],
 			"sid": 354476756913533

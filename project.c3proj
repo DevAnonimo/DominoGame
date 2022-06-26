@@ -120,14 +120,6 @@
 		},
 		{
 			"type": "behavior",
-			"id": "bound",
-			"name": "Bound to layout",
-			"author": "Scirra",
-			"version": "r293.3",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "scrollto",
 			"name": "Scroll To",
 			"author": "Scirra",
@@ -138,6 +130,14 @@
 			"type": "behavior",
 			"id": "EightDir",
 			"name": "8 Direction",
+			"author": "Scirra",
+			"version": "r293.3",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
 			"author": "Scirra",
 			"version": "r293.3",
 			"bundled": false
@@ -152,7 +152,6 @@
 			"Keyboard",
 			"AJAX",
 			"JSON",
-			"camera",
 			"Mouse"
 		],
 		"subfolders": [
@@ -173,7 +172,8 @@
 					"Pieces",
 					"playerNick",
 					"playable_Area",
-					"pieceCollider"
+					"pieceCollider",
+					"camera"
 				],
 				"subfolders": [],
 				"name": "Game"
