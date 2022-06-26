@@ -144,40 +144,6 @@
 						"name": "\"layoutMap\"",
 						"function": "hostLayout"
 					}
-				},
-				{
-					"type": "comment",
-					"text": "Câmera"
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 967045191822851,
-					"parameters": {
-						"name": "\"camera\"",
-						"string": "\"colocando\"",
-						"function": "zoomIn"
-					}
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 329754291143144,
-					"parameters": {
-						"name": "\"camera\"",
-						"string": "\"tirando\"",
-						"function": "zoomOut"
-					}
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 484125867157532,
-					"parameters": {
-						"name": "\"camera\"",
-						"string": "\"resetando\"",
-						"function": "resetCamera"
-					}
 				}
 			],
 			"sid": 792178635590586

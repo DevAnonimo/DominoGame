@@ -1308,15 +1308,6 @@
 												"width": "lerp(myPieces.Width, 178, (dt*5))",
 												"height": "lerp(myPieces.Height, 312, (dt*5))"
 											}
-										},
-										{
-											"callFunction": "stateCamera",
-											"sid": 170636728166712,
-											"disabled": true,
-											"parameters": [
-												"\"tirando\"",
-												"\"\""
-											]
 										}
 									],
 									"sid": 615443493804690
@@ -1440,8 +1431,12 @@
 											]
 										},
 										{
-											"callFunction": "resetCamera",
-											"sid": 189160090976154
+											"id": "set-layout-scale",
+											"objectClass": "System",
+											"sid": 331594851108964,
+											"parameters": {
+												"scale": "1"
+											}
 										}
 									],
 									"sid": 814403178270679,
@@ -1585,12 +1580,8 @@
 											}
 										},
 										{
-											"id": "set-layout-scale",
-											"objectClass": "System",
-											"sid": 152214684853933,
-											"parameters": {
-												"scale": "1"
-											}
+											"callFunction": "resetCamera",
+											"sid": 974693735868803
 										}
 									],
 									"sid": 903086461041783
@@ -1621,7 +1612,6 @@
 							],
 							"actions": [],
 							"sid": 764115495413524,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -1656,8 +1646,7 @@
 											}
 										}
 									],
-									"sid": 294807459831860,
-									"disabled": true
+									"sid": 294807459831860
 								},
 								{
 									"eventType": "block",
@@ -1692,8 +1681,7 @@
 											}
 										}
 									],
-									"sid": 703958783783776,
-									"disabled": true
+									"sid": 703958783783776
 								},
 								{
 									"eventType": "block",
@@ -1728,8 +1716,7 @@
 											}
 										}
 									],
-									"sid": 991447110610059,
-									"disabled": true
+									"sid": 991447110610059
 								},
 								{
 									"eventType": "block",
@@ -1764,8 +1751,7 @@
 											}
 										}
 									],
-									"sid": 478208316860174,
-									"disabled": true
+									"sid": 478208316860174
 								}
 							]
 						}

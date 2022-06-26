@@ -1446,7 +1446,7 @@
 							"behaviors": {},
 							"world": {
 								"x": 972,
-								"y": 1593,
+								"y": 1512,
 								"width": 1584,
 								"height": 792,
 								"originX": 0.5,
@@ -1547,7 +1547,7 @@
 						"8Direction": {
 							"properties": {
 								"max-speed": 200,
-								"acceleration": 100,
+								"acceleration": 200,
 								"deceleration": 200,
 								"directions": "dir-8",
 								"set-angle": "smooth",
