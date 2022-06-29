@@ -95,6 +95,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r293.3",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
@@ -144,7 +152,8 @@
 			"Keyboard",
 			"AJAX",
 			"JSON",
-			"Mouse"
+			"Mouse",
+			"Touch"
 		],
 		"subfolders": [
 			{
@@ -165,7 +174,9 @@
 					"playerNick",
 					"playable_Area",
 					"pieceCollider",
-					"camera"
+					"camera",
+					"btn_pularAVez",
+					"txt_pularAVez"
 				],
 				"subfolders": [],
 				"name": "Game"
@@ -310,7 +321,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "1.1.0",
+		"version": "2.0.0",
 		"author": "Guilherme",
 		"authorEmail": "",
 		"authorWebsite": "",

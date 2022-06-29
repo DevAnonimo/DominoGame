@@ -828,6 +828,14 @@
 								"\"success\"",
 								"\"Sua vez\""
 							]
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "btn_pularAVez",
+							"sid": 845215037907244,
+							"parameters": {
+								"frame-number": "1"
+							}
 						}
 					],
 					"sid": 187345268352247
@@ -1498,6 +1506,14 @@
 											}
 										},
 										{
+											"id": "set-animation-frame",
+											"objectClass": "btn_pularAVez",
+											"sid": 955168078321770,
+											"parameters": {
+												"frame-number": "0"
+											}
+										},
+										{
 											"id": "destroy",
 											"objectClass": "myPieces",
 											"sid": 454994013677210
@@ -2077,6 +2093,111 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 456409071980805,
+							"parameters": {
+								"object": "txt_pularAVez"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 766037451900760,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 819918003521012,
+									"parameters": {
+										"variable": "canPlay"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Simular rodada"
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 657376929406390,
+									"parameters": [
+										"\"log\"",
+										"\"\""
+									]
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "btn_pularAVez",
+									"sid": 390168908646480,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 374594234982457,
+									"parameters": {
+										"variable": "canPlay",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 824985115205713,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-host",
+											"objectClass": "Multiplayer",
+											"sid": 815335574470768
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "playTurn",
+											"sid": 621916098297252
+										}
+									],
+									"sid": 681281169348065
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 553902769338951
+										}
+									],
+									"actions": [
+										{
+											"id": "send-message",
+											"objectClass": "Multiplayer",
+											"sid": 408152272689189,
+											"parameters": {
+												"peer-id": "\"\"",
+												"tag": "\"Played\"",
+												"message": "\"\"",
+												"mode": "reliable-ordered"
+											}
+										}
+									],
+									"sid": 364930349883091
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-object-clicked",
 							"objectClass": "Mouse",
 							"sid": 221918695017889,
@@ -2098,7 +2219,8 @@
 							}
 						}
 					],
-					"sid": 349443367309400
+					"sid": 349443367309400,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2125,7 +2247,8 @@
 							}
 						}
 					],
-					"sid": 125063124186275
+					"sid": 125063124186275,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2152,7 +2275,8 @@
 							}
 						}
 					],
-					"sid": 631530892422352
+					"sid": 631530892422352,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -2175,7 +2299,8 @@
 							"sid": 225607523320232
 						}
 					],
-					"sid": 663576029429953
+					"sid": 663576029429953,
+					"disabled": true
 				}
 			],
 			"sid": 354476756913533

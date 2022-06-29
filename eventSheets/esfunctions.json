@@ -3490,6 +3490,14 @@
 							],
 							"actions": [
 								{
+									"id": "set-animation-frame",
+									"objectClass": "btn_pularAVez",
+									"sid": 543329053121107,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
 									"callFunction": "Play",
 									"sid": 405899598104473
 								},
@@ -4007,6 +4015,14 @@
 						{
 							"type": "comment",
 							"text": "Simular rodada"
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 118901986204478,
+							"parameters": [
+								"\"log\"",
+								"\"\""
+							]
 						}
 					],
 					"sid": 653295212713691,

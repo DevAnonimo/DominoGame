@@ -34,48 +34,6 @@
 						"angle": 0,
 						"zElevation": 0
 					}
-				},
-				{
-					"type": "project_description",
-					"properties": {
-						"text": "Alpha version 2.0.0\nBy Guilherme Simionato",
-						"enable-bbcode": true,
-						"font": "Avant Garde",
-						"size": 30,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0.788235294117647,
-							0.788235294117647,
-							0.788235294117647,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 9,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 0,
-						"y": 221,
-						"width": 1926,
-						"height": 814,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
 				}
 			],
 			"sid": 466946494048344,
@@ -1481,6 +1439,119 @@
 									0.3
 								],
 								"angle": 4.71238898038469,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "btn_pularAVez",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 54,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 1764,
+								"y": 72,
+								"width": 250,
+								"height": 90,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "txt_pularAVez",
+							"properties": {
+								"text": "Pular a vez",
+								"enable-bbcode": true,
+								"font": "Century Gothic",
+								"size": 30,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0.6627450980392157,
+									0.17647058823529413,
+									0.17647058823529413,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left"
+							},
+							"uid": 55,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 1638,
+								"y": 40,
+								"width": 252,
+								"height": 72,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "project_description",
+							"properties": {
+								"text": "Alpha version 2.0.0\nBy Guilherme Simionato",
+								"enable-bbcode": true,
+								"font": "Avant Garde",
+								"size": 30,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0.788235294117647,
+									0.788235294117647,
+									0.788235294117647,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left"
+							},
+							"uid": 9,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 0,
+								"y": 221,
+								"width": 1926,
+								"height": 814,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
 								"zElevation": 0
 							}
 						}
