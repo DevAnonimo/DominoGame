@@ -3556,10 +3556,10 @@
 						{
 							"id": "set-position",
 							"objectClass": "camera",
-							"sid": 324625207306902,
+							"sid": 780250619398312,
 							"parameters": {
-								"x": "lerp(954, int(tokenat(pos, 0, \";\")),0.5)",
-								"y": "lerp(486, int(tokenat(pos, 1, \";\")),0.5)"
+								"x": "lerp(Self.poX, int(tokenat(pos, 0, \";\")),0.5)",
+								"y": "lerp(Self.posY, int(tokenat(pos, 1, \";\")),0.5)"
 							}
 						}
 					],
@@ -3607,10 +3607,10 @@
 						{
 							"id": "set-position",
 							"objectClass": "camera",
-							"sid": 477335020173042,
+							"sid": 983142243434559,
 							"parameters": {
-								"x": "954",
-								"y": "486"
+								"x": "Self.poX",
+								"y": "Self.posY"
 							}
 						}
 					],

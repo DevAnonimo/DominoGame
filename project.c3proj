@@ -133,14 +133,6 @@
 			"author": "Scirra",
 			"version": "r293.3",
 			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "bound",
-			"name": "Bound to layout",
-			"author": "Scirra",
-			"version": "r293.3",
-			"bundled": false
 		}
 	],
 	"uniqueId": "afvzii85ib7",
@@ -318,7 +310,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "1.0.0",
+		"version": "1.1.0",
 		"author": "Guilherme",
 		"authorEmail": "",
 		"authorWebsite": "",
@@ -327,7 +319,7 @@
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
-		"fullscreenMode": "scale-inner",
+		"fullscreenMode": "letterbox-scale",
 		"fullscreenQuality": "low",
 		"viewportFit": "auto",
 		"backgroundColor": [

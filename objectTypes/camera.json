@@ -3,7 +3,20 @@
 	"plugin-id": "Sprite",
 	"sid": 814719822116283,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "poX",
+			"type": "number",
+			"desc": "",
+			"sid": 435735368659193
+		},
+		{
+			"name": "posY",
+			"type": "number",
+			"desc": "",
+			"sid": 552298821351776
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "scrollto",

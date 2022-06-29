@@ -559,61 +559,89 @@
 											"parameters": {
 												"seconds": "1"
 											}
-										}
-									],
-									"sid": 633702184092282,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 317329916539019,
-													"parameters": {
-														"first-value": "Multiplayer.Message",
-														"comparison": 1,
-														"second-value": "\"Win\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "playTurn",
-													"sid": 399663364142857
-												}
-											],
-											"sid": 416445915616809
 										},
 										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 673100690985012
-												}
-											],
-											"actions": [
-												{
-													"id": "broadcast-message",
-													"objectClass": "Multiplayer",
-													"sid": 286909346243533,
-													"parameters": {
-														"from-id": "Multiplayer.FromID",
-														"tag": "\"newPieceWin\"",
-														"message": "\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\n\"Retornando ao menu...\"",
-														"mode": "reliable-ordered"
-													}
-												}
-											],
-											"sid": 122718131375869
+											"callFunction": "playTurn",
+											"sid": 310034213724758
 										}
-									]
+									],
+									"sid": 633702184092282
 								}
 							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 892777016099131,
+							"parameters": {
+								"tag": "\"PlayedWin\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "broadcast-message",
+							"objectClass": "Multiplayer",
+							"sid": 513508571517024,
+							"parameters": {
+								"from-id": "Multiplayer.FromID",
+								"tag": "\"newPiece\"",
+								"message": "Multiplayer.Message",
+								"mode": "reliable-ordered"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 114367948734134,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"callFunction": "createPiece",
+							"sid": 704984836825680,
+							"parameters": [
+								"int(tokenat(Multiplayer.Message, 0, \";\"))",
+								"int(tokenat(Multiplayer.Message, 1, \";\"))",
+								"int(tokenat(Multiplayer.Message, 2, \";\"))",
+								"int(tokenat(Multiplayer.Message, 3, \";\"))"
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 663606983327826,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "broadcast-message",
+							"objectClass": "Multiplayer",
+							"sid": 660424424618072,
+							"parameters": {
+								"from-id": "Multiplayer.FromID",
+								"tag": "\"newPieceWin\"",
+								"message": "\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\n\"Retornando ao menu...\"",
+								"mode": "reliable-ordered"
+							}
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 277207227274393,
+							"parameters": [
+								"\"success\"",
+								"\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\r\n\"Retornando ao menu...\""
+							]
+						}
+					],
+					"sid": 634243664786909
 				}
 			],
 			"sid": 980703102073303
@@ -792,6 +820,14 @@
 								"\"\"",
 								"Multiplayer.Message"
 							]
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 224470852035655,
+							"parameters": [
+								"\"success\"",
+								"\"Sua vez\""
+							]
 						}
 					],
 					"sid": 187345268352247
@@ -845,20 +881,10 @@
 					"actions": [
 						{
 							"callFunction": "CallLog",
-							"sid": 120895144218538,
+							"sid": 958710469667301,
 							"parameters": [
-								"\"log\"",
-								"\"0\""
-							]
-						},
-						{
-							"callFunction": "createPiece",
-							"sid": 515910861487426,
-							"parameters": [
-								"int(tokenat(Multiplayer.Message, 0, \";\"))",
-								"int(tokenat(Multiplayer.Message, 1, \";\"))",
-								"int(tokenat(Multiplayer.Message, 2, \";\"))",
-								"int(tokenat(Multiplayer.Message, 3, \";\"))"
+								"\"success\"",
+								"Multiplayer.Message"
 							]
 						}
 					],
@@ -1529,11 +1555,11 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 878778346577708,
+													"sid": 645253707999555,
 													"parameters": {
 														"first-value": "myPieces.Count",
-														"comparison": 0,
-														"second-value": "0"
+														"comparison": 3,
+														"second-value": "1"
 													}
 												}
 											],
@@ -1561,6 +1587,22 @@
 																"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
 																"mode": "reliable-ordered"
 															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 971248098402534,
+															"parameters": {
+																"seconds": "1"
+															}
+														},
+														{
+															"callFunction": "CallLog",
+															"sid": 831715670218286,
+															"parameters": [
+																"\"success\"",
+																"\"Parabéns!\" & newline & \"Você ganhou.\""
+															]
 														}
 													],
 													"sid": 338370921282493
@@ -1584,25 +1626,40 @@
 																{
 																	"id": "broadcast-message",
 																	"objectClass": "Multiplayer",
-																	"sid": 238469054497511,
+																	"sid": 100340346591266,
 																	"parameters": {
-																		"from-id": "\"\"",
-																		"tag": "\"newPieceWin\"",
-																		"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
+																		"from-id": "Multiplayer.FromID",
+																		"tag": "\"newPiece\"",
+																		"message": "Multiplayer.Message",
 																		"mode": "reliable-ordered"
 																	}
 																},
 																{
 																	"id": "wait",
 																	"objectClass": "System",
-																	"sid": 227297197860300,
+																	"sid": 850387086875597,
 																	"parameters": {
 																		"seconds": "1"
 																	}
 																},
 																{
-																	"callFunction": "playTurn",
-																	"sid": 776593507809287
+																	"id": "broadcast-message",
+																	"objectClass": "Multiplayer",
+																	"sid": 585881372751174,
+																	"parameters": {
+																		"from-id": "Multiplayer.FromID",
+																		"tag": "\"newPieceWin\"",
+																		"message": "\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\n\"Retornando ao menu...\"",
+																		"mode": "reliable-ordered"
+																	}
+																},
+																{
+																	"callFunction": "CallLog",
+																	"sid": 962877251851501,
+																	"parameters": [
+																		"\"success\"",
+																		"\"Parabéns!\" & newline & \"Você ganhou.\""
+																	]
 																}
 															],
 															"sid": 370008615710893
@@ -1620,7 +1677,17 @@
 													"sid": 638055835569351
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 679665451764440,
+													"parameters": {
+														"type": "log",
+														"message": "myPieces.Count"
+													}
+												}
+											],
 											"sid": 187448336489133,
 											"children": [
 												{
@@ -1953,6 +2020,24 @@
 					],
 					"actions": [
 						{
+							"id": "set-instvar-value",
+							"objectClass": "camera",
+							"sid": 805587449865007,
+							"parameters": {
+								"instance-variable": "poX",
+								"value": "camera.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "camera",
+							"sid": 564400060760390,
+							"parameters": {
+								"instance-variable": "posY",
+								"value": "camera.Y"
+							}
+						},
+						{
 							"id": "request-project-file",
 							"objectClass": "AJAX",
 							"sid": 395224212105654,
@@ -2068,6 +2153,29 @@
 						}
 					],
 					"sid": 631530892422352
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 142476851629189,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked",
+								"object-clicked": "myPieces"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "myPieces",
+							"sid": 225607523320232
+						}
+					],
+					"sid": 663576029429953
 				}
 			],
 			"sid": 354476756913533
