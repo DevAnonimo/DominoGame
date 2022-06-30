@@ -621,6 +621,18 @@
 								"\"success\"",
 								"\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\r\n\"Retornando ao menu...\""
 							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 174668420144681,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"callFunction": "Disconnect",
+							"sid": 742739500432739
 						}
 					],
 					"sid": 634243664786909
