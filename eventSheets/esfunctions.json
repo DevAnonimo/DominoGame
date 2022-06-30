@@ -3623,6 +3623,49 @@
 						}
 					],
 					"sid": 711132048586313
+				},
+				{
+					"eventType": "comment",
+					"text": "Desconectar"
+				},
+				{
+					"functionName": "Disconnect",
+					"functionDescription": "",
+					"functionCategory": "Game Control",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "disconnect-signalling",
+							"objectClass": "Multiplayer",
+							"sid": 635737905323206
+						},
+						{
+							"id": "disconnect-room",
+							"objectClass": "Multiplayer",
+							"sid": 889197208419167
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 696007837310871,
+							"parameters": {
+								"seconds": "1.5"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 448576515063928,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 228002495219010
 				}
 			],
 			"sid": 326468467786058

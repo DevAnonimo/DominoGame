@@ -56,6 +56,11 @@
 			],
 			"actions": [
 				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 396333228709049
+				},
+				{
 					"type": "comment",
 					"text": "Mapeamento de funções, me permite chamar as funções de acordo com o valor de alguma String"
 				},

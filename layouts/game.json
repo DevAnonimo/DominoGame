@@ -1474,7 +1474,7 @@
 						{
 							"type": "txt_pularAVez",
 							"properties": {
-								"text": "Pular a vez",
+								"text": "Passar a vez",
 								"enable-bbcode": true,
 								"font": "Century Gothic",
 								"size": 30,

@@ -289,37 +289,19 @@
 					],
 					"actions": [
 						{
-							"id": "disconnect-signalling",
-							"objectClass": "Multiplayer",
-							"sid": 635737905323206
-						},
-						{
 							"callFunction": "CallLog",
-							"sid": 150608871356931,
+							"sid": 364604893086117,
 							"parameters": [
 								"\"error\"",
-								"\"Houve um erro, você foi desconectado\""
+								"\"Houve um erro, você será desconectado\""
 							]
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 696007837310871,
-							"parameters": {
-								"seconds": "1.5"
-							}
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 448576515063928,
-							"parameters": {
-								"layout": "Menu"
-							}
+							"callFunction": "Disconnect",
+							"sid": 925842892235270
 						}
 					],
-					"sid": 413776618437760,
-					"disabled": true
+					"sid": 413776618437760
 				}
 			],
 			"sid": 260201199567679
@@ -894,6 +876,18 @@
 								"\"success\"",
 								"Multiplayer.Message"
 							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 410177673675364,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"callFunction": "Disconnect",
+							"sid": 426050000904954
 						}
 					],
 					"sid": 791819065005786
@@ -1681,6 +1675,25 @@
 															"sid": 370008615710893
 														}
 													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 423202246350433,
+															"parameters": {
+																"seconds": "5"
+															}
+														},
+														{
+															"callFunction": "Disconnect",
+															"sid": 897485185127822
+														}
+													],
+													"sid": 796748153931790
 												}
 											]
 										},
@@ -1698,6 +1711,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 679665451764440,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "myPieces.Count"
