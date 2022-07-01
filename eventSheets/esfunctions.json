@@ -2790,10 +2790,6 @@
 					]
 				},
 				{
-					"eventType": "comment",
-					"text": "Verificar se deve pular a vez ou deve jogar"
-				},
-				{
 					"functionName": "verifyPieces",
 					"functionDescription": "",
 					"functionCategory": "Pieces",
@@ -2811,6 +2807,10 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"type": "comment",
+							"text": "Verificar se deve pular a vez ou deve jogar"
+						},
 						{
 							"callFunction": "Play",
 							"sid": 383903507051474
@@ -3065,6 +3065,142 @@
 									"disabled": true
 								}
 							]
+						}
+					]
+				},
+				{
+					"functionName": "positioningPieces",
+					"functionDescription": "",
+					"functionCategory": "Pieces",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "size",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 942828261290484
+						},
+						{
+							"name": "pos",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 157802892188127
+						},
+						{
+							"name": "ang",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 869930873882263
+						},
+						{
+							"name": "Piece",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 793917356137999
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 265393254662600,
+							"parameters": {
+								"variable": "ocupado",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 713408117288108,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 243683029997507,
+									"parameters": {
+										"object": "myPieces",
+										"expression": "myPieces.UID",
+										"comparison": 0,
+										"value": "Piece"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "myPieces",
+									"sid": 415125063062270,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "ang",
+										"time": "0.3",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "myPieces",
+									"sid": 688371623468454,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "size",
+										"end-x": "int(tokenat(size, 0, \";\"))",
+										"end-y": "int(tokenat(size, 1, \";\"))",
+										"time": "0.3",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "myPieces",
+									"sid": 625638346796920,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "int(tokenat(pos, 0, \";\"))",
+										"end-y": "int(tokenat(pos, 1, \";\"))",
+										"time": "0.3",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 142785418942392
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 581703082652425,
+									"parameters": {
+										"variable": "ocupado",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 762699094279052
 						}
 					]
 				}
@@ -3545,29 +3681,47 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 803299408811993,
-							"parameters": {
-								"variable": "ocupado",
-								"value": "true"
-							}
-						},
-						{
 							"id": "set-layout-scale",
 							"objectClass": "System",
-							"sid": 858383119548873,
+							"sid": 407566040843274,
 							"parameters": {
-								"scale": "lerp(LayoutScale, 1.4, (dt * 7))"
+								"scale": "lerp(LayoutScale, 1.6, (dt * 7))"
 							}
 						},
 						{
 							"id": "set-position",
 							"objectClass": "camera",
 							"sid": 780250619398312,
+							"disabled": true,
 							"parameters": {
 								"x": "lerp(Self.poX, int(tokenat(pos, 0, \";\")),0.5)",
 								"y": "lerp(Self.posY, int(tokenat(pos, 1, \";\")),0.5)"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 691980420975995,
+							"parameters": {
+								"type": "log",
+								"message": "\"Sendo colocado: \" & camera.X & \" | \" & camera.Y"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "camera",
+							"sid": 811900719913511,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "int(tokenat(pos, 0, \";\"))",
+								"end-y": "int(tokenat(pos, 1, \";\"))",
+								"time": "0.7",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
 							}
 						}
 					],

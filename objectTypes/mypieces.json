@@ -27,6 +27,11 @@
 			"behaviorId": "LOS",
 			"name": "LineOfSight",
 			"sid": 465044988011884
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 757890086608960
 		}
 	],
 	"effectTypes": [],

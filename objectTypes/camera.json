@@ -32,6 +32,11 @@
 			"behaviorId": "EightDir",
 			"name": "8Direction",
 			"sid": 101330556227931
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 112130136561993
 		}
 	],
 	"effectTypes": [],

@@ -301,7 +301,8 @@
 							"sid": 925842892235270
 						}
 					],
-					"sid": 413776618437760
+					"sid": 413776618437760,
+					"disabled": true
 				}
 			],
 			"sid": 260201199567679
@@ -1290,6 +1291,7 @@
 													"id": "set-size",
 													"objectClass": "myPieces",
 													"sid": 328087089961305,
+													"disabled": true,
 													"parameters": {
 														"width": "lerp(myPieces.Width, pieceCollider.Width, (dt*5))",
 														"height": "lerp(myPieces.Height, pieceCollider.Height, (dt*5))"
@@ -1299,6 +1301,7 @@
 													"id": "set-position",
 													"objectClass": "myPieces",
 													"sid": 582787106596537,
+													"disabled": true,
 													"parameters": {
 														"x": "lerp(myPieces.X, pieceCollider.X, (dt * 7))",
 														"y": "lerp(myPieces.Y, pieceCollider.Y, (dt * 7))"
@@ -1308,19 +1311,59 @@
 													"id": "set-angle",
 													"objectClass": "myPieces",
 													"sid": 777954584617031,
+													"disabled": true,
 													"parameters": {
 														"angle": "lerp(myPieces.Angle, pieceCollider.Angle, (dt * 7))"
 													}
 												},
 												{
 													"callFunction": "zoomIn",
-													"sid": 198635141652816,
+													"sid": 112860936150682,
 													"parameters": [
 														"pieceCollider.X & \";\" & pieceCollider.Y"
 													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 878893726020076,
+													"disabled": true,
+													"parameters": {
+														"type": "log",
+														"message": "\"O que foi passado: \" & pieceCollider.X & \" | \" & pieceCollider.Y"
+													}
 												}
 											],
 											"sid": 915889942417102,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 992569880252496,
+															"parameters": {
+																"variable": "ocupado"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "positioningPieces",
+															"sid": 793356429040138,
+															"parameters": [
+																"pieceCollider.Width & \";\" & pieceCollider.Height",
+																"pieceCollider.X & \";\" & pieceCollider.Y",
+																"pieceCollider.Angle",
+																"myPieces.UID"
+															]
+														}
+													],
+													"sid": 490639893867782
+												}
+											],
 											"isOrBlock": true
 										}
 									]
@@ -1335,6 +1378,21 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "stop-all-tweens",
+											"objectClass": "myPieces",
+											"sid": 672417482019072,
+											"behaviorType": "Tween"
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 584508952386608,
+											"parameters": {
+												"variable": "ocupado",
+												"value": "false"
+											}
+										},
 										{
 											"id": "set-size",
 											"objectClass": "myPieces",

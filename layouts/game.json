@@ -208,6 +208,11 @@
 										"cone-of-view": 360,
 										"use-collision-cells": true
 									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
 								}
 							},
 							"world": {
@@ -254,6 +259,11 @@
 										"range": 110,
 										"cone-of-view": 360,
 										"use-collision-cells": true
+									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
 									}
 								}
 							},
@@ -302,6 +312,11 @@
 										"cone-of-view": 360,
 										"use-collision-cells": true
 									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
 								}
 							},
 							"world": {
@@ -348,6 +363,11 @@
 										"range": 110,
 										"cone-of-view": 360,
 										"use-collision-cells": true
+									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
 									}
 								}
 							},
@@ -396,6 +416,11 @@
 										"cone-of-view": 360,
 										"use-collision-cells": true
 									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
 								}
 							},
 							"world": {
@@ -443,6 +468,11 @@
 										"cone-of-view": 360,
 										"use-collision-cells": true
 									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
 								}
 							},
 							"world": {
@@ -489,6 +519,11 @@
 										"range": 110,
 										"cone-of-view": 360,
 										"use-collision-cells": true
+									}
+								},
+								"Tween": {
+									"properties": {
+										"enabled": true
 									}
 								}
 							},
@@ -556,7 +591,13 @@
 							"instanceVariables": {
 								"fromPlayer": "one"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": -90,
 								"y": 234,
@@ -587,7 +628,13 @@
 							"instanceVariables": {
 								"fromPlayer": "one"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": -90,
 								"y": 342,
@@ -618,7 +665,13 @@
 							"instanceVariables": {
 								"fromPlayer": "one"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": -90,
 								"y": 450,
@@ -649,7 +702,13 @@
 							"instanceVariables": {
 								"fromPlayer": "one"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": -90,
 								"y": 558,
@@ -680,7 +739,13 @@
 							"instanceVariables": {
 								"fromPlayer": "one"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": -90,
 								"y": 666,
@@ -711,7 +776,13 @@
 							"instanceVariables": {
 								"fromPlayer": "one"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": -90,
 								"y": 774,
@@ -742,7 +813,13 @@
 							"instanceVariables": {
 								"fromPlayer": "one"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": -90,
 								"y": 882,
@@ -773,7 +850,13 @@
 							"instanceVariables": {
 								"fromPlayer": "two"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 2004,
 								"y": 234,
@@ -804,7 +887,13 @@
 							"instanceVariables": {
 								"fromPlayer": "two"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 2004,
 								"y": 342,
@@ -835,7 +924,13 @@
 							"instanceVariables": {
 								"fromPlayer": "two"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 2004,
 								"y": 450,
@@ -866,7 +961,13 @@
 							"instanceVariables": {
 								"fromPlayer": "two"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 2004,
 								"y": 558,
@@ -897,7 +998,13 @@
 							"instanceVariables": {
 								"fromPlayer": "two"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 2004,
 								"y": 666,
@@ -928,7 +1035,13 @@
 							"instanceVariables": {
 								"fromPlayer": "two"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 2004,
 								"y": 774,
@@ -959,7 +1072,13 @@
 							"instanceVariables": {
 								"fromPlayer": "two"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 2004,
 								"y": 882,
@@ -990,7 +1109,13 @@
 							"instanceVariables": {
 								"fromPlayer": "three"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 1278,
 								"y": -90,
@@ -1021,7 +1146,13 @@
 							"instanceVariables": {
 								"fromPlayer": "three"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 1170,
 								"y": -90,
@@ -1052,7 +1183,13 @@
 							"instanceVariables": {
 								"fromPlayer": "three"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 1062,
 								"y": -90,
@@ -1083,7 +1220,13 @@
 							"instanceVariables": {
 								"fromPlayer": "three"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 954,
 								"y": -90,
@@ -1114,7 +1257,13 @@
 							"instanceVariables": {
 								"fromPlayer": "three"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 846,
 								"y": -90,
@@ -1145,7 +1294,13 @@
 							"instanceVariables": {
 								"fromPlayer": "three"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 738,
 								"y": -90,
@@ -1176,7 +1331,13 @@
 							"instanceVariables": {
 								"fromPlayer": "three"
 							},
-							"behaviors": {},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
 							"world": {
 								"x": 630,
 								"y": -90,
@@ -1620,6 +1781,11 @@
 								"directions": "dir-8",
 								"set-angle": "smooth",
 								"default-controls": true,
+								"enabled": true
+							}
+						},
+						"Tween": {
+							"properties": {
 								"enabled": true
 							}
 						}
