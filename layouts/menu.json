@@ -212,7 +212,7 @@
 				{
 					"type": "project_description",
 					"properties": {
-						"text": "Alpha version 2.0.0\nBy Guilherme Simionato",
+						"text": "Beta version 1.0.0\nBy Guilherme Simionato",
 						"enable-bbcode": true,
 						"font": "Avant Garde",
 						"size": 30,

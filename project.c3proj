@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 29303,
-	"name": "DominoGame",
+	"name": "DominGame",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
@@ -365,7 +365,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "2.0.0",
+		"version": "1.0.0",
 		"author": "Guilherme",
 		"authorEmail": "",
 		"authorWebsite": "",

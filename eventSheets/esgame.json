@@ -2023,18 +2023,39 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "myPieces",
-									"sid": 972962986225738,
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 341847840513363,
 									"parameters": {
 										"object": "playable_Area"
 									}
 								},
 								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 234332347123644,
+									"parameters": {
+										"object": "myPieces"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "myPieces",
+									"sid": 972962986225738,
+									"disabled": true,
+									"parameters": {
+										"object": "playable_Area"
+									},
+									"isInverted": true
+								},
+								{
 									"id": "is-dragging",
 									"objectClass": "myPieces",
-									"sid": 493554780731683,
-									"behaviorType": "DragDrop"
+									"sid": 987593937091517,
+									"disabled": true,
+									"behaviorType": "DragDrop",
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -2046,7 +2067,7 @@
 										{
 											"id": "pick-by-unique-id",
 											"objectClass": "playable_Area",
-											"sid": 833265045421165,
+											"sid": 409631901759637,
 											"parameters": {
 												"unique-id": "44"
 											}
@@ -2056,7 +2077,7 @@
 										{
 											"id": "set-position",
 											"objectClass": "camera",
-											"sid": 808372798423993,
+											"sid": 921365871420638,
 											"disabled": true,
 											"parameters": {
 												"x": "lerp(954, myPieces.X,0.5)",
@@ -2066,14 +2087,14 @@
 										{
 											"id": "simulate-control",
 											"objectClass": "camera",
-											"sid": 434003682325860,
+											"sid": 953413909643097,
 											"behaviorType": "8Direction",
 											"parameters": {
 												"control": "up"
 											}
 										}
 									],
-									"sid": 294807459831860
+									"sid": 666030853712549
 								},
 								{
 									"eventType": "block",
@@ -2081,7 +2102,7 @@
 										{
 											"id": "pick-by-unique-id",
 											"objectClass": "playable_Area",
-											"sid": 504233766529521,
+											"sid": 878483120720407,
 											"parameters": {
 												"unique-id": "51"
 											}
@@ -2091,7 +2112,7 @@
 										{
 											"id": "set-position",
 											"objectClass": "camera",
-											"sid": 252158522051563,
+											"sid": 271211444897168,
 											"disabled": true,
 											"parameters": {
 												"x": "lerp(954, myPieces.X,0.5)",
@@ -2101,14 +2122,14 @@
 										{
 											"id": "simulate-control",
 											"objectClass": "camera",
-											"sid": 936163070772861,
+											"sid": 681870100357519,
 											"behaviorType": "8Direction",
 											"parameters": {
 												"control": "right"
 											}
 										}
 									],
-									"sid": 703958783783776
+									"sid": 218865441466730
 								},
 								{
 									"eventType": "block",
@@ -2116,7 +2137,7 @@
 										{
 											"id": "pick-by-unique-id",
 											"objectClass": "playable_Area",
-											"sid": 239640162029709,
+											"sid": 183978682886032,
 											"parameters": {
 												"unique-id": "52"
 											}
@@ -2126,7 +2147,7 @@
 										{
 											"id": "set-position",
 											"objectClass": "camera",
-											"sid": 634978514842631,
+											"sid": 930686621087015,
 											"disabled": true,
 											"parameters": {
 												"x": "lerp(954, myPieces.X,0.5)",
@@ -2136,14 +2157,14 @@
 										{
 											"id": "simulate-control",
 											"objectClass": "camera",
-											"sid": 932359503311494,
+											"sid": 712947245028464,
 											"behaviorType": "8Direction",
 											"parameters": {
 												"control": "down"
 											}
 										}
 									],
-									"sid": 991447110610059
+									"sid": 495251205930704
 								},
 								{
 									"eventType": "block",
@@ -2151,7 +2172,7 @@
 										{
 											"id": "pick-by-unique-id",
 											"objectClass": "playable_Area",
-											"sid": 907413803272380,
+											"sid": 538074884493822,
 											"parameters": {
 												"unique-id": "53"
 											}
@@ -2161,7 +2182,7 @@
 										{
 											"id": "set-position",
 											"objectClass": "camera",
-											"sid": 300923239435155,
+											"sid": 276221904137074,
 											"disabled": true,
 											"parameters": {
 												"x": "lerp(954, myPieces.X,0.5)",
@@ -2171,14 +2192,14 @@
 										{
 											"id": "simulate-control",
 											"objectClass": "camera",
-											"sid": 522824265147826,
+											"sid": 947139060297174,
 											"behaviorType": "8Direction",
 											"parameters": {
 												"control": "left"
 											}
 										}
 									],
-									"sid": 478208316860174
+									"sid": 267614101177755
 								}
 							]
 						}
