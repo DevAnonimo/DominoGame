@@ -103,6 +103,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r293.3",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
@@ -153,7 +161,8 @@
 			"AJAX",
 			"JSON",
 			"Mouse",
-			"Touch"
+			"Touch",
+			"Audio"
 		],
 		"subfolders": [
 			{
@@ -176,7 +185,9 @@
 					"pieceCollider",
 					"camera",
 					"btn_pularAVez",
-					"txt_pularAVez"
+					"txt_pularAVez",
+					"btn_Audio",
+					"btn_Music"
 				],
 				"subfolders": [],
 				"name": "Game"
@@ -218,7 +229,40 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "colliders.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 839852012434917,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "button-selected.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 973280250541749,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "button-pressed.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 890252303089513,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "migfus20__happy-background-music.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 861760810468598,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {

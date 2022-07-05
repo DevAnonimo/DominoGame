@@ -1715,6 +1715,90 @@
 								"angle": 0,
 								"zElevation": 0
 							}
+						},
+						{
+							"type": "btn_Audio",
+							"properties": {
+								"text": "Audio: On",
+								"enable-bbcode": true,
+								"font": "sans-serif",
+								"size": 30,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0.7411764705882353,
+									0.8745098039215686,
+									1,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left"
+							},
+							"uid": 58,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 36,
+								"y": 0,
+								"width": 360,
+								"height": 72,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "btn_Music",
+							"properties": {
+								"text": "Music: On",
+								"enable-bbcode": true,
+								"font": "sans-serif",
+								"size": 30,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0.7411764705882353,
+									0.8745098039215686,
+									1,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"initially-visible": true,
+								"origin": "top-left"
+							},
+							"uid": 59,
+							"instanceVariables": {},
+							"behaviors": {},
+							"world": {
+								"x": 36,
+								"y": 54,
+								"width": 360,
+								"height": 72,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
 						}
 					],
 					"sid": 914945122682411,

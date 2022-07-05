@@ -3820,6 +3820,202 @@
 						}
 					],
 					"sid": 228002495219010
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 621098331456212,
+							"parameters": {
+								"object": "btn_Audio"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 739599243720014,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 708640774461209,
+									"parameters": {
+										"variable": "MuteAudio"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "btn_Audio",
+									"sid": 169307224087198,
+									"parameters": {
+										"text": "\"Audio: On\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 142760571820467,
+									"parameters": {
+										"variable": "AudioVolume",
+										"value": "-5"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 333568746241710,
+									"parameters": {
+										"variable": "MuteAudio",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 631944634614838
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 660284388933004
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "btn_Audio",
+									"sid": 817481963153622,
+									"parameters": {
+										"text": "\"Audio: Off\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 389386723724662,
+									"parameters": {
+										"variable": "AudioVolume",
+										"value": "-100"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 349050071347833,
+									"parameters": {
+										"variable": "MuteAudio",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 165339570645127
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 856036830528629,
+							"parameters": {
+								"object": "btn_Music"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 734437822228247,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 124776591118742,
+									"parameters": {
+										"variable": "MuteMusic"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "btn_Music",
+									"sid": 524620917456752,
+									"parameters": {
+										"text": "\"Music: On\""
+									}
+								},
+								{
+									"id": "set-paused",
+									"objectClass": "Audio",
+									"sid": 800182619873181,
+									"parameters": {
+										"tag": "\"music\"",
+										"state": "resume"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 613100125478119,
+									"parameters": {
+										"variable": "MuteMusic",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 430169935489227
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 463716451336177
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "btn_Music",
+									"sid": 824044536243772,
+									"parameters": {
+										"text": "\"Music: Off\""
+									}
+								},
+								{
+									"id": "set-paused",
+									"objectClass": "Audio",
+									"sid": 152373079251505,
+									"parameters": {
+										"tag": "\"music\"",
+										"state": "pause"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 497809091207357,
+									"parameters": {
+										"variable": "MuteMusic",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 924943518568537
+						}
+					]
 				}
 			],
 			"sid": 326468467786058

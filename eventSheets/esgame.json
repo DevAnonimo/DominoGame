@@ -112,6 +112,36 @@
 			"sid": 499792488732314
 		},
 		{
+			"eventType": "variable",
+			"name": "MuteAudio",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "Controlar os estados da câmera",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 692487194637846
+		},
+		{
+			"eventType": "variable",
+			"name": "AudioVolume",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Controlar os estados da câmera",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 366215343554366
+		},
+		{
+			"eventType": "variable",
+			"name": "MuteMusic",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "Controlar os estados da câmera",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 377869834007229
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "esFunctions"
 		},
@@ -926,6 +956,17 @@
 					"conditions": [],
 					"actions": [
 						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 939229470404790,
+							"parameters": {
+								"audio-file": "button-pressed",
+								"loop": "not-looping",
+								"volume": "AudioVolume",
+								"tag-optional": "\"sfx\""
+							}
+						},
+						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 750508352935236,
@@ -1362,6 +1403,30 @@
 														}
 													],
 													"sid": 490639893867782
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 715233557394055
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 981126467148192,
+															"parameters": {
+																"audio-file": "colliders",
+																"loop": "not-looping",
+																"volume": "AudioVolume",
+																"tag-optional": "\"sfx\""
+															}
+														}
+													],
+													"sid": 550276048721407
 												}
 											],
 											"isOrBlock": true
@@ -1567,6 +1632,17 @@
 											"disabled": true,
 											"parameters": {
 												"angle": "pieceCollider.Angle"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 959754102088524,
+											"parameters": {
+												"audio-file": "button-selected",
+												"loop": "not-looping",
+												"volume": "AudioVolume",
+												"tag-optional": "\"sfx\""
 											}
 										},
 										{
@@ -2119,6 +2195,17 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 207997481924508,
+							"parameters": {
+								"audio-file": "migfus20__happy-background-music",
+								"loop": "looping",
+								"volume": "-7",
+								"tag-optional": "\"music\""
+							}
+						},
 						{
 							"id": "set-instvar-value",
 							"objectClass": "camera",
