@@ -29,7 +29,7 @@
 							1,
 							1,
 							1,
-							1
+							0.29276467895507824
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -47,12 +47,12 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0.043137254901960784,
+				0.0784313725490196,
+				0.14901960784313725,
 				1
 			],
-			"isTransparent": true,
+			"isTransparent": false,
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,
@@ -106,7 +106,7 @@
 					"type": "btn_login",
 					"properties": {
 						"type": "button",
-						"text": "ENTRAR",
+						"text": "ENTER",
 						"tooltip": "",
 						"initially-visible": true,
 						"enabled": true,
@@ -119,10 +119,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 878.5,
+						"x": 833.6390800890417,
 						"y": 682,
-						"width": 163,
-						"height": 59,
+						"width": 252.36091991095822,
+						"height": 91.34536364875176,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -212,7 +212,7 @@
 				{
 					"type": "project_description",
 					"properties": {
-						"text": "Beta version 1.0.0\nBy Guilherme Simionato",
+						"text": "Domin Game\nBy Guilherme Simionato",
 						"enable-bbcode": true,
 						"font": "Avant Garde",
 						"size": 30,

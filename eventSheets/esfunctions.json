@@ -4383,7 +4383,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "Logs hacks",
 			"description": "",
 			"isActiveOnStart": true,
@@ -4419,6 +4419,7 @@
 						}
 					],
 					"sid": 653295212713691,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -4444,6 +4445,7 @@
 								}
 							],
 							"sid": 347103307119781,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -4460,7 +4462,8 @@
 											"sid": 406942169004365
 										}
 									],
-									"sid": 484352547457086
+									"sid": 484352547457086,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -4484,7 +4487,8 @@
 											}
 										}
 									],
-									"sid": 106996073218834
+									"sid": 106996073218834,
+									"disabled": true
 								}
 							]
 						}
@@ -4516,7 +4520,8 @@
 							}
 						}
 					],
-					"sid": 978021160494800
+					"sid": 978021160494800,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -4555,7 +4560,8 @@
 							"sid": 395438986484857
 						}
 					],
-					"sid": 585248508038094
+					"sid": 585248508038094,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -4583,7 +4589,8 @@
 							}
 						}
 					],
-					"sid": 686312067420228
+					"sid": 686312067420228,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -4689,7 +4696,8 @@
 							}
 						}
 					],
-					"sid": 501429326663083
+					"sid": 501429326663083,
+					"disabled": true
 				}
 			],
 			"sid": 159388379465158
