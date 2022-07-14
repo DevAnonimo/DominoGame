@@ -331,8 +331,7 @@
 							"sid": 925842892235270
 						}
 					],
-					"sid": 413776618437760,
-					"disabled": true
+					"sid": 413776618437760
 				}
 			],
 			"sid": 260201199567679
@@ -457,11 +456,29 @@
 							],
 							"actions": [
 								{
+									"id": "broadcast-message",
+									"objectClass": "Multiplayer",
+									"sid": 382983802591145,
+									"parameters": {
+										"from-id": "Multiplayer.FromID",
+										"tag": "\"passTurn\"",
+										"message": "Multiplayer.FromAlias",
+										"mode": "reliable-ordered"
+									}
+								},
+								{
+									"callFunction": "passTurn",
+									"sid": 314929375648075,
+									"parameters": [
+										"Multiplayer.FromAlias"
+									]
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 690508447896089,
+									"sid": 108992030767116,
 									"parameters": {
-										"seconds": "1"
+										"seconds": "3"
 									}
 								},
 								{
@@ -471,6 +488,7 @@
 								{
 									"callFunction": "CallLog",
 									"sid": 427409340446864,
+									"disabled": true,
 									"parameters": [
 										"\"warn\"",
 										"\"Jogador pulou a vez\""
@@ -598,6 +616,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 122574786535234,
+							"parameters": {
+								"variable": "gameSTATE",
+								"value": "\"Finished\""
+							}
+						},
+						{
 							"id": "broadcast-message",
 							"objectClass": "Multiplayer",
 							"sid": 513508571517024,
@@ -667,6 +694,69 @@
 						}
 					],
 					"sid": 634243664786909
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-disconnected",
+							"objectClass": "Multiplayer",
+							"sid": 895545845664017
+						}
+					],
+					"actions": [],
+					"sid": 105196252599034,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 865043908202545,
+									"parameters": {
+										"first-value": "gameSTATE",
+										"comparison": 1,
+										"second-value": "\"Finished\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "broadcast-message",
+									"objectClass": "Multiplayer",
+									"sid": 491937822437662,
+									"parameters": {
+										"from-id": "Multiplayer.FromID",
+										"tag": "\"newPieceWin\"",
+										"message": "\"Partida encerrada\" & newline & \"Um jogador saiu do jogo\"",
+										"mode": "reliable-ordered"
+									}
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 818804246971598,
+									"parameters": [
+										"\"success\"",
+										"\"Partida encerrada\" & newline & \"Um jogador saiu do jogo\""
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 464426491030126,
+									"parameters": {
+										"seconds": "5"
+									}
+								},
+								{
+									"callFunction": "Disconnect",
+									"sid": 833383027597579
+								}
+							],
+							"sid": 383472976546831
+						}
+					]
 				}
 			],
 			"sid": 980703102073303
@@ -934,6 +1024,29 @@
 						}
 					],
 					"sid": 791819065005786
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-peer-message",
+							"objectClass": "Multiplayer",
+							"sid": 203293672732688,
+							"parameters": {
+								"tag": "\"passTurn\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "passTurn",
+							"sid": 219231103291205,
+							"parameters": [
+								"Multiplayer.Message"
+							]
+						}
+					],
+					"sid": 963942198206491
 				}
 			],
 			"sid": 566656446511828
@@ -1166,25 +1279,25 @@
 											],
 											"actions": [
 												{
-													"id": "set-angle",
-													"objectClass": "pieceCollider",
-													"sid": 333627876798831,
-													"parameters": {
-														"angle": "pieceCollider.Angle-180"
-													}
-												},
-												{
 													"id": "set-animation-frame",
 													"objectClass": "pieceCollider",
-													"sid": 824553928363377,
+													"sid": 238521927095601,
 													"parameters": {
 														"frame-number": "0"
 													}
 												},
 												{
+													"id": "set-angle",
+													"objectClass": "pieceCollider",
+													"sid": 241216627569158,
+													"parameters": {
+														"angle": "pieceCollider.Angle-180"
+													}
+												},
+												{
 													"id": "set-collisions-enabled",
 													"objectClass": "pieceCollider",
-													"sid": 899248441580833,
+													"sid": 121654962495586,
 													"parameters": {
 														"collisions": "enabled"
 													}
@@ -1192,7 +1305,7 @@
 												{
 													"id": "set-visible",
 													"objectClass": "pieceCollider",
-													"sid": 349637659258508,
+													"sid": 420832813760505,
 													"parameters": {
 														"visibility": "visible"
 													}
@@ -1200,7 +1313,7 @@
 												{
 													"id": "tween-one-property",
 													"objectClass": "pieceCollider",
-													"sid": 755440171901542,
+													"sid": 953732291404824,
 													"behaviorType": "Tween",
 													"parameters": {
 														"tags": "\"opacityAnim\"",
@@ -1216,7 +1329,7 @@
 												{
 													"id": "log",
 													"objectClass": "Browser",
-													"sid": 881557591942129,
+													"sid": 784639254264957,
 													"disabled": true,
 													"parameters": {
 														"type": "log",
@@ -1682,12 +1795,12 @@
 										},
 										{
 											"callFunction": "createPiece",
-											"sid": 926047700313456,
+											"sid": 355448699908356,
 											"parameters": [
 												"myPieces.AnimationFrame",
-												"myPieces.X",
-												"myPieces.Y",
-												"myPieces.Angle"
+												"pieceCollider.X",
+												"pieceCollider.Y",
+												"pieceCollider.Angle"
 											]
 										},
 										{
@@ -1736,11 +1849,11 @@
 														{
 															"id": "send-message",
 															"objectClass": "Multiplayer",
-															"sid": 235892006772262,
+															"sid": 328527463293388,
 															"parameters": {
 																"peer-id": "\"\"",
 																"tag": "\"PlayedWin\"",
-																"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
+																"message": "str(myPieces.AnimationFrame) & \";\" & str(pieceCollider.X) & \";\" & str(pieceCollider.Y) & \";\" & str(pieceCollider.Angle) & \";\" ",
 																"mode": "reliable-ordered"
 															}
 														},
@@ -1880,11 +1993,11 @@
 														{
 															"id": "send-message",
 															"objectClass": "Multiplayer",
-															"sid": 287151615787032,
+															"sid": 103983390075011,
 															"parameters": {
 																"peer-id": "\"\"",
 																"tag": "\"Played\"",
-																"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
+																"message": "str(myPieces.AnimationFrame) & \";\" & str(pieceCollider.X) & \";\" & str(pieceCollider.Y) & \";\" & str(pieceCollider.Angle) & \";\" ",
 																"mode": "reliable-ordered"
 															}
 														}
@@ -1959,11 +2072,11 @@
 																{
 																	"id": "broadcast-message",
 																	"objectClass": "Multiplayer",
-																	"sid": 798782996430825,
+																	"sid": 330285826220129,
 																	"parameters": {
 																		"from-id": "\"\"",
 																		"tag": "\"newPiece\"",
-																		"message": "str(myPieces.AnimationFrame) & \";\" & str(myPieces.X) & \";\" & str(myPieces.Y) & \";\" & str(myPieces.Angle) & \";\" ",
+																		"message": "str(myPieces.AnimationFrame) & \";\" & str(pieceCollider.X) & \";\" & str(pieceCollider.Y) & \";\" & str(pieceCollider.Angle) & \";\" ",
 																		"mode": "reliable-ordered"
 																	}
 																},
@@ -2037,24 +2150,6 @@
 									"parameters": {
 										"object": "myPieces"
 									},
-									"isInverted": true
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "myPieces",
-									"sid": 972962986225738,
-									"disabled": true,
-									"parameters": {
-										"object": "playable_Area"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-dragging",
-									"objectClass": "myPieces",
-									"sid": 987593937091517,
-									"disabled": true,
-									"behaviorType": "DragDrop",
 									"isInverted": true
 								}
 							],
@@ -2202,6 +2297,54 @@
 									"sid": 267614101177755
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 446847359309002,
+									"parameters": {
+										"object": "Controle"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Controle",
+									"sid": 675970652715141,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 953320685575302
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-nth-touch-end",
+									"objectClass": "Touch",
+									"sid": 351077825917303,
+									"parameters": {
+										"touch-number": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Controle",
+									"sid": 973593087485072,
+									"parameters": {
+										"opacity": "30"
+									}
+								}
+							],
+							"sid": 589373212178528
 						}
 					],
 					"sid": 762405650561258
@@ -2293,98 +2436,16 @@
 							}
 						}
 					],
-					"actions": [],
-					"sid": 766037451900760,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 819918003521012,
-									"parameters": {
-										"variable": "canPlay"
-									}
-								}
-							],
-							"actions": [
-								{
-									"type": "comment",
-									"text": "Simular rodada"
-								},
-								{
-									"callFunction": "CallLog",
-									"sid": 657376929406390,
-									"parameters": [
-										"\"log\"",
-										"\"\""
-									]
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "btn_pularAVez",
-									"sid": 390168908646480,
-									"parameters": {
-										"frame-number": "0"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 374594234982457,
-									"parameters": {
-										"variable": "canPlay",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 824985115205713,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-host",
-											"objectClass": "Multiplayer",
-											"sid": 815335574470768
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "playTurn",
-											"sid": 621916098297252
-										}
-									],
-									"sid": 681281169348065
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 553902769338951
-										}
-									],
-									"actions": [
-										{
-											"id": "send-message",
-											"objectClass": "Multiplayer",
-											"sid": 408152272689189,
-											"parameters": {
-												"peer-id": "\"\"",
-												"tag": "\"Played\"",
-												"message": "\"\"",
-												"mode": "reliable-ordered"
-											}
-										}
-									],
-									"sid": 364930349883091
-								}
+							"callFunction": "passTurn",
+							"sid": 622634822671037,
+							"parameters": [
+								"\"\""
 							]
 						}
-					]
+					],
+					"sid": 766037451900760
 				},
 				{
 					"eventType": "block",

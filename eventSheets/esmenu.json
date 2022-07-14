@@ -274,6 +274,131 @@
 					"sid": 949183700208408
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 447380071891853,
+					"parameters": {
+						"key": 13
+					}
+				}
+			],
+			"actions": [],
+			"sid": 397546298488900,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "TextInput",
+							"sid": 115054604016417,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 740629241349837,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "supports-multiplayer",
+									"objectClass": "Multiplayer",
+									"sid": 899232172081288,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 989523297112755,
+									"parameters": [
+										"\"error\"",
+										"\"Este dispositivo ou navegador não suporta multiplayer\""
+									]
+								}
+							],
+							"sid": 654231473489231
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 383726326134293
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 500727343844107,
+									"parameters": [
+										"\"success\"",
+										"\"Aguarde...\""
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 513693656514696,
+									"parameters": {
+										"variable": "ALIAS",
+										"value": "TextInput.Text"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 604928861921925,
+									"parameters": {
+										"seconds": "1.5"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 884594054952329,
+									"parameters": {
+										"layout": "Game"
+									}
+								}
+							],
+							"sid": 802259504496174
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 600542173964590
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CallLog",
+							"sid": 687558121767829,
+							"parameters": [
+								"\"error\"",
+								"\"Por favor, digite seu apelido\""
+							]
+						}
+					],
+					"sid": 248004490546088
+				}
+			]
 		}
 	],
 	"sid": 983648906876482

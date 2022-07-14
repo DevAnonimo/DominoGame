@@ -3702,6 +3702,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 691980420975995,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"Sendo colocado: \" & camera.X & \" | \" & camera.Y"
@@ -3820,6 +3821,10 @@
 						}
 					],
 					"sid": 228002495219010
+				},
+				{
+					"eventType": "comment",
+					"text": "Sons"
 				},
 				{
 					"eventType": "block",
@@ -4014,6 +4019,257 @@
 								}
 							],
 							"sid": 924943518568537
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Passou a vez"
+				},
+				{
+					"functionName": "passTurn",
+					"functionDescription": "",
+					"functionCategory": "Game Control",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 417074489536898
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 828229466217964,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 297678519338903,
+									"parameters": {
+										"variable": "canPlay"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Simular rodada"
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 138753488148413,
+									"parameters": [
+										"\"log\"",
+										"\"\""
+									]
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "btn_pularAVez",
+									"sid": 800923912520800,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 264703840154217,
+									"parameters": {
+										"variable": "canPlay",
+										"value": "false"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Avisar"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_passouAVez",
+									"sid": 376490912851520,
+									"parameters": {
+										"text": "\"Você passou a vez :(\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "txt_passouAVez",
+									"sid": 108891071214457,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "txt_passouAVez",
+									"sid": 850640087131802,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetY",
+										"end-value": "198",
+										"time": "3",
+										"ease": "easeoutelastic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 571171588053837
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "txt_passouAVez",
+									"sid": 988811684121994,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "txt_passouAVez",
+									"sid": 935033300707238,
+									"parameters": {
+										"y": "72"
+									}
+								}
+							],
+							"sid": 359187709548079,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-host",
+											"objectClass": "Multiplayer",
+											"sid": 933621549681311
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "playTurn",
+											"sid": 609721442005721
+										}
+									],
+									"sid": 731804481883366
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 277607353177969
+										}
+									],
+									"actions": [
+										{
+											"id": "send-message",
+											"objectClass": "Multiplayer",
+											"sid": 681243872204271,
+											"parameters": {
+												"peer-id": "\"\"",
+												"tag": "\"Played\"",
+												"message": "\"\"",
+												"mode": "reliable-ordered"
+											}
+										}
+									],
+									"sid": 439893801435130
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 986767487109818
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 659683835532074,
+									"parameters": {
+										"first-value": "name",
+										"comparison": 1,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Avisar"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_passouAVez",
+									"sid": 877711126641910,
+									"parameters": {
+										"text": "name & \" passou a vez!\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "txt_passouAVez",
+									"sid": 275351310941166,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "txt_passouAVez",
+									"sid": 469192327015961,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetY",
+										"end-value": "198",
+										"time": "3",
+										"ease": "easeoutelastic",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 810081170598315
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "txt_passouAVez",
+									"sid": 622259688416803,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "txt_passouAVez",
+									"sid": 920909086370165,
+									"parameters": {
+										"y": "72"
+									}
+								}
+							],
+							"sid": 746147054777112
 						}
 					]
 				}
