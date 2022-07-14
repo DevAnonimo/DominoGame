@@ -93,7 +93,8 @@
 									"instanceVariables": {
 										"primary": 6,
 										"secondary": 6,
-										"connection": 6
+										"connection": 6,
+										"mexido": false
 									},
 									"behaviors": {
 										"Tween": {

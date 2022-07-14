@@ -162,8 +162,7 @@
 			"JSON",
 			"Mouse",
 			"Touch",
-			"Audio",
-			"txt_passouAVez"
+			"Audio"
 		],
 		"subfolders": [
 			{
@@ -189,7 +188,8 @@
 					"txt_pularAVez",
 					"btn_Audio",
 					"btn_Music",
-					"Controle"
+					"Controle",
+					"txt_passouAVez"
 				],
 				"subfolders": [],
 				"name": "Game"

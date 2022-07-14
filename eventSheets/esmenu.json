@@ -149,6 +149,15 @@
 						"name": "\"layoutMap\"",
 						"function": "hostLayout"
 					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "project_description",
+					"sid": 553263410233566,
+					"disabled": true,
+					"parameters": {
+						"text": "left(Browser.Platform, 1)"
+					}
 				}
 			],
 			"sid": 792178635590586

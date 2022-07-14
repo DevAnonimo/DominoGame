@@ -21,6 +21,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 943954182512967
+		},
+		{
+			"name": "mexido",
+			"type": "boolean",
+			"desc": "",
+			"sid": 649828776124816
 		}
 	],
 	"behaviorTypes": [

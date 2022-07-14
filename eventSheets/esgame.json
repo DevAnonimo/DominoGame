@@ -1181,14 +1181,14 @@
 										{
 											"id": "for-each",
 											"objectClass": "System",
-											"sid": 165819716960729,
+											"sid": 315187981724078,
 											"parameters": {
 												"object": "pieceCollider"
 											}
 										}
 									],
 									"actions": [],
-									"sid": 795742217043420,
+									"sid": 716741627942790,
 									"children": [
 										{
 											"eventType": "block",
@@ -1196,7 +1196,7 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 604729807414769,
+													"sid": 134823111611081,
 													"parameters": {
 														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".1\")",
 														"comparison": 0,
@@ -1208,7 +1208,7 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "pieceCollider",
-													"sid": 191172408154512,
+													"sid": 789425823470762,
 													"parameters": {
 														"frame-number": "0"
 													}
@@ -1216,7 +1216,7 @@
 												{
 													"id": "set-collisions-enabled",
 													"objectClass": "pieceCollider",
-													"sid": 320386655688978,
+													"sid": 185795467019694,
 													"parameters": {
 														"collisions": "enabled"
 													}
@@ -1224,7 +1224,7 @@
 												{
 													"id": "set-visible",
 													"objectClass": "pieceCollider",
-													"sid": 605307682451274,
+													"sid": 203318082421886,
 													"parameters": {
 														"visibility": "visible"
 													}
@@ -1232,7 +1232,7 @@
 												{
 													"id": "tween-one-property",
 													"objectClass": "pieceCollider",
-													"sid": 717225247090154,
+													"sid": 269656510449376,
 													"behaviorType": "Tween",
 													"parameters": {
 														"tags": "\"opacityAnim\"",
@@ -1248,7 +1248,7 @@
 												{
 													"id": "log",
 													"objectClass": "Browser",
-													"sid": 825120131524868,
+													"sid": 854300976115655,
 													"disabled": true,
 													"parameters": {
 														"type": "log",
@@ -1256,7 +1256,42 @@
 													}
 												}
 											],
-											"sid": 329594004794489
+											"sid": 139390532999071,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "pieceCollider",
+															"sid": 956884771670925,
+															"parameters": {
+																"instance-variable": "mexido"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-angle",
+															"objectClass": "pieceCollider",
+															"sid": 632942068914427,
+															"parameters": {
+																"angle": "pieceCollider.Angle-180"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "pieceCollider",
+															"sid": 310408901675642,
+															"parameters": {
+																"instance-variable": "mexido",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 983667196620383
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -1264,12 +1299,12 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 818335903671757
+													"sid": 200341477236688
 												},
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 401876027630986,
+													"sid": 807917076229990,
 													"parameters": {
 														"first-value": "JSON.Get(str(myPieces.AnimationFrame) & \".0\")",
 														"comparison": 0,
@@ -1281,23 +1316,15 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "pieceCollider",
-													"sid": 238521927095601,
+													"sid": 174729597262256,
 													"parameters": {
 														"frame-number": "0"
 													}
 												},
 												{
-													"id": "set-angle",
-													"objectClass": "pieceCollider",
-													"sid": 241216627569158,
-													"parameters": {
-														"angle": "pieceCollider.Angle-180"
-													}
-												},
-												{
 													"id": "set-collisions-enabled",
 													"objectClass": "pieceCollider",
-													"sid": 121654962495586,
+													"sid": 760777165288931,
 													"parameters": {
 														"collisions": "enabled"
 													}
@@ -1305,7 +1332,7 @@
 												{
 													"id": "set-visible",
 													"objectClass": "pieceCollider",
-													"sid": 420832813760505,
+													"sid": 581017145381944,
 													"parameters": {
 														"visibility": "visible"
 													}
@@ -1313,7 +1340,7 @@
 												{
 													"id": "tween-one-property",
 													"objectClass": "pieceCollider",
-													"sid": 953732291404824,
+													"sid": 351650295184848,
 													"behaviorType": "Tween",
 													"parameters": {
 														"tags": "\"opacityAnim\"",
@@ -1329,7 +1356,7 @@
 												{
 													"id": "log",
 													"objectClass": "Browser",
-													"sid": 784639254264957,
+													"sid": 504358147489845,
 													"disabled": true,
 													"parameters": {
 														"type": "log",
@@ -1337,7 +1364,43 @@
 													}
 												}
 											],
-											"sid": 442779461094943
+											"sid": 659027629494241,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "pieceCollider",
+															"sid": 331693636644751,
+															"parameters": {
+																"instance-variable": "mexido"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-angle",
+															"objectClass": "pieceCollider",
+															"sid": 498361879601507,
+															"parameters": {
+																"angle": "pieceCollider.Angle-180"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "pieceCollider",
+															"sid": 957733346772080,
+															"parameters": {
+																"instance-variable": "mexido",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 460132621411756
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -1345,14 +1408,14 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 478791976225363
+													"sid": 520529675611179
 												}
 											],
 											"actions": [
 												{
 													"id": "set-visible",
 													"objectClass": "pieceCollider",
-													"sid": 216077623914584,
+													"sid": 836257854248136,
 													"parameters": {
 														"visibility": "invisible"
 													}
@@ -1360,13 +1423,13 @@
 												{
 													"id": "set-collisions-enabled",
 													"objectClass": "pieceCollider",
-													"sid": 804638271998516,
+													"sid": 358054544236160,
 													"parameters": {
 														"collisions": "disabled"
 													}
 												}
 											],
-											"sid": 457074675897130
+											"sid": 709745528515265
 										}
 									]
 								}
@@ -1572,9 +1635,43 @@
 											}
 										},
 										{
+											"id": "tween-two-properties",
+											"objectClass": "myPieces",
+											"sid": 919819754232000,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"myPiece\"",
+												"property": "size",
+												"end-x": "178",
+												"end-y": "312",
+												"time": "0.5",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "myPieces",
+											"sid": 145865122516911,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"myPiece\"",
+												"property": "offsetAngle",
+												"end-value": "0",
+												"time": "0.5",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
 											"id": "set-size",
 											"objectClass": "myPieces",
 											"sid": 731109957160758,
+											"disabled": true,
 											"parameters": {
 												"width": "lerp(myPieces.Width, 178, (dt*5))",
 												"height": "lerp(myPieces.Height, 312, (dt*5))"
@@ -1584,6 +1681,7 @@
 											"id": "set-angle",
 											"objectClass": "myPieces",
 											"sid": 713026017588256,
+											"disabled": true,
 											"parameters": {
 												"angle": "lerp(myPieces.Angle, 0, (dt * 7))"
 											}
@@ -2131,223 +2229,244 @@
 						{
 							"eventType": "comment",
 							"text": "ajustar câmera"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-touching-object",
-									"objectClass": "Touch",
-									"sid": 341847840513363,
-									"parameters": {
-										"object": "playable_Area"
-									}
-								},
-								{
-									"id": "is-touching-object",
-									"objectClass": "Touch",
-									"sid": 234332347123644,
-									"parameters": {
-										"object": "myPieces"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 764115495413524,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "playable_Area",
-											"sid": 409631901759637,
-											"parameters": {
-												"unique-id": "44"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "camera",
-											"sid": 921365871420638,
-											"disabled": true,
-											"parameters": {
-												"x": "lerp(954, myPieces.X,0.5)",
-												"y": "lerp(486, myPieces.Y,0.5)"
-											}
-										},
-										{
-											"id": "simulate-control",
-											"objectClass": "camera",
-											"sid": 953413909643097,
-											"behaviorType": "8Direction",
-											"parameters": {
-												"control": "up"
-											}
-										}
-									],
-									"sid": 666030853712549
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "playable_Area",
-											"sid": 878483120720407,
-											"parameters": {
-												"unique-id": "51"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "camera",
-											"sid": 271211444897168,
-											"disabled": true,
-											"parameters": {
-												"x": "lerp(954, myPieces.X,0.5)",
-												"y": "lerp(486, myPieces.Y,0.5)"
-											}
-										},
-										{
-											"id": "simulate-control",
-											"objectClass": "camera",
-											"sid": 681870100357519,
-											"behaviorType": "8Direction",
-											"parameters": {
-												"control": "right"
-											}
-										}
-									],
-									"sid": 218865441466730
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "playable_Area",
-											"sid": 183978682886032,
-											"parameters": {
-												"unique-id": "52"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "camera",
-											"sid": 930686621087015,
-											"disabled": true,
-											"parameters": {
-												"x": "lerp(954, myPieces.X,0.5)",
-												"y": "lerp(486, myPieces.Y,0.5)"
-											}
-										},
-										{
-											"id": "simulate-control",
-											"objectClass": "camera",
-											"sid": 712947245028464,
-											"behaviorType": "8Direction",
-											"parameters": {
-												"control": "down"
-											}
-										}
-									],
-									"sid": 495251205930704
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "playable_Area",
-											"sid": 538074884493822,
-											"parameters": {
-												"unique-id": "53"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-position",
-											"objectClass": "camera",
-											"sid": 276221904137074,
-											"disabled": true,
-											"parameters": {
-												"x": "lerp(954, myPieces.X,0.5)",
-												"y": "lerp(486, myPieces.Y,0.5)"
-											}
-										},
-										{
-											"id": "simulate-control",
-											"objectClass": "camera",
-											"sid": 947139060297174,
-											"behaviorType": "8Direction",
-											"parameters": {
-												"control": "left"
-											}
-										}
-									],
-									"sid": 267614101177755
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-touched-object",
-									"objectClass": "Touch",
-									"sid": 446847359309002,
-									"parameters": {
-										"object": "Controle"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-opacity",
-									"objectClass": "Controle",
-									"sid": 675970652715141,
-									"parameters": {
-										"opacity": "100"
-									}
-								}
-							],
-							"sid": 953320685575302
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-nth-touch-end",
-									"objectClass": "Touch",
-									"sid": 351077825917303,
-									"parameters": {
-										"touch-number": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-opacity",
-									"objectClass": "Controle",
-									"sid": 973593087485072,
-									"parameters": {
-										"opacity": "30"
-									}
-								}
-							],
-							"sid": 589373212178528
 						}
 					],
 					"sid": 762405650561258
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 937694064543852,
+							"parameters": {
+								"object": "Controle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 869781807586577,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"UID:\" & playable_Area.UID"
+							}
+						}
+					],
+					"sid": 136549014851042,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 500783780065483,
+									"parameters": {
+										"first-value": "Controle.UID",
+										"comparison": 0,
+										"second-value": "62"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "camera",
+									"sid": 371696938124908,
+									"disabled": true,
+									"parameters": {
+										"x": "lerp(954, myPieces.X,0.5)",
+										"y": "lerp(486, myPieces.Y,0.5)"
+									}
+								},
+								{
+									"id": "simulate-control",
+									"objectClass": "camera",
+									"sid": 868501057578060,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "up"
+									}
+								}
+							],
+							"sid": 886510221578028
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 854556139005829,
+									"parameters": {
+										"first-value": "Controle.UID",
+										"comparison": 0,
+										"second-value": "61"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "camera",
+									"sid": 562275970539691,
+									"disabled": true,
+									"parameters": {
+										"x": "lerp(954, myPieces.X,0.5)",
+										"y": "lerp(486, myPieces.Y,0.5)"
+									}
+								},
+								{
+									"id": "simulate-control",
+									"objectClass": "camera",
+									"sid": 613000040100345,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "right"
+									}
+								}
+							],
+							"sid": 281918762461473
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 767320167889641,
+									"parameters": {
+										"first-value": "Controle.UID",
+										"comparison": 0,
+										"second-value": "63"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "camera",
+									"sid": 984836967803172,
+									"disabled": true,
+									"parameters": {
+										"x": "lerp(954, myPieces.X,0.5)",
+										"y": "lerp(486, myPieces.Y,0.5)"
+									}
+								},
+								{
+									"id": "simulate-control",
+									"objectClass": "camera",
+									"sid": 405064924437521,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "left"
+									}
+								}
+							],
+							"sid": 472362197731889
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 222474028987661,
+									"parameters": {
+										"first-value": "Controle.UID",
+										"comparison": 0,
+										"second-value": "65"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 313366990974515,
+									"parameters": {
+										"first-value": "Controle.UID",
+										"comparison": 0,
+										"second-value": "64"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "camera",
+									"sid": 875906020812693,
+									"disabled": true,
+									"parameters": {
+										"x": "lerp(954, myPieces.X,0.5)",
+										"y": "lerp(486, myPieces.Y,0.5)"
+									}
+								},
+								{
+									"id": "simulate-control",
+									"objectClass": "camera",
+									"sid": 647850467660462,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "down"
+									}
+								}
+							],
+							"sid": 348679929770856,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 663634841264869,
+							"parameters": {
+								"object": "Controle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Controle",
+							"sid": 275359119856197,
+							"parameters": {
+								"opacity": "100"
+							}
+						}
+					],
+					"sid": 958925381843245
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-nth-touch-end",
+							"objectClass": "Touch",
+							"sid": 510876814041504,
+							"parameters": {
+								"touch-number": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Controle",
+							"sid": 776430280000989,
+							"parameters": {
+								"opacity": "30"
+							}
+						}
+					],
+					"sid": 646855760042272
 				},
 				{
 					"eventType": "block",

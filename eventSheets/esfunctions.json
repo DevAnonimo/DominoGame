@@ -3167,40 +3167,70 @@
 										"loop": "no",
 										"ping-pong": "no"
 									}
-								},
-								{
-									"id": "tween-two-properties",
-									"objectClass": "myPieces",
-									"sid": 625638346796920,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "position",
-										"end-x": "int(tokenat(pos, 0, \";\"))",
-										"end-y": "int(tokenat(pos, 1, \";\"))",
-										"time": "0.3",
-										"ease": "noease",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no"
-									}
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 142785418942392
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 581703082652425,
-									"parameters": {
-										"variable": "ocupado",
-										"value": "false"
-									}
 								}
 							],
-							"sid": 762699094279052
+							"sid": 762699094279052,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 160999014410987,
+											"parameters": {
+												"first-value": "left(Browser.Platform, 1)",
+												"comparison": 1,
+												"second-value": "\"L\""
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 444635643100279,
+											"parameters": {
+												"first-value": "left(Browser.Platform, 1)",
+												"comparison": 1,
+												"second-value": "\"I\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-two-properties",
+											"objectClass": "myPieces",
+											"sid": 625638346796920,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "position",
+												"end-x": "int(tokenat(pos, 0, \";\"))",
+												"end-y": "int(tokenat(pos, 1, \";\"))",
+												"time": "0.3",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 142785418942392
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 918057073066782,
+											"parameters": {
+												"variable": "ocupado",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 905834595021790
+								}
+							]
 						}
 					]
 				}
