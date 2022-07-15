@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "GAME_INSTANCE",
 			"type": "string",
-			"initialValue": "dominogame-guicorp",
+			"initialValue": "domingame-guicorp",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -54,113 +54,156 @@
 					"sid": 299168102205672
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 792178635590586,
+			"children": [
 				{
-					"id": "reset-global-variables",
-					"objectClass": "System",
-					"sid": 396333228709049
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 475511867341048
+						},
+						{
+							"type": "comment",
+							"text": "Mapeamento de funções, me permite chamar as funções de acordo com o valor de alguma String"
+						},
+						{
+							"type": "comment",
+							"text": "Logs"
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 672694767219705,
+							"parameters": {
+								"name": "\"logMap\"",
+								"string": "\"error\"",
+								"function": "ErrorLogFeedback"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 640928408871457,
+							"parameters": {
+								"name": "\"logMap\"",
+								"string": "\"log\"",
+								"function": "\"log\""
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 776412715797556,
+							"parameters": {
+								"name": "\"logMap\"",
+								"string": "\"success\"",
+								"function": "SuccessLogFeedback"
+							}
+						},
+						{
+							"id": "map-function-default",
+							"objectClass": "Functions",
+							"sid": 424949393490633,
+							"parameters": {
+								"name": "\"logMap\"",
+								"function": "Debug"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Layout"
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 391043730320359,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"string": "\"2\"",
+								"function": "2"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 438614623885512,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"string": "\"3\"",
+								"function": "3"
+							}
+						},
+						{
+							"id": "map-function",
+							"objectClass": "Functions",
+							"sid": 703806117108555,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"string": "\"4\"",
+								"function": "4"
+							}
+						},
+						{
+							"id": "map-function-default",
+							"objectClass": "Functions",
+							"sid": 802960015413244,
+							"parameters": {
+								"name": "\"layoutMap\"",
+								"function": "hostLayout"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "project_description",
+							"sid": 349680702028810,
+							"disabled": true,
+							"parameters": {
+								"text": "Browser.Language"
+							}
+						}
+					],
+					"sid": 617826970265749
 				},
 				{
-					"type": "comment",
-					"text": "Mapeamento de funções, me permite chamar as funções de acordo com o valor de alguma String"
-				},
-				{
-					"type": "comment",
-					"text": "Logs"
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 635742379999668,
-					"parameters": {
-						"name": "\"logMap\"",
-						"string": "\"error\"",
-						"function": "ErrorLogFeedback"
-					}
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 411721379129449,
-					"parameters": {
-						"name": "\"logMap\"",
-						"string": "\"log\"",
-						"function": "\"log\""
-					}
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 394593769981381,
-					"parameters": {
-						"name": "\"logMap\"",
-						"string": "\"success\"",
-						"function": "SuccessLogFeedback"
-					}
-				},
-				{
-					"id": "map-function-default",
-					"objectClass": "Functions",
-					"sid": 167110473028296,
-					"parameters": {
-						"name": "\"logMap\"",
-						"function": "Debug"
-					}
-				},
-				{
-					"type": "comment",
-					"text": "Layout"
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 200135162564001,
-					"parameters": {
-						"name": "\"layoutMap\"",
-						"string": "\"2\"",
-						"function": "2"
-					}
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 649024035829323,
-					"parameters": {
-						"name": "\"layoutMap\"",
-						"string": "\"3\"",
-						"function": "3"
-					}
-				},
-				{
-					"id": "map-function",
-					"objectClass": "Functions",
-					"sid": 173974922307354,
-					"parameters": {
-						"name": "\"layoutMap\"",
-						"string": "\"4\"",
-						"function": "4"
-					}
-				},
-				{
-					"id": "map-function-default",
-					"objectClass": "Functions",
-					"sid": 561901080251981,
-					"parameters": {
-						"name": "\"layoutMap\"",
-						"function": "hostLayout"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "project_description",
-					"sid": 553263410233566,
-					"disabled": true,
-					"parameters": {
-						"text": "left(Browser.Platform, 1)"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 675807772487175,
+							"parameters": {
+								"first-value": "Browser.Language",
+								"comparison": 0,
+								"second-value": "\"pt-BR\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-placeholder",
+							"objectClass": "TextInput",
+							"sid": 754549315862496,
+							"parameters": {
+								"placeholder": "\"Enter your nickname\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "project_description",
+							"sid": 945446100490213,
+							"parameters": {
+								"text": "\"Domin Game\r\nBy Guilherme Simionato\""
+							}
+						}
+					],
+					"sid": 809941228906299
 				}
-			],
-			"sid": 792178635590586
+			]
 		},
 		{
 			"eventType": "block",
@@ -168,11 +211,11 @@
 				{
 					"id": "on-clicked",
 					"objectClass": "btn_login",
-					"sid": 299942117293898
+					"sid": 867815820279861
 				}
 			],
 			"actions": [],
-			"sid": 897757241762126,
+			"sid": 460556047289244,
 			"children": [
 				{
 					"eventType": "block",
@@ -180,7 +223,7 @@
 						{
 							"id": "compare-text",
 							"objectClass": "TextInput",
-							"sid": 890484902616074,
+							"sid": 978977977980362,
 							"parameters": {
 								"text": "\"\"",
 								"case": "case-insensitive"
@@ -189,7 +232,7 @@
 						}
 					],
 					"actions": [],
-					"sid": 813767244488242,
+					"sid": 892298867869372,
 					"children": [
 						{
 							"eventType": "block",
@@ -197,21 +240,61 @@
 								{
 									"id": "supports-multiplayer",
 									"objectClass": "Multiplayer",
-									"sid": 941890330181183,
+									"sid": 620751154432487,
 									"isInverted": true
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 833201441913081,
+							"children": [
 								{
-									"callFunction": "CallLog",
-									"sid": 844254016057614,
-									"parameters": [
-										"\"error\"",
-										"\"Este dispositivo ou navegador não suporta multiplayer\""
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 416288077293291,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 501318493543671,
+											"parameters": [
+												"\"error\"",
+												"\"Este dispositivo ou navegador não suporta multiplayer\""
+											]
+										}
+									],
+									"sid": 361975936513311
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 559579663138088
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 777683145437938,
+											"parameters": [
+												"\"error\"",
+												"\"This device or browser does not support multiplayer\""
+											]
+										}
+									],
+									"sid": 564741535610276
 								}
-							],
-							"sid": 259419633810098
+							]
 						},
 						{
 							"eventType": "block",
@@ -219,45 +302,92 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 948648191478054
+									"sid": 787164968943358
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 110840159320212,
+							"children": [
 								{
-									"callFunction": "CallLog",
-									"sid": 233171468899398,
-									"parameters": [
-										"\"success\"",
-										"\"Aguarde...\""
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 706847179939612,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 391830434193603,
+											"parameters": [
+												"\"success\"",
+												"\"Carregando...\""
+											]
+										}
+									],
+									"sid": 416624294098051
 								},
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 577299649058061,
-									"parameters": {
-										"variable": "ALIAS",
-										"value": "TextInput.Text"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 825121064493292
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 416122287602185,
+											"parameters": [
+												"\"success\"",
+												"\"Loading...\""
+											]
+										}
+									],
+									"sid": 826365595216648
 								},
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 585887831754840,
-									"parameters": {
-										"seconds": "1.5"
-									}
-								},
-								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 889644907430647,
-									"parameters": {
-										"layout": "Game"
-									}
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 654217046999064,
+											"parameters": {
+												"variable": "ALIAS",
+												"value": "TextInput.Text"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 886475300901860,
+											"parameters": {
+												"seconds": "1.5"
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 458352839264926,
+											"parameters": {
+												"layout": "Game"
+											}
+										}
+									],
+									"sid": 893617732323809
 								}
-							],
-							"sid": 484805696510132
+							]
 						}
 					]
 				},
@@ -267,20 +397,60 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 799491551231389
+							"sid": 934109468304334
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 324120153885756,
+					"children": [
 						{
-							"callFunction": "CallLog",
-							"sid": 326497927839766,
-							"parameters": [
-								"\"error\"",
-								"\"Por favor, digite seu apelido\""
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 477633289917827,
+									"parameters": {
+										"first-value": "Browser.Language",
+										"comparison": 0,
+										"second-value": "\"pt-BR\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 628541937179505,
+									"parameters": [
+										"\"error\"",
+										"\"Por favor, digite seu apelido\""
+									]
+								}
+							],
+							"sid": 572190221788528
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 556791682377484
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 436295475313635,
+									"parameters": [
+										"\"error\"",
+										"\"Please, type some nickname\""
+									]
+								}
+							],
+							"sid": 857234700686028
 						}
-					],
-					"sid": 949183700208408
+					]
 				}
 			]
 		},
@@ -290,14 +460,14 @@
 				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
-					"sid": 447380071891853,
+					"sid": 591517291662938,
 					"parameters": {
 						"key": 13
 					}
 				}
 			],
 			"actions": [],
-			"sid": 397546298488900,
+			"sid": 102912495384204,
 			"children": [
 				{
 					"eventType": "block",
@@ -305,7 +475,7 @@
 						{
 							"id": "compare-text",
 							"objectClass": "TextInput",
-							"sid": 115054604016417,
+							"sid": 314999346878265,
 							"parameters": {
 								"text": "\"\"",
 								"case": "case-insensitive"
@@ -314,7 +484,7 @@
 						}
 					],
 					"actions": [],
-					"sid": 740629241349837,
+					"sid": 214344167535749,
 					"children": [
 						{
 							"eventType": "block",
@@ -322,21 +492,61 @@
 								{
 									"id": "supports-multiplayer",
 									"objectClass": "Multiplayer",
-									"sid": 899232172081288,
+									"sid": 326101004010035,
 									"isInverted": true
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 592275323876507,
+							"children": [
 								{
-									"callFunction": "CallLog",
-									"sid": 989523297112755,
-									"parameters": [
-										"\"error\"",
-										"\"Este dispositivo ou navegador não suporta multiplayer\""
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 602659399838658,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 703274145464564,
+											"parameters": [
+												"\"error\"",
+												"\"Este dispositivo ou navegador não suporta multiplayer\""
+											]
+										}
+									],
+									"sid": 365991192006016
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 476438969617880
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 162991359792034,
+											"parameters": [
+												"\"error\"",
+												"\"This device or browser does not support multiplayer\""
+											]
+										}
+									],
+									"sid": 365281673673381
 								}
-							],
-							"sid": 654231473489231
+							]
 						},
 						{
 							"eventType": "block",
@@ -344,45 +554,92 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 383726326134293
+									"sid": 932154942901973
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 459737738315298,
+							"children": [
 								{
-									"callFunction": "CallLog",
-									"sid": 500727343844107,
-									"parameters": [
-										"\"success\"",
-										"\"Aguarde...\""
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 695701747027929,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 321267040826353,
+											"parameters": [
+												"\"success\"",
+												"\"Carregando...\""
+											]
+										}
+									],
+									"sid": 927444660358219
 								},
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 513693656514696,
-									"parameters": {
-										"variable": "ALIAS",
-										"value": "TextInput.Text"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 405054494494032
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 426982030897060,
+											"parameters": [
+												"\"success\"",
+												"\"Loading...\""
+											]
+										}
+									],
+									"sid": 743858812994192
 								},
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 604928861921925,
-									"parameters": {
-										"seconds": "1.5"
-									}
-								},
-								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 884594054952329,
-									"parameters": {
-										"layout": "Game"
-									}
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 726044503702937,
+											"parameters": {
+												"variable": "ALIAS",
+												"value": "TextInput.Text"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 355655078109662,
+											"parameters": {
+												"seconds": "1.5"
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 598606230497795,
+											"parameters": {
+												"layout": "Game"
+											}
+										}
+									],
+									"sid": 585777333700249
 								}
-							],
-							"sid": 802259504496174
+							]
 						}
 					]
 				},
@@ -392,20 +649,60 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 600542173964590
+							"sid": 768400053785895
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 268344391603166,
+					"children": [
 						{
-							"callFunction": "CallLog",
-							"sid": 687558121767829,
-							"parameters": [
-								"\"error\"",
-								"\"Por favor, digite seu apelido\""
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 432127972596592,
+									"parameters": {
+										"first-value": "Browser.Language",
+										"comparison": 0,
+										"second-value": "\"pt-BR\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 139871454688289,
+									"parameters": [
+										"\"error\"",
+										"\"Por favor, digite seu apelido\""
+									]
+								}
+							],
+							"sid": 783265611393884
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 381533958501425
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 299572782164436,
+									"parameters": [
+										"\"error\"",
+										"\"Please, type some nickname\""
+									]
+								}
+							],
+							"sid": 365188202135031
 						}
-					],
-					"sid": 248004490546088
+					]
 				}
 			]
 		}

@@ -1480,7 +1480,7 @@
 						{
 							"type": "playerNick",
 							"properties": {
-								"text": "Player Name",
+								"text": "Aguardando jogador",
 								"enable-bbcode": true,
 								"font": "Avant Garde",
 								"size": 30,
@@ -1524,7 +1524,7 @@
 						{
 							"type": "playerNick",
 							"properties": {
-								"text": "Player Name",
+								"text": "Aguardando jogador",
 								"enable-bbcode": true,
 								"font": "Avant Garde",
 								"size": 30,
@@ -1568,7 +1568,7 @@
 						{
 							"type": "playerNick",
 							"properties": {
-								"text": "Player Name",
+								"text": "Aguardando jogador",
 								"enable-bbcode": true,
 								"font": "Avant Garde",
 								"size": 30,
@@ -1683,7 +1683,7 @@
 						{
 							"type": "btn_Audio",
 							"properties": {
-								"text": "Audio: On",
+								"text": "Áudio: Ligado",
 								"enable-bbcode": true,
 								"font": "sans-serif",
 								"size": 30,
@@ -1725,7 +1725,7 @@
 						{
 							"type": "btn_Music",
 							"properties": {
-								"text": "Music: On",
+								"text": "Música: Ligado",
 								"enable-bbcode": true,
 								"font": "sans-serif",
 								"size": 30,
@@ -1960,7 +1960,7 @@
 						{
 							"type": "project_description",
 							"properties": {
-								"text": "Domin Game\nBy Guilherme Simionato",
+								"text": "Domin Game\nPor Guilherme Simionato",
 								"enable-bbcode": true,
 								"font": "Avant Garde",
 								"size": 30,

@@ -629,7 +629,42 @@
 									}
 								}
 							],
-							"sid": 698774088185318
+							"sid": 698774088185318,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "myPieces",
+											"sid": 163874001379282,
+											"parameters": {
+												"comparison": 0,
+												"number": "27"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "myPieces",
+											"sid": 389183011646680,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetOpacity",
+												"end-value": "50",
+												"time": "1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "yes",
+												"ping-pong": "yes"
+											}
+										}
+									],
+									"sid": 795623725830291
+								}
+							]
 						}
 					]
 				},
@@ -3300,7 +3335,15 @@
 						},
 						{
 							"callFunction": "CallLog",
-							"sid": 834761680465180,
+							"sid": 694565612006338,
+							"parameters": [
+								"\"success\"",
+								"\"Esperando a primeira peça\""
+							]
+						},
+						{
+							"callFunction": "CallLog",
+							"sid": 642533602485395,
 							"disabled": true,
 							"parameters": [
 								"\"warn\"",
@@ -3600,6 +3643,7 @@
 								{
 									"callFunction": "CallLog",
 									"sid": 294664340765001,
+									"disabled": true,
 									"parameters": [
 										"\"\"",
 										"\"Próximo da lista:  \" & int(tokenat(listOrderPlayers, Index, \";\"))\n& newline &\n\"Lista completa: \" & listOrderPlayers"
@@ -3635,6 +3679,7 @@
 										{
 											"callFunction": "CallLog",
 											"sid": 525281358140943,
+											"disabled": true,
 											"parameters": [
 												"\"\"",
 												"\"O Player de agora é:  \" & playerNick.Text"
@@ -3670,6 +3715,7 @@
 								{
 									"callFunction": "CallLog",
 									"sid": 760218675682586,
+									"disabled": true,
 									"parameters": [
 										"\"success\"",
 										"\"sua vez\""
@@ -3678,6 +3724,7 @@
 								{
 									"callFunction": "CallLog",
 									"sid": 472942758441847,
+									"disabled": true,
 									"parameters": [
 										"\"\"",
 										"\"Bom dia, aqui quem fala é o HOST\""
@@ -3887,9 +3934,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "btn_Audio",
-									"sid": 169307224087198,
+									"sid": 146143541333980,
 									"parameters": {
-										"text": "\"Audio: On\""
+										"text": "\"Áudio: Ligado\""
 									}
 								},
 								{
@@ -3926,9 +3973,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "btn_Audio",
-									"sid": 817481963153622,
+									"sid": 172708927572184,
 									"parameters": {
-										"text": "\"Audio: Off\""
+										"text": "\"Áudio: Desligado\""
 									}
 								},
 								{
@@ -3985,9 +4032,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "btn_Music",
-									"sid": 524620917456752,
+									"sid": 469646896605724,
 									"parameters": {
-										"text": "\"Music: On\""
+										"text": "\"Música: Ligado\""
 									}
 								},
 								{
@@ -4024,9 +4071,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "btn_Music",
-									"sid": 824044536243772,
+									"sid": 210924408148992,
 									"parameters": {
-										"text": "\"Music: Off\""
+										"text": "\"Música: Desligado\""
 									}
 								},
 								{
@@ -4188,6 +4235,25 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "broadcast-message",
+											"objectClass": "Multiplayer",
+											"sid": 961063606882191,
+											"parameters": {
+												"from-id": "\"\"",
+												"tag": "\"passTurn\"",
+												"message": "Multiplayer.HostAlias",
+												"mode": "reliable-ordered"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 304589220400130,
+											"parameters": {
+												"seconds": "3"
+											}
+										},
 										{
 											"callFunction": "playTurn",
 											"sid": 609721442005721
@@ -4669,7 +4735,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "Logs hacks",
 			"description": "",
 			"isActiveOnStart": true,
@@ -4705,7 +4771,6 @@
 						}
 					],
 					"sid": 653295212713691,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -4731,7 +4796,6 @@
 								}
 							],
 							"sid": 347103307119781,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -4748,8 +4812,7 @@
 											"sid": 406942169004365
 										}
 									],
-									"sid": 484352547457086,
-									"disabled": true
+									"sid": 484352547457086
 								},
 								{
 									"eventType": "block",
@@ -4773,8 +4836,7 @@
 											}
 										}
 									],
-									"sid": 106996073218834,
-									"disabled": true
+									"sid": 106996073218834
 								}
 							]
 						}
@@ -4806,8 +4868,7 @@
 							}
 						}
 					],
-					"sid": 978021160494800,
-					"disabled": true
+					"sid": 978021160494800
 				},
 				{
 					"eventType": "block",
@@ -4846,8 +4907,7 @@
 							"sid": 395438986484857
 						}
 					],
-					"sid": 585248508038094,
-					"disabled": true
+					"sid": 585248508038094
 				},
 				{
 					"eventType": "block",
@@ -4875,8 +4935,7 @@
 							}
 						}
 					],
-					"sid": 686312067420228,
-					"disabled": true
+					"sid": 686312067420228
 				},
 				{
 					"eventType": "block",
@@ -4982,8 +5041,7 @@
 							}
 						}
 					],
-					"sid": 501429326663083,
-					"disabled": true
+					"sid": 501429326663083
 				}
 			],
 			"sid": 159388379465158

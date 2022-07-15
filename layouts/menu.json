@@ -88,10 +88,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 712,
-						"y": 561,
-						"width": 496.00013366010444,
-						"height": 48.99999082883198,
+						"x": 653.5,
+						"y": 528,
+						"width": 613.0001336601044,
+						"height": 91.99999082883198,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -212,7 +212,7 @@
 				{
 					"type": "project_description",
 					"properties": {
-						"text": "Domin Game\nBy Guilherme Simionato",
+						"text": "Domin Game\nPor Guilherme Simionato",
 						"enable-bbcode": true,
 						"font": "Avant Garde",
 						"size": 30,
