@@ -327,6 +327,14 @@
 							]
 						},
 						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 918737965669193,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
 							"callFunction": "Disconnect",
 							"sid": 925842892235270
 						}
@@ -1993,9 +2001,9 @@
 																{
 																	"id": "broadcast-message",
 																	"objectClass": "Multiplayer",
-																	"sid": 100340346591266,
+																	"sid": 799798632421642,
 																	"parameters": {
-																		"from-id": "Multiplayer.FromID",
+																		"from-id": "\"\"",
 																		"tag": "\"newPiece\"",
 																		"message": "Multiplayer.Message",
 																		"mode": "reliable-ordered"
@@ -2012,11 +2020,11 @@
 																{
 																	"id": "broadcast-message",
 																	"objectClass": "Multiplayer",
-																	"sid": 585881372751174,
+																	"sid": 106364924802212,
 																	"parameters": {
-																		"from-id": "Multiplayer.FromID",
+																		"from-id": "\"\"",
 																		"tag": "\"newPieceWin\"",
-																		"message": "\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\n\"Retornando ao menu...\"",
+																		"message": "\"O jogador \" & Multiplayer.HostAlias & \" ganhou o jogo!\" & newline &\n\"Retornando ao menu...\"",
 																		"mode": "reliable-ordered"
 																	}
 																},
