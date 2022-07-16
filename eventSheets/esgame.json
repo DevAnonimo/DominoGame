@@ -1819,13 +1819,6 @@
 													}
 												},
 												{
-													"callFunction": "zoomIn",
-													"sid": 112860936150682,
-													"parameters": [
-														"pieceCollider.X & \";\" & pieceCollider.Y"
-													]
-												},
-												{
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 878893726020076,
@@ -1834,6 +1827,13 @@
 														"type": "log",
 														"message": "\"O que foi passado: \" & pieceCollider.X & \" | \" & pieceCollider.Y"
 													}
+												},
+												{
+													"callFunction": "zoomIn",
+													"sid": 288218709714055,
+													"parameters": [
+														"pieceCollider.X & \";\" & pieceCollider.Y"
+													]
 												}
 											],
 											"sid": 915889942417102,
@@ -1847,6 +1847,17 @@
 															"sid": 992569880252496,
 															"parameters": {
 																"variable": "ocupado"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 827120593391527,
+															"parameters": {
+																"first-value": "myPieces.Angle",
+																"comparison": 0,
+																"second-value": "pieceCollider.Angle"
 															},
 															"isInverted": true
 														}

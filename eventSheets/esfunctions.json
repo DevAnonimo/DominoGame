@@ -3843,14 +3843,6 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-layout-scale",
-							"objectClass": "System",
-							"sid": 407566040843274,
-							"parameters": {
-								"scale": "lerp(LayoutScale, 1.6, (dt * 7))"
-							}
-						},
-						{
 							"id": "set-position",
 							"objectClass": "camera",
 							"sid": 780250619398312,
@@ -3871,9 +3863,17 @@
 							}
 						},
 						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 128798276434917,
+							"parameters": {
+								"scale": "lerp(LayoutScale, 1.6, (dt * 7))"
+							}
+						},
+						{
 							"id": "tween-two-properties",
 							"objectClass": "camera",
-							"sid": 493239318750233,
+							"sid": 684472385485866,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
@@ -3888,7 +3888,37 @@
 							}
 						}
 					],
-					"sid": 491531884732382
+					"sid": 491531884732382,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "camera",
+									"sid": 612730885259580,
+									"parameters": {
+										"object": "pieceCollider"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 977815597337427
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 853368302904340
+								}
+							],
+							"actions": [],
+							"sid": 405736772565411
+						}
+					]
 				},
 				{
 					"functionName": "zoomOut",
