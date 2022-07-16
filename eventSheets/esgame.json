@@ -274,7 +274,36 @@
 									]
 								}
 							],
-							"sid": 485733222983461
+							"sid": 485733222983461,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 843538576330672,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 633986743682835,
+											"parameters": [
+												"\"success\"",
+												"\"HOST\" & newline & \"Number of players in the room: 1\""
+											]
+										}
+									],
+									"sid": 168578892796280
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -304,7 +333,36 @@
 									]
 								}
 							],
-							"sid": 394234097735773
+							"sid": 394234097735773,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 813482139518262,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 839574923082084,
+											"parameters": [
+												"\"success\"",
+												"\"PEER\" & newline & \"Waiting for players\""
+											]
+										}
+									],
+									"sid": 392582986697101
+								}
+							]
 						}
 					]
 				},
@@ -325,21 +383,57 @@
 								"\"error\"",
 								"\"Houve um erro, você será desconectado\""
 							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 918737965669193,
-							"parameters": {
-								"seconds": "5"
-							}
-						},
-						{
-							"callFunction": "Disconnect",
-							"sid": 925842892235270
 						}
 					],
-					"sid": 413776618437760
+					"sid": 413776618437760,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 710076174415840,
+									"parameters": {
+										"first-value": "Browser.Language",
+										"comparison": 0,
+										"second-value": "\"pt-BR\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 760099302613781,
+									"parameters": [
+										"\"error\"",
+										"\"There was an error, you will be logged out\""
+									]
+								}
+							],
+							"sid": 489849676119880
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 936343732559538,
+									"parameters": {
+										"seconds": "5"
+									}
+								},
+								{
+									"callFunction": "Disconnect",
+									"sid": 855723783531161
+								}
+							],
+							"sid": 507392400281962
+						}
+					]
 				}
 			],
 			"sid": 260201199567679
@@ -679,29 +773,78 @@
 								"message": "\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\n\"Retornando ao menu...\"",
 								"mode": "reliable-ordered"
 							}
-						},
-						{
-							"callFunction": "CallLog",
-							"sid": 277207227274393,
-							"parameters": [
-								"\"success\"",
-								"\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\r\n\"Retornando ao menu...\""
-							]
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 174668420144681,
-							"parameters": {
-								"seconds": "5"
-							}
-						},
-						{
-							"callFunction": "Disconnect",
-							"sid": 742739500432739
 						}
 					],
-					"sid": 634243664786909
+					"sid": 634243664786909,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 782969203728321,
+									"parameters": {
+										"first-value": "Browser.Language",
+										"comparison": 0,
+										"second-value": "\"pt-BR\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 103985506760711,
+									"parameters": [
+										"\"success\"",
+										"\"The player \" & Multiplayer.FromAlias & \" won the game!\" & newline & \"Returning to menu...\""
+									]
+								}
+							],
+							"sid": 294762972870801
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 375122251855337
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 516725423702315,
+									"parameters": [
+										"\"success\"",
+										"\"O jogador \" & Multiplayer.FromAlias & \" ganhou o jogo!\" & newline &\r\n\"Retornando ao menu...\""
+									]
+								}
+							],
+							"sid": 470842867326608
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 346485127706817,
+									"parameters": {
+										"seconds": "5"
+									}
+								},
+								{
+									"callFunction": "Disconnect",
+									"sid": 921316594790668
+								}
+							],
+							"sid": 472539244736026
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -798,7 +941,55 @@
 							]
 						}
 					],
-					"sid": 908580429077183
+					"sid": 908580429077183,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 989690842728181,
+									"parameters": {
+										"first-value": "Multiplayer.Message",
+										"comparison": 0,
+										"second-value": "\"Esperando primeira peça\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 944915359980042,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 507543253807717,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 898629871084893,
+											"parameters": [
+												"\"success\"",
+												"\"Waiting for the first piece\""
+											]
+										}
+									],
+									"sid": 606348114538297
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -871,6 +1062,7 @@
 						{
 							"callFunction": "CallLog",
 							"sid": 321711440303559,
+							"disabled": true,
 							"parameters": [
 								"\"warn\"",
 								"Multiplayer.Message"
@@ -939,6 +1131,7 @@
 						{
 							"callFunction": "CallLog",
 							"sid": 359588859747989,
+							"disabled": true,
 							"parameters": [
 								"\"\"",
 								"Multiplayer.Message"
@@ -946,10 +1139,10 @@
 						},
 						{
 							"callFunction": "CallLog",
-							"sid": 224470852035655,
+							"sid": 582282612324184,
 							"parameters": [
 								"\"success\"",
-								"\"Sua vez\""
+								"\"Sua vez de jogar\""
 							]
 						},
 						{
@@ -961,7 +1154,36 @@
 							}
 						}
 					],
-					"sid": 187345268352247
+					"sid": 187345268352247,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 579759993484255,
+									"parameters": {
+										"first-value": "Browser.Language",
+										"comparison": 0,
+										"second-value": "\"pt-BR\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 508207526154948,
+									"parameters": [
+										"\"success\"",
+										"\"Your turn to play\""
+									]
+								}
+							],
+							"sid": 208744144504933
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1009,29 +1231,77 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 791819065005786,
+					"children": [
 						{
-							"callFunction": "CallLog",
-							"sid": 958710469667301,
-							"parameters": [
-								"\"success\"",
-								"Multiplayer.Message"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 239306365093688,
+									"parameters": {
+										"first-value": "Browser.Language",
+										"comparison": 0,
+										"second-value": "\"pt-BR\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 790682529692933,
+									"parameters": [
+										"\"success\"",
+										"\"You lost!\" & newline & \"Another player won the game!\" & newline & \"Returning to menu...\""
+									]
+								}
+							],
+							"sid": 871648238705726
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 410177673675364,
-							"parameters": {
-								"seconds": "5"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 518856800684353
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 885256914461598,
+									"parameters": [
+										"\"success\"",
+										"Multiplayer.Message"
+									]
+								}
+							],
+							"sid": 803632393827243
 						},
 						{
-							"callFunction": "Disconnect",
-							"sid": 426050000904954
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 796475650155038,
+									"parameters": {
+										"seconds": "5"
+									}
+								},
+								{
+									"callFunction": "Disconnect",
+									"sid": 255335096865928
+								}
+							],
+							"sid": 766383803158549
 						}
-					],
-					"sid": 791819065005786
+					]
 				},
 				{
 					"eventType": "block",
@@ -1980,7 +2250,36 @@
 															]
 														}
 													],
-													"sid": 338370921282493
+													"sid": 338370921282493,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 370595504081494,
+																	"parameters": {
+																		"first-value": "Browser.Language",
+																		"comparison": 0,
+																		"second-value": "\"pt-BR\""
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "CallLog",
+																	"sid": 369883039956208,
+																	"parameters": [
+																		"\"success\"",
+																		"\"Congratulations!\" & newline & \"You won.\""
+																	]
+																}
+															],
+															"sid": 767954547310782
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -2038,6 +2337,33 @@
 																}
 															],
 															"sid": 370008615710893
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 911130596433892,
+																	"parameters": {
+																		"first-value": "Browser.Language",
+																		"comparison": 0,
+																		"second-value": "\"pt-BR\""
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "CallLog",
+																	"sid": 889571214651435,
+																	"parameters": [
+																		"\"success\"",
+																		"\"Congratulations!\" & newline & \"You won.\""
+																	]
+																}
+															],
+															"sid": 486464491405579
 														}
 													]
 												},
@@ -2477,6 +2803,10 @@
 					"sid": 646855760042272
 				},
 				{
+					"eventType": "comment",
+					"text": "Início do jogo"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -2485,47 +2815,114 @@
 							"sid": 551528089608687
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 241618743258073,
+					"children": [
 						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 207997481924508,
-							"parameters": {
-								"audio-file": "migfus20__happy-background-music",
-								"loop": "looping",
-								"volume": "-7",
-								"tag-optional": "\"music\""
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 609709092372525,
+									"parameters": {
+										"first-value": "Browser.Language",
+										"comparison": 0,
+										"second-value": "\"pt-BR\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "project_description",
+									"sid": 346347338325290,
+									"parameters": {
+										"text": "\"Domin Game\r\nBy Guilherme Simionato\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "txt_pularAVez",
+									"sid": 180830501086625,
+									"parameters": {
+										"text": "\"Pass turn\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "playerNick",
+									"sid": 680181699533663,
+									"parameters": {
+										"text": "\"Waiting for player\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "btn_Audio",
+									"sid": 421365821734617,
+									"parameters": {
+										"text": "\"Audio: On\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "btn_Music",
+									"sid": 431660078437894,
+									"parameters": {
+										"text": "\"Music: On\""
+									}
+								}
+							],
+							"sid": 283314630126641
 						},
 						{
-							"id": "set-instvar-value",
-							"objectClass": "camera",
-							"sid": 805587449865007,
-							"parameters": {
-								"instance-variable": "poX",
-								"value": "camera.X"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "camera",
-							"sid": 564400060760390,
-							"parameters": {
-								"instance-variable": "posY",
-								"value": "camera.Y"
-							}
-						},
-						{
-							"id": "request-project-file",
-							"objectClass": "AJAX",
-							"sid": 395224212105654,
-							"parameters": {
-								"tag": "\"pieces\"",
-								"file": "file.json"
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 249827698024482,
+									"parameters": {
+										"audio-file": "migfus20__happy-background-music",
+										"loop": "looping",
+										"volume": "-7",
+										"tag-optional": "\"music\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "camera",
+									"sid": 657987860283942,
+									"parameters": {
+										"instance-variable": "poX",
+										"value": "camera.X"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "camera",
+									"sid": 713817817746907,
+									"parameters": {
+										"instance-variable": "posY",
+										"value": "camera.Y"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 443516487525617,
+									"parameters": {
+										"tag": "\"pieces\"",
+										"file": "file.json"
+									}
+								}
+							],
+							"sid": 665928300473779
 						}
-					],
-					"sid": 241618743258073
+					]
 				},
 				{
 					"eventType": "block",

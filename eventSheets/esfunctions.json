@@ -1524,6 +1524,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 905683052887888,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"Horizontal na direita\""
@@ -1669,6 +1670,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 721962212409650,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"Horizontal na direita\""
@@ -1798,6 +1800,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 627102047103215,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"Vertical na direita\""
@@ -2170,6 +2173,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 380945751956799,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"Horizontal na esquerda\""
@@ -2196,6 +2200,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 710445285231844,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"Horizontal na opção 1,0\""
@@ -2324,6 +2329,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 399362860055414,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"Horizontal na esquerda\""
@@ -2350,6 +2356,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 199608152783334,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"Horizontal na opção 0,1\""
@@ -2472,6 +2479,7 @@
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 920315887767797,
+											"disabled": true,
 											"parameters": {
 												"type": "log",
 												"message": "\"Vertical na esquerda\""
@@ -2523,6 +2531,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 751377042334270,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"Peça está de pé\""
@@ -2550,6 +2559,7 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 228225458710354,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"Peça está numa posição MAIOR que a última peça\""
@@ -2606,6 +2616,7 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 382029860068388,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"Peça está numa posição MENOR que a última peça\""
@@ -2675,6 +2686,7 @@
 													"id": "log",
 													"objectClass": "Browser",
 													"sid": 404954406820349,
+													"disabled": true,
 													"parameters": {
 														"type": "log",
 														"message": "\"Peça de ponta cabeça\""
@@ -2702,6 +2714,7 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 500681029352450,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"Peça está numa posição MAIOR que a última peça\""
@@ -2758,6 +2771,7 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 501450764316481,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"Peça está numa posição MENOR que a última peça\""
@@ -2812,6 +2826,7 @@
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 670213695181910,
+											"disabled": true,
 											"parameters": {
 												"variable": "lastPiecePosL",
 												"value": "str(posX) &  \";\" & str(posY)"
@@ -3335,7 +3350,7 @@
 						},
 						{
 							"callFunction": "CallLog",
-							"sid": 694565612006338,
+							"sid": 325720236056113,
 							"parameters": [
 								"\"success\"",
 								"\"Esperando a primeira peça\""
@@ -3353,6 +3368,33 @@
 					],
 					"sid": 978603672876337,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 910095535610770,
+									"parameters": {
+										"first-value": "Browser.Language",
+										"comparison": 0,
+										"second-value": "\"pt-BR\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CallLog",
+									"sid": 944409589033536,
+									"parameters": [
+										"\"success\"",
+										"\"Waiting for the first piece\""
+									]
+								}
+							],
+							"sid": 754118139427215
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -3497,6 +3539,14 @@
 								{
 									"callFunction": "playTurn",
 									"sid": 677966942275724
+								},
+								{
+									"callFunction": "CallLog",
+									"sid": 947483754602589,
+									"parameters": [
+										"\"log\"",
+										"\"1\""
+									]
 								}
 							],
 							"sid": 340986444627535
@@ -3722,10 +3772,10 @@
 								},
 								{
 									"callFunction": "CallLog",
-									"sid": 760218675682586,
+									"sid": 737072272437294,
 									"parameters": [
 										"\"success\"",
-										"\"sua vez\""
+										"\"Sua vez de jogar\""
 									]
 								},
 								{
@@ -3738,7 +3788,36 @@
 									]
 								}
 							],
-							"sid": 320323194038754
+							"sid": 320323194038754,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 733675793799486,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "CallLog",
+											"sid": 519635840291663,
+											"parameters": [
+												"\"success\"",
+												"\"Your turn to play\""
+											]
+										}
+									],
+									"sid": 870033342783395
+								}
+							]
 						}
 					]
 				},
@@ -3965,7 +4044,36 @@
 									}
 								}
 							],
-							"sid": 631944634614838
+							"sid": 631944634614838,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 959472846709925,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "btn_Audio",
+											"sid": 783034181653813,
+											"parameters": {
+												"text": "\"Audio: On\""
+											}
+										}
+									],
+									"sid": 358904190193111
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -4004,7 +4112,36 @@
 									}
 								}
 							],
-							"sid": 165339570645127
+							"sid": 165339570645127,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 627079541014805,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "btn_Audio",
+											"sid": 687019674598473,
+											"parameters": {
+												"text": "\"Audio: Off\""
+											}
+										}
+									],
+									"sid": 642449334637304
+								}
+							]
 						}
 					]
 				},
@@ -4063,7 +4200,36 @@
 									}
 								}
 							],
-							"sid": 430169935489227
+							"sid": 430169935489227,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 839459670640155,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "btn_Music",
+											"sid": 765739521531192,
+											"parameters": {
+												"text": "\"Music: On\""
+											}
+										}
+									],
+									"sid": 305979306391280
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -4102,7 +4268,36 @@
 									}
 								}
 							],
-							"sid": 924943518568537
+							"sid": 924943518568537,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 776307694153198,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "btn_Music",
+											"sid": 722665905461800,
+											"parameters": {
+												"text": "\"Music: Off\""
+											}
+										}
+									],
+									"sid": 661863151351532
+								}
+							]
 						}
 					]
 				},
@@ -4171,67 +4366,129 @@
 										"variable": "canPlay",
 										"value": "false"
 									}
-								},
-								{
-									"type": "comment",
-									"text": "Avisar"
-								},
-								{
-									"id": "set-text",
-									"objectClass": "txt_passouAVez",
-									"sid": 376490912851520,
-									"parameters": {
-										"text": "\"Você passou a vez :(\""
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "txt_passouAVez",
-									"sid": 108891071214457,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "tween-one-property",
-									"objectClass": "txt_passouAVez",
-									"sid": 850640087131802,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetY",
-										"end-value": "198",
-										"time": "3",
-										"ease": "easeoutelastic",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no"
-									}
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 571171588053837
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "txt_passouAVez",
-									"sid": 988811684121994,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-y",
-									"objectClass": "txt_passouAVez",
-									"sid": 935033300707238,
-									"parameters": {
-										"y": "72"
-									}
 								}
 							],
 							"sid": 359187709548079,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 378666033160279,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "txt_passouAVez",
+											"sid": 274514968291703,
+											"parameters": {
+												"text": "\"You passed a round :(\""
+											}
+										}
+									],
+									"sid": 656487250980999
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 374016814456019
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 151894589528104,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "txt_passouAVez",
+											"sid": 110973446896166,
+											"parameters": {
+												"text": "\"Você passou a vez :(\""
+											}
+										}
+									],
+									"sid": 326015679649212
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "txt_passouAVez",
+											"sid": 222942832735291,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "txt_passouAVez",
+											"sid": 956355419454285,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetY",
+												"end-value": "198",
+												"time": "3",
+												"ease": "easeoutelastic",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 415453687247486
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "txt_passouAVez",
+											"sid": 200320031290782,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "txt_passouAVez",
+											"sid": 127763577020397,
+											"parameters": {
+												"y": "72"
+											}
+										},
+										{
+											"callFunction": "CallLog",
+											"sid": 741796256440446,
+											"disabled": true,
+											"parameters": [
+												"\"success\"",
+												"\"Your turn to play\""
+											]
+										}
+									],
+									"sid": 525402748359354
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -4317,62 +4574,111 @@
 								{
 									"type": "comment",
 									"text": "Avisar"
-								},
-								{
-									"id": "set-text",
-									"objectClass": "txt_passouAVez",
-									"sid": 877711126641910,
-									"parameters": {
-										"text": "name & \" passou a vez!\""
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "txt_passouAVez",
-									"sid": 275351310941166,
-									"parameters": {
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "tween-one-property",
-									"objectClass": "txt_passouAVez",
-									"sid": 469192327015961,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetY",
-										"end-value": "198",
-										"time": "3",
-										"ease": "easeoutelastic",
-										"destroy-on-complete": "no",
-										"loop": "no",
-										"ping-pong": "no"
-									}
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 810081170598315
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "txt_passouAVez",
-									"sid": 622259688416803,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "set-y",
-									"objectClass": "txt_passouAVez",
-									"sid": 920909086370165,
-									"parameters": {
-										"y": "72"
-									}
 								}
 							],
-							"sid": 746147054777112
+							"sid": 746147054777112,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 282253625468762,
+											"parameters": {
+												"first-value": "Browser.Language",
+												"comparison": 0,
+												"second-value": "\"pt-BR\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "txt_passouAVez",
+											"sid": 879808461788838,
+											"parameters": {
+												"text": "name & \" passed a round!\""
+											}
+										}
+									],
+									"sid": 281771387075892
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 293972508233734
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "txt_passouAVez",
+											"sid": 354275808786517,
+											"parameters": {
+												"text": "name & \" passou a vez!\""
+											}
+										}
+									],
+									"sid": 949112638189055
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "txt_passouAVez",
+											"sid": 281146596221730,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "txt_passouAVez",
+											"sid": 372480387196440,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetY",
+												"end-value": "198",
+												"time": "3",
+												"ease": "easeoutelastic",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 871938996636601
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "txt_passouAVez",
+											"sid": 215439862058567,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "txt_passouAVez",
+											"sid": 937005636019668,
+											"parameters": {
+												"y": "72"
+											}
+										}
+									],
+									"sid": 760930124603293
+								}
+							]
 						}
 					]
 				}
