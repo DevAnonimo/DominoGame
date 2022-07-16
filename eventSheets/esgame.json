@@ -912,7 +912,15 @@
 									"sid": 833383027597579
 								}
 							],
-							"sid": 383472976546831
+							"sid": 383472976546831,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 155694222674300
+								}
+							]
 						}
 					]
 				}
@@ -1792,7 +1800,7 @@
 												{
 													"id": "set-size",
 													"objectClass": "myPieces",
-													"sid": 328087089961305,
+													"sid": 779868150303246,
 													"disabled": true,
 													"parameters": {
 														"width": "lerp(myPieces.Width, pieceCollider.Width, (dt*5))",
@@ -1849,17 +1857,6 @@
 																"variable": "ocupado"
 															},
 															"isInverted": true
-														},
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 827120593391527,
-															"parameters": {
-																"first-value": "myPieces.Angle",
-																"comparison": 0,
-																"second-value": "pieceCollider.Angle"
-															},
-															"isInverted": true
 														}
 													],
 													"actions": [
@@ -1867,23 +1864,57 @@
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 826734481651765,
+															"disabled": true,
 															"parameters": {
 																"type": "log",
 																"message": "\"realocando\""
 															}
-														},
-														{
-															"callFunction": "positioningPieces",
-															"sid": 793356429040138,
-															"parameters": [
-																"pieceCollider.Width & \";\" & pieceCollider.Height",
-																"pieceCollider.X & \";\" & pieceCollider.Y",
-																"pieceCollider.Angle",
-																"myPieces.UID"
-															]
 														}
 													],
-													"sid": 490639893867782
+													"sid": 490639893867782,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 736585439447831,
+																	"parameters": {
+																		"first-value": "myPieces.Angle",
+																		"comparison": 0,
+																		"second-value": "pieceCollider.Angle"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 956632917341627,
+																	"parameters": {
+																		"first-value": "myPieces.Width",
+																		"comparison": 0,
+																		"second-value": "pieceCollider.Width"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "positioningPieces",
+																	"sid": 637951047219713,
+																	"parameters": [
+																		"pieceCollider.Width & \";\" & pieceCollider.Height",
+																		"pieceCollider.X & \";\" & pieceCollider.Y",
+																		"pieceCollider.Angle",
+																		"myPieces.UID"
+																	]
+																}
+															],
+															"sid": 711794598041034,
+															"isOrBlock": true
+														}
+													]
 												},
 												{
 													"eventType": "block",
