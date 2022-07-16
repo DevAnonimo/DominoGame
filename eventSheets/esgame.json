@@ -93,9 +93,9 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "cameraState",
-			"type": "string",
-			"initialValue": "",
+			"name": "cameraMoving",
+			"type": "boolean",
+			"initialValue": "false",
 			"comment": "Controle da câmera",
 			"isStatic": false,
 			"isConstant": false,
@@ -378,7 +378,7 @@
 					"actions": [
 						{
 							"callFunction": "CallLog",
-							"sid": 364604893086117,
+							"sid": 141333953609528,
 							"parameters": [
 								"\"error\"",
 								"\"Houve um erro, você será desconectado\""
@@ -393,7 +393,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 710076174415840,
+									"sid": 813517693098161,
 									"parameters": {
 										"first-value": "Browser.Language",
 										"comparison": 0,
@@ -405,33 +405,40 @@
 							"actions": [
 								{
 									"callFunction": "CallLog",
-									"sid": 760099302613781,
+									"sid": 154143129245123,
 									"parameters": [
 										"\"error\"",
 										"\"There was an error, you will be logged out\""
 									]
 								}
 							],
-							"sid": 489849676119880
+							"sid": 398982400208607
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "is-in-preview",
+									"objectClass": "System",
+									"sid": 257243665779095,
+									"isInverted": true
+								}
+							],
 							"actions": [
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 936343732559538,
+									"sid": 815865070306098,
 									"parameters": {
 										"seconds": "5"
 									}
 								},
 								{
 									"callFunction": "Disconnect",
-									"sid": 855723783531161
+									"sid": 979333860114387
 								}
 							],
-							"sid": 507392400281962
+							"sid": 146332268013950
 						}
 					]
 				}
@@ -1846,6 +1853,15 @@
 													],
 													"actions": [
 														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 826734481651765,
+															"parameters": {
+																"type": "log",
+																"message": "\"realocando\""
+															}
+														},
+														{
 															"callFunction": "positioningPieces",
 															"sid": 793356429040138,
 															"parameters": [
@@ -2037,6 +2053,16 @@
 											"parameters": {
 												"width": "lerp(myPieces.Width, 178, (dt*5))",
 												"height": "lerp(myPieces.Height, 312, (dt*5))"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 100956439323716,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "\"realocando\""
 											}
 										}
 									],

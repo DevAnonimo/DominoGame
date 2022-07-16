@@ -2826,7 +2826,6 @@
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 670213695181910,
-											"disabled": true,
 											"parameters": {
 												"variable": "lastPiecePosL",
 												"value": "str(posX) &  \";\" & str(posY)"
@@ -3874,14 +3873,14 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "camera",
-							"sid": 811900719913511,
+							"sid": 493239318750233,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "position",
 								"end-x": "int(tokenat(pos, 0, \";\"))",
 								"end-y": "int(tokenat(pos, 1, \";\"))",
-								"time": "0.7",
+								"time": "1",
 								"ease": "noease",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -5048,7 +5047,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "Logs hacks",
 			"description": "",
 			"isActiveOnStart": true,
@@ -5084,7 +5083,6 @@
 						}
 					],
 					"sid": 653295212713691,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -5110,7 +5108,6 @@
 								}
 							],
 							"sid": 347103307119781,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -5127,8 +5124,7 @@
 											"sid": 406942169004365
 										}
 									],
-									"sid": 484352547457086,
-									"disabled": true
+									"sid": 484352547457086
 								},
 								{
 									"eventType": "block",
@@ -5152,8 +5148,7 @@
 											}
 										}
 									],
-									"sid": 106996073218834,
-									"disabled": true
+									"sid": 106996073218834
 								}
 							]
 						}
@@ -5185,8 +5180,7 @@
 							}
 						}
 					],
-					"sid": 978021160494800,
-					"disabled": true
+					"sid": 978021160494800
 				},
 				{
 					"eventType": "block",
@@ -5225,8 +5219,7 @@
 							"sid": 395438986484857
 						}
 					],
-					"sid": 585248508038094,
-					"disabled": true
+					"sid": 585248508038094
 				},
 				{
 					"eventType": "block",
@@ -5254,8 +5247,7 @@
 							}
 						}
 					],
-					"sid": 686312067420228,
-					"disabled": true
+					"sid": 686312067420228
 				},
 				{
 					"eventType": "block",
@@ -5361,8 +5353,7 @@
 							}
 						}
 					],
-					"sid": 501429326663083,
-					"disabled": true
+					"sid": 501429326663083
 				}
 			],
 			"sid": 159388379465158
